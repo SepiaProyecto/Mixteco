@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Juego</title>
+
+
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+
+		<!-- CSS only -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous">
+			<!-- JavaScript Bundle with Popper -->
+			<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+	
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	</head>
+	
+<script type="text/javascript">
+   function habilitar(){
+  if( document.getElementById('B').checked){
+    document.getElementById('btn2').disabled=false;
+     document.getElementById('btn2').innerText  = "Siguiente";
+    alertify.success('Ok, Siguiente Nivel');
+   }else{
+    alertify.error('Intenta de nuevo');
+    document.getElementById('btn2').disabled=true;
+     document.getElementById('btn2').innerText  = "Bloquado";
+  }
+   }
+   function color(){
+   var dos="dos";
+   var radios = document.getElementById("uno").value;
+
+          alertify.success('Ok, Siguiente Nivel'+radios);   
+    
+   
+     document.getElementById("uno").style.backgroundColor  = "orange";
+     document.getElementById("uno1").style.backgroundColor  = "orange";
+  
+    
+   
+     if( document.getElementById('dos').checked && document.getElementById('dos1')){
+       document.getElementById("dos").style.backgroundColor  = "blue";
+         document.getElementById("dos1").style.backgroundColor  = "blue";
+     }
+   
+ 
+    }
+    
+    
+    
+    
+    var cartas = new Array( 
+  {nombre: '1', seleccion: false}, {nombre: '2', seleccion: false}, 
+  {nombre: '3', seleccion: false}, {nombre: '4', seleccion: false}, 
+  {nombre: '5', seleccion: false}, {nombre: '6', seleccion: false}, 
+  {nombre: '7', seleccion: false}, {nombre: '8', seleccion: false}, 
+  {nombre: '1', seleccion: false}, {nombre: '2', seleccion: false}, 
+  {nombre: '3', seleccion: false}, {nombre: '4', seleccion: false}, 
+  {nombre: '5', seleccion: false}, {nombre: '6', seleccion: false}, 
+  {nombre: '7', seleccion: false}, {nombre: '8', seleccion: false} );
+    
+var intentos = 0;
+var jugada1 = "";
+var jugada2 = "";
+var identificadorJ1 = "";
+var identificadorJ2 = "";
+
+function iniciarJuego () {  
+  var dato = document.getElementById("juego");
+  dato.style.opacity = 1;
+
+  cartas.sort(function() {return Math.random() - 0.5});
+  for ( var i = 0 ; i < 16 ; i++ ) {
+    var carta = cartas[i].nombre;
+    var dato = document.getElementById( i.toString() );
+     
+    dato.dataset.valor = carta;
+  }
+};
+
+function resetearJuego () {
+  cartas.sort(function() {return Math.random() - 0.5});
+  for ( var i = 0 ; i < 16 ; i++ ) {
+    var carta = cartas[i].nombre;
+    var dato = document.getElementById( i.toString() );
+    dato.dataset.valor = carta;
+    colorCambio( i, 'black', '?');
+  } 
+}
+
+function girarCarta () {
+  var evento = window.event;
+
+  jugada2 = evento.target.dataset.valor;
+  identificadorJ2 = evento.target.id;
+  alertify.success('Ok, Siguiente Nivel'+jugada2);   
+
+  if ( jugada1 !== "" ) {
+
+    if ( jugada1 === jugada2 && identificadorJ1 !== identificadorJ2 && cartas[parseInt(identificadorJ2)].seleccion != true &&               cartas[parseInt(identificadorJ1)].seleccion != true) {
+      
+      cartas[parseInt(identificadorJ1)].seleccion = true;
+      cartas[parseInt(identificadorJ2)].seleccion = true;
+
+      colorCambio(identificadorJ2, "blue", jugada2);
+      vaciar();
+      comprobar();
+    }else if(identificadorJ1 !== identificadorJ2){
+      var self = this;
+      setTimeout(function(){
+        colorCambio(self.identificadorJ1, "black", "?")
+        colorCambio(self.identificadorJ2, "black", "?")
+        vaciar()
+      },200); 
+
+      colorCambio(identificadorJ2, "blue", jugada2);
+    }
+  } else if(jugada2 !== "valor") {
+
+    colorCambio(identificadorJ2, "blue", jugada2);
+
+    jugada1 = jugada2;
+    identificadorJ1 = identificadorJ2;
+  }
+};
+
+function vaciar ()  {
+  jugada1 = ""; 
+  jugada2 = ""; 
+
+  identificadorJ1 = "";
+  identificadorJ2 = "";
+}
+
+function colorCambio (posicion, color, contenido) {
+  document.getElementById(posicion.toString()).style.backgroundColor = color;
+  document.getElementById(posicion.toString()).innerHTML = contenido;
+} 
+
+function comprobar () {
+  var aciertos = 0;
+  for( var i = 0 ; i < 16 ; i++ ){
+    if ( cartas[i].seleccion == true ) {
+      aciertos ++;
+    }
+
+  }
+
+  if(aciertos == 16){
+    document.getElementById("juego").innerHTML = "GANASTE PERRO";
+  }
+}
+
+function resetearJuego () {
+      cartas.sort(function() { return Math.random() - 0.5});
+      for ( var i = 0; i < 16 ; i++ ) {
+        var carta = cartas[i].nombre;
+        var dato = document.getElementById( i.toString() );
+        dato.dataset.valor = carta;
+        colorCambio(i, 'black', '?');
+      }
+    };
+   
+</script>
+	<body>
+		<div class="container">
+	<br />
+	
+	
+	<style type="text/css">
+  .boton{
+        font-size:400px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:#638cb5;
+        border:10px;
+        width:280px;
+        height:290px;
+       }
+       
+       .table-mesas {
+  float: left;
+  width: 95.8%;
+}
+
+.table-mesas tr td {
+  padding: 15px;
+}
+
+.butt-mesas {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  text-shadow: 1px 1px 15px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 30px;
+  padding: 30px 40px;
+  background: #88dd77;
+  border: solid #000000 1px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.butt-mesas:hover {
+  background: #9ae288;
+  text-shadow: 1px 1px 15px #666666;
+  text-decoration: none;
+}
+
+
+
+
+
+#juego {
+  opacity: 0.3;
+  width: 600px;
+  height: 600px;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+}
+
+td {
+  width: 25%;
+  height: 25%;
+  background-color: black;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.letra {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  font-style: italic;
+}
+
+input {
+  width: 90px;
+  height: 30px;
+}
+
+.centrar {
+  margin-left: 210px;
+}
+
+</style>
+		
+		<br/>
+			<br/>
+			Bienvenido<h3 th:text="${usuario.username}" /> <i class="fas fa-user"></i></h3><i class="far fa-user"></i>
+			
+				<br/>Nivel 1
+		<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/10E9B/production/_109757296_gettyimages-1128004359.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">El gato mamalon</h5>
+     
+    
+	<audio controls>
+		<source th:src="@{audio/bod.mp3}" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+      <p class="card-text"> Escucha y repite el audio.</p>
+     
+        
+     <form name="formulario" id="formulario">
+  <div>
+  <input type="radio" name="valores" id="A" value="A"> <label for "A">El audio es  de AMLO</label>
+  </div>
+  <div>
+    <input type="radio" name="valores" id="B" value="B"> <label for "B">El audio es de Esponja</label>
+  </div>
+  <div>
+    <input type="radio" name="valores" id="C" value="C"> <label for "C">El audio es del Master muñoz</label>
+  </div>
+
+</form>
+     
+     <button type="button" class="btn btn-outline-primary" onClick="habilitar()">Siguiente</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPAiFNyHGaqKDNglY2knMr0xizOkKV8trtqw&usqp=CAU" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title1</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+  
+     <button type="button" class="btn btn-outline-primary"  id="btn2" disabled>Bloqueado</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://static.diariofemenino.com/media/2578/sonarconborregos.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title2</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <button type="button" class="btn btn-outline-primary" disabled>Bloqueado</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+<br/>
+<br/>
+<br/>
+<h3>Nivel 2,3,4</h3>
+<div class="card">
+    <img class="card-img-top" src="https://static.diariofemenino.com/media/2578/sonarconborregos.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title2</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <button type="button" class="btn btn-outline-primary" disabled>Bloqueado</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+ </div>
+<br/>
+<br/>
+<br/>
+
+<h3>Juegos de images</h3>
+  <main role="main" class="container-fluid" id="app">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">Juego de memorama</h1>
+                    <p>
+                        <span class="h5">Intentos: </span>
+                        {{intentos}}/{{MAXIMOS_INTENTOS}}&nbsp;<span class="h5">Aciertos:
+                        </span> {{aciertos}}
+                        <br><a @click="mostrarCreditos" href="#">Acerca de</a>
+                    </p>
+                </div>
+            </div>
+            <div v-for="(fila, indiceFila) in memorama" :key="indiceFila"
+                class="row">
+                <div :key="indiceFila+''+indiceImagen" class="col-3"
+                    v-for="(imagen, indiceImagen) in fila">
+                    <div class="mb-3">
+                        <img @click="voltear(indiceFila, indiceImagen)"
+                            :class="{'girar': imagen.mostrar}"
+                            :src="(imagen.mostrar ? imagen.ruta :
+                            NOMBRE_IMAGEN_OCULTA)" class="card-img-top img-fluid
+                            img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <script src="./../js/sweetalert2.all.min.js"></script>
+        <script src="./../js/vue.min.js"></script>
+        <script src="./../js/script.js"></script>
+
+<br/>
+<br/>
+<br/>
+
+<h3>Practicas</h3>
+		<button type="button" class="btn btn-outline-secondary"  onClick="color()">Secondary</button>
+
+		
+
+
+
+
+
+
+
+ <div id="juego"  class="container">
+      <table>
+        <tr>
+          <td id="0" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="1" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="2" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="3" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        <tr>
+          <td id="4" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="5" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="6" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="7" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        <tr>
+          <td id="8" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="9" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="10" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="11" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        <tr>
+          <td id="12" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="13" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="14" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="15" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        </table>
+    </div>
+  <div class="centrar">
+    <input type="button" value="Iniciar" onclick="iniciarJuego()" />  
+    <input type="button" value="Reset" onclick="resetearJuego()" /> 
+  </div>
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

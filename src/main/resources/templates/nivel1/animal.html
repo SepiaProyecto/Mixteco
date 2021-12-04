@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mi primer Login</title>
+
+
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+  
+
+</head>
+
+<script type="text/javascript">
+   function habilitar(bobX){
+   
+     console.log('XD1inicio  BOB      ---- '+bobX);
+  if( document.getElementById(bobX).checked){
+  console.log('XD1 BOB');
+  document.getElementById(bobX+'1').innerText  = "Siguiente";
+    alertify.success('Ok, Siguiente Nivel');
+   }else{
+    alertify.error('Intenta de nuevo');
+   // document.getElementById(bobX+'1').disabled=true;
+    // document.getElementById(bobX+'1').innerText  = "Bloquado";
+  }
+   }
+  </script> 
+<body>
+    <div class="container">
+      
+               <h2>Repasando animales</h2>
+                <table class="table table-hover">
+        <thead>
+        <tr>
+          
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="user : ${animales}">
+            <th scope="row" th:text="${user.nameespanol}">1</th>
+           
+                <th scope="row" th:text="${user.valorok}">1</th>
+        
+      
+   
+              
+            <th scope="row"> <img th:src="${user.urlcorto}"/></th>
+           
+            <th scope="row">   <audio controls>
+		<source th:src="${user.audiocorto}" type="audio/mpeg">
+		 <th scope="row" >
+	    <form name="formulario" id="formulario">
+  <div>
+  <input type="radio" name="valores"  th:id="${user.nameespanol}" value="A"> <label for "A">El audio es  de AMLO</label>
+  </div>
+  <div>
+    <input type="radio" name="valores" th:id="${user.nameespanol}+${user.valorok}" value="B"> <label for "B">El audio es de Esponja</label>
+  </div>
+  <div>
+    <input type="radio" name="valores" th:id="${user.nameespanol}+${user.valornotok1}" value="C"> <label for "C">El audio es del Master muñoz</label>
+  </div>
+
+</form>
+	</th>
+	<th>	
+
+		  <th scope="row" ><button   th:id="${user.nameespanol}+'OK1' " type="button" th:attr="onclick=|habilitar('${user.nameespanol}'+'OK')|" th:text="${user.activad} ? 'Validar' : 'bloqueado'">bbb</button></th>
+	</audio></th>
+        </tr>
+        </tbody>
+    </table>
+            </div>
+    
+</body>
+</html>
