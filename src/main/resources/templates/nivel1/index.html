@@ -14,28 +14,96 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <!-- Nuestro css-->
+    <!-- Nuestro css
     <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
-
+-->
 </head>
+<style type="text/css">
+
+.button::before, .button::after {
+	 position: absolute;
+	 content: '';
+	 transition: all 0.5s;
+}
+ .button {
+	 display: inline-block;
+	 padding: 20px 40px;
+	 color: white;
+	 position: static;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+	 vertical-align: middle;
+	 font-family: 'Rubik One', sans-serif;
+	 text-decoration: none;
+	 font-size: 4vw;
+	 transition: all 0.5s;
+	 background-color: #3498db;
+	 margin: .5em auto; 
+}
+ .button::before {
+	 bottom: -15px;
+	 height: 15px;
+	 width: 100%;
+	 left: 8px;
+	 transform: skewX(45deg);
+	 background-color: #196090;
+}
+ .button::after {
+	 right: -15px;
+	 height: 100%;
+	 width: 15px;
+	 bottom: -8px;
+	 transform: skewY(45deg);
+	 background-color: #124364;
+}
+ .button:active {
+	 margin-left: 10px;
+	 margin-top: 10px;
+}
+ .button:active::before {
+	 bottom: -5px;
+	 height: 5px;
+	 left: 3px;
+}
+ .button:active::after {
+	 right: -5px;
+	 width: 5px;
+	 bottom: -3px;
+}
+ 
+
+
+</style>
 <body>
-    <div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-            <div class="modal-content">
+    <div class="container" >
+        
             
-            Bienvenido<h3 th:text="${usuario.username}" /> <i class="fas fa-user"></i></h3><i class="far fa-user"></i>
+            Bienvenido<h3 th:text="${usuario.user}" /> <i class="fas fa-user"></i></h3><i class="far fa-user"></i>
               
 
-	<form action="#" class="form"
+	<form  
 		th:action="@{'/nivel1'}" method="post">
 		
-			<input class="publish" type="submit" value="Nivel1">
+		
+			<button class="button" >Nivel1</button>
 	</form>
-                 <button>Nivel2</button>
-                   <button>Nive3</button>
+	
+		<form  
+		th:action="@{'/nivel2'}" method="post">
+		
+		
+			 <button class="button" >Nivel2</button>
+	</form>
+                
+       <form  
+		th:action="@{'/nivel3'}" method="post">
+		
+		
+			 <button class="button" >Nivel2</button>
+	</form>
                  
             </div>
-        </div>
-    </div>
+       
 </body>
 </html>

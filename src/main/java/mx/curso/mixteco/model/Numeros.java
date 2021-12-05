@@ -9,7 +9,7 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class Animal {
+public class Numeros {
 
 	   public int id;
 	    public String nombreespanol;
@@ -21,12 +21,17 @@ public class Animal {
 	    public List<Audio> audio;
 	    public String urlcorto;
 	    public String audiocorto;
-	    public String valorok;
-	    public String valornotok;
-	    public String valornotok1;
+	    public String valor1;
+	    public String valor2;
+	    public String valor3;
 	    public List<String> respuestas;
 	    public String activad;
 	  
-	
+	    public String nivel;
+	    public String textok;
+	    public String pregunta1;
+	    public String pregunta2;
+	    public String pregunta3;
+	    
 	    
 }

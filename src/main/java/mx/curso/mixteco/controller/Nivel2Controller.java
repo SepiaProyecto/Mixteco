@@ -23,10 +23,21 @@ import mx.curso.mixteco.model.Animal;
 @Slf4j
 public class Nivel2Controller {
 	
-	@PostMapping ("Nivel 2")
-	public String nivel1 () {
-		return "";
+
+	@PostMapping("/nivel2")
+	public String nivel1(Model model) {
+	Usuario usuario= new Usuario();
+    model.addAttribute("usuario",usuario);
+	log.info("--------nivel2---------");
+		return "nivel2/nivel2";
 	}
 	
-
+	
+	@PostMapping("/numeronivel2")
+	public String nivel2Numero(Model model) {
+	Usuario usuario= new Usuario();
+    model.addAttribute("usuario",usuario);
+	log.info("--------nivel2 numero---------");
+		return "nivel2/numeronivel2";
+	}
 }

@@ -4,9 +4,15 @@ import lombok.Data;
 
 @Data
 public class Usuario {
-	
-	private String username;
-	private String password;
+	private int id;
+	private String nombre;
+	private String apellidop;
+	private String apellidom;
+	private String sexo;
+	private String edad;
+	private String email;
+	private String user;
+	private String pass;
 
 	
 

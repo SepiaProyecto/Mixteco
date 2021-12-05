@@ -23,7 +23,7 @@ import mx.curso.mixteco.model.Animal;
 @Slf4j
 public class Nivel3Controller {
 	
-	@PostMapping ("Nivel 3")
+	@PostMapping ("nivel3")
 	public String nivel1 () {
 		return "";
 	}

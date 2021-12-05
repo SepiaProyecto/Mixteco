@@ -23,18 +23,16 @@
         <div class="col-sm-8 main-section">
             <div class="modal-content">
             
-            Bienvenido<h3 th:text="${usuario.username}" />Palabras <i class="fas fa-user"></i></h3><i class="far fa-user"></i>
-                <button>Numeros</button>
-            <form action="#" class="form"
-		th:action="@{'/animal'}" method="get">
+            Bienvenido<h3 th:text="${usuario.username}" /> <i class="fas fa-user"></i></h3><i class="far fa-user"></i>
+              
+<h3>Numero nivel2</h3>
+	<form action="#" class="form"
+		th:action="@{'/nivel1'}" method="post">
 		
-			<input class="publish" type="submit" value="Animal">
+			<input class="publish" type="submit" value="Nivel1">
 	</form>
-                   <button>Plantas</button>
+                
                  
-                 <button>Utencilios</button>
-                 <button>Herramientas</button>
-                   <button>Evaluación</button>
             </div>
         </div>
     </div>

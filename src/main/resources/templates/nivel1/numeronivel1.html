@@ -3,7 +3,6 @@
 <head>
     <title>Mi primer Login</title>
 
-
 <!-- JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
@@ -30,7 +29,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
-  
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel.css}">
 
 </head>
 
@@ -49,10 +48,28 @@
   }
    }
   </script> 
+  
 <body>
-    <div class="container">
+	<div class="container">
+
+
+		Bienvenido
+		<h3 th:text="${usuario.user}" />
+		<i class="fas fa-user"></i>
+	</h3>
+		<i class="far fa-user"></i>
+
+
+		<form action="#" class="form" th:action="@{'/nivel1'}"
+			method="post">
+
+			
+		</form>
+		
+		
+		  <div class="container">
       
-               <h2>Repasando animales</h2>
+               <h2>Repasando Numeros</h2>
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -61,40 +78,39 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="user : ${animales}">
-            <th scope="row" th:text="${user.nameespanol}">1</th>
-           
-                <th scope="row" th:text="${user.valorok}">1</th>
-        
-      
+        <tr  th:each="numero : ${numeros}">
+            <th scope="row" th:text="${numero.nombremixteco}">1</th>
+
+ <th scope="row" >
+	<form name="formulario" id="formulario">
+
+		<input type="radio" name="valores"
+			th:id="${numero.nombremixteco}+${numero.valor1}"  th:text="${numero.pregunta1}"/>
+			<br/>
+			<input type="radio" name="valores"
+			th:id="${numero.nombremixteco}+${numero.valor2}"   th:text="${numero.pregunta2}" />
+			<br/>
+				<input type="radio" name="valores"
+			th:id="${numero.nombremixteco}+${numero.valor3}"   th:text="${numero.pregunta3} "/>
+
+	</form>
+	  
+	  	</th>
+        <th scope="row" ><button   th:id="${numero.nombremixteco}+'OK1' " type="button" th:attr="onclick=|habilitar('${numero.nombremixteco}'+'OK')|" th:text="${numero.nombremixteco} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
-            <th scope="row"> <img th:src="${user.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${numero.urlcorto}"/></th>
            
             <th scope="row">   <audio controls>
-		<source th:src="${user.audiocorto}" type="audio/mpeg">
+		<source th:src="${numero.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
-	    <form name="formulario" id="formulario">
-  <div>
-  <input type="radio" name="valores"  th:id="${user.nameespanol}" value="A"> <label for "A">El audio es  de AMLO</label>
-  </div>
-  <div>
-    <input type="radio" name="valores" th:id="${user.nameespanol}+${user.valorok}" value="B"> <label for "B">El audio es de Esponja</label>
-  </div>
-  <div>
-    <input type="radio" name="valores" th:id="${user.nameespanol}+${user.valornotok1}" value="C"> <label for "C">El audio es del Master muñoz</label>
-  </div>
-
-</form>
-	</th>
-
-
-		  <th scope="row" ><button   th:id="${user.nameespanol}+'OK1' " type="button" th:attr="onclick=|habilitar('${user.nameespanol}'+'OK')|" th:text="${user.activad} ? 'Validar' : 'bloqueado'">bbb</button></th>
-	</audio></th>
+</audio></th>
         </tr>
         </tbody>
     </table>
             </div>
-    
+                
+          
+    </div>
 </body>
 </html>

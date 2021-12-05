@@ -31,13 +31,68 @@ public class UserController {
 			return "index";
 		}
 	
-	@PostMapping("/nivel1")
-	public String nivel1(Model model) {
-	Usuario usuario= new Usuario();
-    model.addAttribute("usuario",usuario);
 	
-		return "nivel1/palabras";
+	
+	@PostMapping("/juego")
+	public String juego(@ModelAttribute Usuario user, Model model) {
+	log.info("pagina de inicio"+user.getPass());
+     
+	 model. addAttribute("usuario", user);
+	
+		 return "juego/juego";
+	 
+	
+	
 	}
+	
+	/**
+	 * validadacion de usuarios
+	 * @param user
+	 * @param model
+	 * @return
+	 */
+	@PostMapping("/juegonivel")
+	public String login(@ModelAttribute Usuario user, Model model) {
+	log.info("pagina de inicio"+user.getPass());
+     
+	 model. addAttribute("usuario", user);
+	 
+	 
+	 Usuario userglobal=new  Usuario();
+	 userglobal.setNombre("pasoglobal");
+	 nombreglobal();
+	 
+	 String login="http://localhost:1337/usersepias?user="+user.getUser()+"&pass="+user.getPass();
+	 RestTemplate restTemplate = new RestTemplate();
+	 ResponseEntity<Usuario[]> userlogin
+	  = restTemplate.getForEntity(login ,Usuario[].class);
+
+	log.info("XD userlogin "+userlogin.getBody().length);
+	
+	Usuario[] employees = userlogin.getBody();
+	
+	
+	for (Usuario o : employees) {
+		log.info("XD userlogin vvvv "+o.getNombre());
+		}
+	
+	 if(userlogin.getBody().length<=0) {
+		 model.addAttribute("usuarioinvalid","Datos invalidos");
+		 return "index";
+	 }else {
+		 return "nivel1/index";
+	 }
+	
+	
+	}
+	
+	public Usuario nombreglobal() {
+				log.info("XD userlogin  global");
+		return new Usuario();
+	}
+	
+
+	
 
 	@GetMapping("/animal")
 	public String animales(Model model) {
@@ -48,6 +103,7 @@ public class UserController {
     
 	String fooResourceUrlcontador
 	  = "http://localhost:1337/animals/count";
+	
 	ResponseEntity<String> contador
 	  = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
 
@@ -63,7 +119,7 @@ public class UserController {
 
 	String fooResourceUrl = "http://localhost:1337/animals/"+i;
 	ResponseEntity<Animal> response= restTemplate.getForEntity(fooResourceUrl + "", Animal.class);
-	animal.setNameespanol(response.getBody().getNameespanol());
+	animal.setNombreespanol(response.getBody().getNombreespanol());
 
 
 	animal.setValorok(response.getBody().getValorok());
@@ -110,13 +166,6 @@ public class UserController {
 	}
 
 	
-	@PostMapping("/juegonivel")
-	public String login(@ModelAttribute Usuario user, Model model) {
-	log.info("pagina de inicio"+user.getPassword());
-     
-	 model. addAttribute("usuario", user);
-		return "nivel1/index";
-	}
 	
-
+	
 }

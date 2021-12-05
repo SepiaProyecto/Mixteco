@@ -270,7 +270,76 @@ input {
 		
 		<br/>
 			<br/>
-		
+			Bienvenido<h3 th:text="${usuario.username}" /> <i class="fas fa-user"></i></h3><i class="far fa-user"></i>
+			
+				<br/>Nivel 1
+		<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="https://ichef.bbci.co.uk/news/640/cpsprodpb/10E9B/production/_109757296_gettyimages-1128004359.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">El gato mamalon</h5>
+     
+    
+	<audio controls>
+		<source th:src="@{audio/bod.mp3}" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+      <p class="card-text"> Escucha y repite el audio.</p>
+     
+        
+     <form name="formulario" id="formulario">
+  <div>
+  <input type="radio" name="valores" id="A" value="A"> <label for "A">El audio es  de AMLO</label>
+  </div>
+  <div>
+    <input type="radio" name="valores" id="B" value="B"> <label for "B">El audio es de Esponja</label>
+  </div>
+  <div>
+    <input type="radio" name="valores" id="C" value="C"> <label for "C">El audio es del Master muñoz</label>
+  </div>
+
+</form>
+     
+     <button type="button" class="btn btn-outline-primary" onClick="habilitar()">Siguiente</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPAiFNyHGaqKDNglY2knMr0xizOkKV8trtqw&usqp=CAU" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title1</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+  
+     <button type="button" class="btn btn-outline-primary"  id="btn2" disabled>Bloqueado</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://static.diariofemenino.com/media/2578/sonarconborregos.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title2</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <button type="button" class="btn btn-outline-primary" disabled>Bloqueado</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+<br/>
+<br/>
+<br/>
+<h3>Nivel 2,3,4</h3>
+<div class="card">
+    <img class="card-img-top" src="https://static.diariofemenino.com/media/2578/sonarconborregos.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title2</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <button type="button" class="btn btn-outline-primary" disabled>Bloqueado</button>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+ </div>
+<br/>
+<br/>
+<br/>
 
 <h3>Juegos de images</h3>
   <main role="main" class="container-fluid" id="app">
@@ -307,5 +376,59 @@ input {
 <br/>
 <br/>
 <br/>
+
+<h3>Practicas</h3>
+		<button type="button" class="btn btn-outline-secondary"  onClick="color()">Secondary</button>
+
+		
+
+
+
+
+
+
+
+ <div id="juego"  class="container">
+      <table>
+        <tr>
+          <td id="0" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="1" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="2" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="3" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        <tr>
+          <td id="4" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="5" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="6" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="7" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        <tr>
+          <td id="8" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="9" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="10" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="11" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        <tr>
+          <td id="12" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="13" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="14" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          <td id="15" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+        </tr>
+        </table>
+    </div>
+  <div class="centrar">
+    <input type="button" value="Iniciar" onclick="iniciarJuego()" />  
+    <input type="button" value="Reset" onclick="resetearJuego()" /> 
+  </div>
+
+
+
+
+
+
+
+
+
+
 	</body>
 </html>
