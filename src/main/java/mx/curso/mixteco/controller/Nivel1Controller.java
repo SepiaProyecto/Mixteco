@@ -26,7 +26,7 @@ public class Nivel1Controller {
 	public String nivel1(Model model) {
 	Usuario usuario= new Usuario();
     model.addAttribute("usuario",usuario);
-    log.info("--------nivel1 numero---------");
+    log.info("--------nivel1 numerovv---------");
   Usuario user=  nn.nombreglobal();
   
 		return "nivel1/nivel1";
