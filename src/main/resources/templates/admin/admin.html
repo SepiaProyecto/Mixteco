@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mi primer Login</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+ 
+ 
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+</head>
+
+ <script type="text/javascript">
+    $(document).ready(function() {
+    	 $('#verusuarios').DataTable({	
+    	 "language": {
+  		      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+  		    }
+    	  });
+    	 
+
+    });
+</script>
+
+<body>
+<br/>
+<br/>
+<br/>
+<br/>
+
+    <div class="container">
+       
+        <div class="table-responsive">
+            <table id="verusuarios" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Ape Paterno</th>
+                    <th>Ape Materno</th>
+                    <th>Sexo</th>
+                    <th>Edad</th>
+                    <th>Correo</th>
+                     <th>User</th>
+                    <th>Password</th>
+                    <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="usuario: ${usuarios}">
+                    <td th:text="${usuario.nombre}"></td>
+                    <td th:text="${usuario.apellidop}"></td>
+                    <td th:text="${usuario.apellidom}"></td>
+                    <td th:text="${usuario.sexo}"></td>
+                    <td th:text="${usuario.edad}"></td>
+                    <td th:text="${usuario.email}"></td>
+                 <td th:text="${usuario.user}"></td>
+                     <td th:text="${usuario.pass}"></td>
+                    
+                   
+                    <td>
+                        <form th:action="@{/usuarios/eliminar}" method="post">
+                            <input type="hidden" name="id"   th:value="${usuario.id}"/>
+                            <button type="submit" class="btn btn-danger"  onclick="return confirmarEliminar('¿Está seguro que desea eliminar el registro?')" >Eliminar <i class="fa fa-trash"></i> </button>
+                            
+                        
+ 						</form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+       
+    </div>
+   </div>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="popper/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+      
+    <!-- datatables JS -->
+    <script type="text/javascript" src="datatables/datatables.min.js"></script>    
+     
+
+    
+    
+</body>
+</html>
