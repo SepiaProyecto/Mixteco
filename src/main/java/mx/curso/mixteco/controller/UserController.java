@@ -5,6 +5,7 @@ package mx.curso.mixteco.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
 import mx.curso.mixteco.model.Animal;
+import mx.curso.mixteco.repository.IuserRepository;
 
 
 
@@ -23,6 +25,9 @@ import mx.curso.mixteco.model.Animal;
 @Slf4j
 public class UserController {
 
+	@Autowired
+    private IuserRepository iuserRepository;
+	
 	@GetMapping("/")
 		public String index(Model model) {
 		Usuario usuario= new Usuario();
@@ -61,6 +66,11 @@ public class UserController {
 	 Usuario userglobal=new  Usuario();
 	 userglobal.setNombre("pasoglobal");
 	 nombreglobal();
+	 
+	 if (user.getUser().equals("admin")&& user.getPass().equalsIgnoreCase("root")) {
+		 model. addAttribute("usuarios", iuserRepository.list_user());
+		 return "admin/admin"; 
+	 }
 	 
 	 String login="http://localhost:1337/usersepias?user="+user.getUser()+"&pass="+user.getPass();
 	 RestTemplate restTemplate = new RestTemplate();
