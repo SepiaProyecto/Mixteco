@@ -4,15 +4,19 @@ package mx.curso.mixteco.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
 import mx.curso.mixteco.model.Numeros;
 import mx.curso.mixteco.model.Respuesta;
+import mx.curso.mixteco.repository.IEvaluacionService;
 
 
 
@@ -21,7 +25,9 @@ import mx.curso.mixteco.model.Respuesta;
 public class Nivel1Controller {
 	
 	UserController  nn= new UserController();
-
+	@Autowired
+	private IEvaluacionService iEvaluacionService;
+	
 	@PostMapping("/nivel1")
 	public String nivel1(Model model) {
 	Usuario usuario= new Usuario();
@@ -197,4 +203,14 @@ RestTemplate restTemplate = new RestTemplate();
 		return list_respuestas;
 	}
 	
+	
+	@GetMapping("/evaluacion")
+	public String evaluacionnivel1(Model model) {
+	Usuario usuario= new Usuario();
+    model.addAttribute("usuario",usuario);
+    log.info("--------nivel1 numerovv---------");
+  Usuario user=  nn.nombreglobal();
+	 model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
+		return "admin/examen";
+	}
 }

@@ -17,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
 import mx.curso.mixteco.model.Animal;
+import mx.curso.mixteco.repository.IEvaluacionService;
 import mx.curso.mixteco.repository.IuserRepository;
 
 
@@ -24,7 +25,8 @@ import mx.curso.mixteco.repository.IuserRepository;
 @Controller
 @Slf4j
 public class UserController {
-
+	@Autowired
+	private IEvaluacionService iEvaluacionService;
 	@Autowired
     private IuserRepository iuserRepository;
 	
@@ -69,6 +71,7 @@ public class UserController {
 	 
 	 if (user.getUser().equals("admin")&& user.getPass().equalsIgnoreCase("root")) {
 		 model. addAttribute("usuarios", iuserRepository.list_user());
+		 model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
 		 return "admin/admin"; 
 	 }
 	 
