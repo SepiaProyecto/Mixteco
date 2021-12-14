@@ -60,49 +60,38 @@
 
     <div class="container">
        
-        <div class="table-responsive">
-            <table id="verusuarios" class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Nombres</th>
-                    <th>Ape Paterno</th>
-                    <th>Ape Materno</th>
-                    <th>Sexo</th>
-                    <th>Edad</th>
-                    <th>Correo</th>
-                     <th>User</th>
-                    <th>Password</th>
-                    <th>Eliminar</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="usuario: ${usuarios}">
-                    <td th:text="${usuario.nombre}"></td>
-                    <td th:text="${usuario.apellidop}"></td>
-                    <td th:text="${usuario.apellidom}"></td>
-                    <td th:text="${usuario.sexo}"></td>
-                    <td th:text="${usuario.edad}"></td>
-                    <td th:text="${usuario.email}"></td>
-                 <td th:text="${usuario.user}"></td>
-                     <td th:text="${usuario.pass}"></td>
-                    
-                   
-                    <td>
-                        <form th:action="@{/usuarios/eliminar}" method="post">
-                            <input type="hidden" name="id"   th:value="${usuario.id}"/>
-                            <button type="submit" class="btn btn-danger"  onclick="return confirmarEliminar('¿Está seguro que desea eliminar el registro?')" >Eliminar <i class="fa fa-trash"></i> </button>
-                            
-                        
- 						</form>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-       
-    </div>
- 
+   
                
     
+            <table class="table table-hover">
+        <thead>
+        <tr>
+          
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="numero : ${evaluacions}">
+            <th scope="row" th:text="${numero.nombre}">1</th>
+
+ <th scope="row" >
+	<form name="formulario" id="formulario">
+
+		<input type="radio" name="valores"
+			th:id="${numero.nombre}+${numero.valor1}"  th:text="${numero.pregunta1}"/>
+			<br/>
+			<input type="radio" name="valores"
+			th:id="${numero.nombre}+${numero.valor2}"   th:text="${numero.pregunta2}" />
+			<br/>
+				<input type="radio" name="valores"
+			th:id="${numero.nombre}+${numero.valor3}"   th:text="${numero.pregunta3} "/>
+
+	</form>
+	  </th>
+	  
+        </tbody>
+           
+    </table>
      <button type="submit" class="btn btn-primary"  th:attr="onclick=|validate('${evaluacions}')|"  ></i>Reporte </button>
     
              
