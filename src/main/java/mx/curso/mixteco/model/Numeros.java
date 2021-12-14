@@ -12,8 +12,7 @@ import lombok.Data;
 public class Numeros {
 
 	   public int id;
-	    public String nombreespanol;
-	    public String nombremixteco;
+	    public String nombre;
 	    public String published_at;
 	    public String created_at;
 	    public String updated_at;

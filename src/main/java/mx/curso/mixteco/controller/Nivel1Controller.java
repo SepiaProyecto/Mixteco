@@ -60,8 +60,7 @@ RestTemplate restTemplate = new RestTemplate();
 	
 	String fooResourceUrl = "http://localhost:1337/numeros/"+i;
 	ResponseEntity<Numeros> response= restTemplate.getForEntity(fooResourceUrl + "", Numeros.class);
-	numerores.setNombreespanol(response.getBody().getNombreespanol());
-	numerores.setNombremixteco(response.getBody().getNombremixteco());
+	numerores.setNombre(response.getBody().getNombre());
 	numerores.setValor1(response.getBody().getValor1());
 	numerores.setValor2(response.getBody().getValor2());
 	numerores.setValor3(response.getBody().getValor3());
@@ -81,7 +80,7 @@ RestTemplate restTemplate = new RestTemplate();
     
   
 
-    System.out.println("XD numero "+response.getBody().getNombreespanol());
+    System.out.println("XD numero "+response.getBody().getNombre());
  //   String valor="";
     
   
@@ -132,8 +131,7 @@ RestTemplate restTemplate = new RestTemplate();
 	
 	String fooResourceUrl = "http://localhost:1337/numeros/"+i;
 	ResponseEntity<Numeros> response= restTemplate.getForEntity(fooResourceUrl + "", Numeros.class);
-	numerores.setNombreespanol(response.getBody().getNombreespanol());
-	numerores.setNombremixteco(response.getBody().getNombremixteco());
+	numerores.setNombre(response.getBody().getNombre());
 	numerores.setValor1(response.getBody().getValor1());
 	numerores.setValor2(response.getBody().getValor2());
 	numerores.setValor3(response.getBody().getValor3());
@@ -153,7 +151,7 @@ RestTemplate restTemplate = new RestTemplate();
     
   
 
-    System.out.println("XD numero "+response.getBody().getNombreespanol());
+    System.out.println("XD numero "+response.getBody().getNombre());
  //   String valor="";
     
   

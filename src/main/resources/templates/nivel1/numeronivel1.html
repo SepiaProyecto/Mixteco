@@ -39,7 +39,7 @@
      console.log('XD1inicio  BOB      ---- '+bobX);
   if( document.getElementById(bobX).checked){
   console.log('XD1 BOB');
-  document.getElementById(bobX+'1').innerText  = "Siguiente";
+  document.getElementById(bobX+'1').innerText  = "Validar";
     alertify.success('Correcto!');
    }else{
     alertify.error('Intenta de nuevo');
@@ -79,24 +79,24 @@
         </thead>
         <tbody>
         <tr  th:each="numero : ${numeros}">
-            <th scope="row" th:text="${numero.nombremixteco}">1</th>
+            <th scope="row" th:text="${numero.nombre}">1</th>
 
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${numero.nombremixteco}+${numero.valor1}"  th:text="${numero.pregunta1}"/>
+			th:id="${numero.nombre}+${numero.valor1}"  th:text="${numero.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${numero.nombremixteco}+${numero.valor2}"   th:text="${numero.pregunta2}" />
+			th:id="${numero.nombre}+${numero.valor2}"   th:text="${numero.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${numero.nombremixteco}+${numero.valor3}"   th:text="${numero.pregunta3} "/>
+			th:id="${numero.nombre}+${numero.valor3}"   th:text="${numero.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button   th:id="${numero.nombremixteco}+'OK1' " type="button" th:attr="onclick=|habilitar('${numero.nombremixteco}'+'OK')|" th:text="${numero.nombremixteco} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button   th:id="${numero.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${numero.nombre}'+'OK')|" th:text="${numero.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
             <th scope="row"> <img th:src="${numero.urlcorto}"/></th>
