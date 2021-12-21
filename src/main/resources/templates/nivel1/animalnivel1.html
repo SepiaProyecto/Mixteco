@@ -39,7 +39,7 @@
      console.log('XD1inicio  BOB      ---- '+bobX);
   if( document.getElementById(bobX).checked){
   console.log('XD1 BOB');
-  document.getElementById(bobX+'1').innerText  = "Siguiente";
+  document.getElementById(bobX+'1').innerText  = "Validar";
     alertify.success('Correcto!');
    }else{
     alertify.error('Intenta de nuevo');
@@ -69,7 +69,7 @@
 		
 		  <div class="container">
       
-               <h2>Repasando Nombre de Animales</h2>
+               <h1>Repasando Animales</h1>
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -78,31 +78,31 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="numero : ${numeros}">
-            <th scope="row" th:text="${numero.nombremixteco}">1</th>
+        <tr  th:each="animal : ${animales}">
+            <th scope="row" th:text="${animal}.nombre}">1</th>
 
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${numero.nombremixteco}+${numero.valor1}"  th:text="${numero.pregunta1}"/>
+			th:id="${animal.nombre}+${animal.valor1}"  th:text="${animal.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${numero.nombremixteco}+${numero.valor2}"   th:text="${numero.pregunta2}" />
+			th:id="${animal.nombre}+${animal.valor2}"   th:text="${animal.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${numero.nombremixteco}+${numero.valor3}"   th:text="${numero.pregunta3} "/>
+			th:id="${animal.nombre}+${animal.valor3}"   th:text="${animal.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button   th:id="${numero.nombremixteco}+'OK1' " type="button" th:attr="onclick=|habilitar('${numero.nombremixteco}'+'OK')|" th:text="${numero.nombremixteco} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button   th:id="${animal.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${animal.nombre}'+'OK')|" th:text="${animal.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
-            <th scope="row"> <img th:src="${numero.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${animal.urlcorto}"/></th>
            
             <th scope="row">   <audio controls>
-		<source th:src="${numero.audiocorto}" type="audio/mpeg">
+		<source th:src="${animal.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
         </tr>

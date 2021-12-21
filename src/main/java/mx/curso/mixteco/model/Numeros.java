@@ -27,7 +27,7 @@ public class Numeros {
 	    public String activad;
 	  
 	    public String nivel;
-	    public String textok;
+	    //public String textok;
 	    public String pregunta1;
 	    public String pregunta2;
 	    public String pregunta3;

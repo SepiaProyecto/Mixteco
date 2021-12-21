@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
-import mx.curso.mixteco.model.Animal;
+import mx.curso.mixteco.model.Animales;
 
 
 
