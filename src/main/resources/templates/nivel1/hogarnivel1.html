@@ -69,7 +69,7 @@
 		
 		  <div class="container">
       
-               <h1>Repasando Animales</h1>
+               <h1>Repasando Cosas del Hogar</h1>
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -78,31 +78,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="animal : ${animales}">
-            <th scope="row" th:text="${animal.nombre}">1</th>
+        <tr  th:each="hogar : ${hogar}">
+            <th scope="row" th:text="${hogar.nombre}">1</th>
 
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${animal.nombre}+${animal.valor1}"  th:text="${animal.pregunta1}"/>
+			th:id="${hogar.nombre}+${hogar.valor1}"  th:text="${hogar.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${animal.nombre}+${animal.valor2}"   th:text="${animal.pregunta2}" />
+			th:id="${hogar.nombre}+${hogar.valor2}"   th:text="${hogar.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${animal.nombre}+${animal.valor3}"   th:text="${animal.pregunta3} "/>
+			th:id="${hogar.nombre}+${hogar.valor3}"   th:text="${hogar.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button   th:id="${animal.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${animal.nombre}'+'OK')|" th:text="${animal.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button   th:id="${hogar.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
+        ('${hogar.nombre}'+'OK')|" th:text="${hogar.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
-            <th scope="row"> <img th:src="${animal.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${hogar.urlcorto}"/></th>
            
             <th scope="row">   <audio controls>
-		<source th:src="${animal.audiocorto}" type="audio/mpeg">
+		<source th:src="${hogar.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
         </tr>
