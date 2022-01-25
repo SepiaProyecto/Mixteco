@@ -29,10 +29,10 @@
 		<div class="container">
 			<br />
 			<br />
-			<h3 th:text="${usuario.user}" />
+			
 			<h3>
-				Bienvenido al aprendizaje de palabras!
-				<h3 />
+				Bienvenido al aprendizaje de palabras! 	<h3 /><h3 th:text="${usuario.user}" ></h3>
+			
 				<br />
 
 <div class="row">
@@ -49,7 +49,7 @@
 					
 				<div class="row">
 					<div class="col-sm">
-						<form th:action="@{'/numeronivel1'}" method="post">
+						<form th:action="@{'/numeronivel1'}" th:object="${usuario}"   method="post">
 
 							<button > <img th:src="@{/img/numeros.png}" height ="80" width="100" />Numeros</button>
 						</form>
@@ -104,7 +104,8 @@
 		</div>
 		<div class="col-sm">
 		
-			<form th:action="@{'/evaluacion'}" method="get">
+			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
+			<input type="hidden" class="form-control" th:field="*{user}" placeholder="Nombre de usuario"  name="username"/>
 			<button > <img th:src="@{/img/examen.png}" height ="80" width="100" />Evaluacion</button>
 		</form>
 	</div>

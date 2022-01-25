@@ -27,6 +27,9 @@ public class UserController {
     private IuserRepository iuserRepository;
 	
 	
+	public Usuario userG=new Usuario();
+	public String userr="xd";
+	
 //	private final String host = "https://contenidostrapi.herokuapp.com";
 	private final String host="http://localhost:1337";
 	
@@ -73,21 +76,17 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/juegonivel")
-	public String login(@ModelAttribute Usuario user, Model model) {
-	log.info("pagina de inicio"+user.getPass());
+	public String login(@ModelAttribute Usuario userglobal, Model model) {
+
      
-	 model. addAttribute("usuario", user);
-//	 boolean loginok = true;
-//	 if(user==null) {
-//		 return "nivel1/index";
-//	 }
-	 
-	 Usuario userglobal=new  Usuario();
-	 userglobal.setNombre(user.getNombre());
-	 userglobal.setPass(user.getPass());
-	 userglobal.setUser(user.getUser());
-	
-	 
+	 model. addAttribute("usuario", userglobal);
+
+	 userG=new Usuario(); 
+	 userG.setNombre(userglobal.getNombre());
+	 userG.setUser(userglobal.getUser());
+	this.userr=userglobal.getUser();
+	nombreglobal( );
+	log.info("user logininicio "+userr);
 	 if (userglobal.getUser().equals("admin")&& userglobal.getPass().equalsIgnoreCase("root")) {
 		 model. addAttribute("usuarios", iuserRepository.list_user());
 		 model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
@@ -101,12 +100,6 @@ public class UserController {
 
 	log.info("XD userlogin "+userlogin.getBody().length);
 	
-	Usuario[] employees = userlogin.getBody();
-	
-	
-	for (Usuario o : employees) {
-		log.info("XD userlogin vvvv "+o.getNombre());
-		}
 	
 	 if(userlogin.getBody().length<=0) {
 		 model.addAttribute("usuarioinvalid","Datos invalidos");
@@ -118,9 +111,12 @@ public class UserController {
 	
 	}
 	
-	public Usuario nombreglobal() {
-				log.info("XD userlogin  global");
-		return new Usuario();
+	public Usuario nombreglobal( ) {
+		Usuario user= new Usuario();
+				log.info("usuarioglobal "+userr);
+			
+		user.setUser(userr);
+		return user;
 	}
 	
 }

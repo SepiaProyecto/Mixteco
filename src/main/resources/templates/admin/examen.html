@@ -59,11 +59,16 @@
 <br/>
 
     <div class="container">
-       
-   
-               
+    <h3 th:text="${usuario.user}" />
+       	<div class="row">
+		<div class="col-sm">
+			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+		</div>
+	</div>
+   	<center><h3>Evaluación de curso</h3></center>	
+    <p><b>Instrucciones:</b> Lee cuidadosamente las preguntas y selecciona la respuesta correcta.</p>           
     
-            <table class="table table-hover">
+        <table class="table table-striped">
         <thead>
         <tr>
           
@@ -92,7 +97,7 @@
         </tbody>
            
     </table>
-     <button type="submit" class="btn btn-primary"  th:attr="onclick=|validate('${evaluacions}')|"  ></i>Reporte </button>
+     <button type="submit" class="btn btn-primary"  th:attr="onclick=|validate('${evaluacions}')|"  ></i>Enviar </button>
     
              
     <!-- jQuery, Popper.js, Bootstrap JS -->

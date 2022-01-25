@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
@@ -32,11 +33,12 @@ public class Nivel1Controller {
 	private IEvaluacionService iEvaluacionService;
 
 	@PostMapping("/nivel1")
-	public String nivel1(Model model) {
-		Usuario usuario = new Usuario();
-		model.addAttribute("usuario", usuario);
+	public String nivel1(Model model,@ModelAttribute Usuario userglobal) {
+	
+		log.info("--------nivel1usuario numero---------" + userglobal);
+		model.addAttribute("usuario", userglobal);
 		log.info("--------nivel1 numero---------");
-		Usuario user = nn.nombreglobal();
+		
 
 		return "nivel1/nivel1";
 	}
@@ -389,11 +391,10 @@ public class Nivel1Controller {
 	// -------------------------------------
 
 	@GetMapping("/evaluacion")
-	public String evaluacionnivel1(Model model) {
-		Usuario usuario = new Usuario();
-		model.addAttribute("usuario", usuario);
-		log.info("--------nivel1 numerovv---------");
-		Usuario user = nn.nombreglobal();
+	public String evaluacionnivel1(Model model,@ModelAttribute Usuario userglobal) {
+	
+		model.addAttribute("usuario", userglobal);
+		
 		model.addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
 		return "admin/examen";
 	}
