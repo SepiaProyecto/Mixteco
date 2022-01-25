@@ -11,7 +11,7 @@ new Vue({
             "./../imgj/cabra.jpg",
 			
             "./../imgj/conejo.jpg",
-           
+           "./../imgj/caballo.jpg",
             "./../imgj/oveja.jpg",
             "./../imgj/perro.jpg",
             "./../imgj/gato.jpg",

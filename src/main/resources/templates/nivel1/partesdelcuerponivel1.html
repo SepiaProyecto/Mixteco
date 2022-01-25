@@ -51,20 +51,19 @@
   
 <body>
 	<div class="container">
+<br/>
+<br/>
 
 
 		Bienvenido
 		<h3 th:text="${usuario.user}" />
 		<i class="fas fa-user"></i>
 	</h3>
-		<i class="far fa-user"></i>
-
-
-		<form action="#" class="form" th:action="@{'/nivel1'}"
-			method="post">
-
-			
-		</form>
+		<div class="row">
+		<div class="col-sm">
+			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+		</div>
+	</div>
 		
 		
 		  <div class="container">
@@ -96,7 +95,7 @@
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button   th:id="${partesdelcuerpo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
+        <th scope="row" ><button class="btn btn-info"  th:id="${partesdelcuerpo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
         ('${partesdelcuerpo.nombre}'+'OK')|" th:text="${partesdelcuerpo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               

@@ -11,26 +11,26 @@ import lombok.Data;
 @Data
 public class Direcciones {
 
-	public int id;
-    public String nombre;
-    public String published_at;
-    public String created_at;
-    public String updated_at;
-    public List<Imagen> imagen;
-    public List<Audio> audio;
-    public String urlcorto;
-    public String audiocorto;
-    public String valor1;
-    public String valor2;
-    public String valor3;
-    public List<String> respuestas;
-    public String activad;
+	private int id;
+    private String nombre;
+    private String published_at;
+    private String created_at;
+    private String updated_at;
+    private List<Imagen> imagen;
+    private List<Audio> audio;
+    private String urlcorto;
+    private String audiocorto;
+    private String valor1;
+    private String valor2;
+    private String valor3;
+    private List<String> respuestas;
+    private String activad;
   
-    public String nivel;
-    //public String textok;
-    public String pregunta1;
-    public String pregunta2;
-    public String pregunta3;
+    private String nivel;
+    //private String textok;
+    private String pregunta1;
+    private String pregunta2;
+    private String pregunta3;
 	  
 	
 	    

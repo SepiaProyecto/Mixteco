@@ -1,6 +1,5 @@
 package mx.curso.mixteco.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.core.ParameterizedTypeReference;
@@ -10,10 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
-import mx.curso.mixteco.controller.UserController;
 import mx.curso.mixteco.entity.Usuario;
-import mx.curso.mixteco.entity.UsuarioList;
-import mx.curso.mixteco.model.Animales;
 import mx.curso.mixteco.repository.IuserRepository;
 
 @Slf4j
