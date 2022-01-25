@@ -78,7 +78,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="direccion : ${direcciones}">
+        <tr  th:each="direcciones : ${direcciones}">
             <th scope="row" th:text="${direcciones.nombre}">1</th>
 
  <th scope="row" >
@@ -96,12 +96,12 @@
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button   th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|
-        habilitar('${direcciones.nombre}'+'OK')|" th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button   th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${direcciones.nombre}'+'OK')|
+        " th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
             <th scope="row"> <img th:src="${direcciones.urlcorto}"/></th>
-           
+            
             <th scope="row">   <audio controls>
 		<source th:src="${direcciones.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >

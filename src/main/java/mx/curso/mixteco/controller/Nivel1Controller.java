@@ -397,7 +397,7 @@ public class Nivel1Controller {
 						Direcciones numerores = new Direcciones();
 						Respuesta respuesta = new Respuesta();
 
-						String fooResourceUrl = "http://localhost:1337/numeros/" + i;
+						String fooResourceUrl = "http://localhost:1337/direcciones/" + i;
 						ResponseEntity<Direcciones> response = restTemplate.getForEntity(fooResourceUrl + "", Direcciones.class);
 						numerores.setNombre(response.getBody().getNombre());
 						numerores.setValor1(response.getBody().getValor1());
