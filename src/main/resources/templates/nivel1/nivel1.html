@@ -1,98 +1,155 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Mi primer Login</title>
+	<head>
+		<title>Mi primer Login</title>
 
-    <!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+		<!--JQUERY -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css"th:href="@{/css/nivel.css}">
+		<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina -->
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-</head>
-<body>
-    <div class="container">
-            
-            <h3 th:text="${usuario.user}"/><i class="fas fa-user"></i></h3><i class="far fa-user"></i>
-            <h3> Bienvenido al aprendizaje de palabras! <h3 />
-		<br />
-		<form th:action="@{'/numeronivel1'}" method="post">
+			<!-- Los iconos tipo Solid de Fontawesome -->
+			<link rel="stylesheet"
+				href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+				<script
+					src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-			<input class="btn btn-primary btn-lg" type="submit" value="Números">
-		</form>
-		
-		<br />
-		<!--cambiar al nombre de archivo html-->
-		<form th:action="@{'/animalnivel1'}" method="post">
+				<!-- Nuestro css -->
+				<link rel="stylesheet" type="text/css"
+					th:href="@{/css/nivel1b.css}">
 
-			<input class="btn btn-primary btn-lg" type="submit" value="Animales">
-		</form>
-		
-		<br />
-		<form th:action="@{'/frutasyverdurasnivel1'}" method="post">
+	</head>
+	<body>
+		<div class="container">
+			<br />
+			<br />
+			<h3 th:text="${usuario.user}" />
+			<h3>
+				Bienvenido al aprendizaje de palabras!
+				<h3 />
+				<br />
 
-			<input class="btn btn-primary btn-lg" type="submit" value="Frutas y Verduras">
-		</form>
-		
-		<br />
-		<form th:action="@{'/partesdelcuerponivel1'}" method="post">
+<div class="row">
+	<div class="col-sm">
+	
 
-			<input class="btn btn-primary btn-lg" type="submit" value="Partes del Cuerpo Humano">
-		</form>	
-		
-		<br />
-		<form th:action="@{'/hogarnivel1'}" method="post">
+			<button  class="btn btn-dark"  onclick="history.back()">Regresar</button>
+	
 
-			<input class="btn btn-primary btn-lg" type="submit" value="Hogar">
-		</form>	
-		
-		<br />
-		<form th:action="@{'/familianivel1'}" method="post">
-
-			<input class="btn btn-primary btn-lg" type="submit" value="Integrantes de la Familia">
-		</form>	
-		
-		<br />
-		<form th:action="@{'/accionesnivel1'}" method="post">
-
-			<input class="btn btn-primary btn-lg" type="submit" value="Acciones">
-		</form>		
-		
-		<br />
-		<form th:action="@{'/direccionesnivel1'}" method="post">
-
-			<input class="btn btn-primary btn-lg" type="submit" value="Direcciones">
-		</form>	
-		
-		<br />
-		<form th:action="@{'/coloresyotrosnivel1'}" method="post">
-
-			<input class="btn btn-primary btn-lg" type="submit" value="Colores y otros">
-		</form>	
-		
-		<br />
-		<form th:action="@{'/evaluacion'}" method="get">
-			<input class="btn btn-primary btn-lg" type="submit" value="Evaluación">
-		</form>
-		<br />
-		
-		<div class="row">
-  <div class="col-md-9">
-		<form th:action="@{'/juego'}" method="post">
-			<input class="btn btn-primary btn-lg" type="submit" value="Juego">
-		</form>
-		</div>
+	</div>
 </div>
-            </div>
-        </div>
-    </div>
-</body>
+				<br />
+			<br />		
+					
+				<div class="row">
+					<div class="col-sm">
+						<form th:action="@{'/numeronivel1'}" method="post">
+
+							<button > <img th:src="@{/img/numeros.png}" height ="80" width="100" />Numeros</button>
+						</form>
+
+					</div>
+					<!--cambiar al nombre de archivo html -->
+					<div class="col-sm">
+						<form th:action="@{'/animalnivel1'}" method="post">
+
+						<button > <img th:src="@{/img/ANIMAL1.png}" height ="80" width="100" />Animal</button>
+						</form>
+
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/frutasyverdurasnivel1'}" method="post">
+
+						<button > <img th:src="@{/img/frutas.png}" height ="80" width="100" />Frutas </button>
+						</form>
+
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/partesdelcuerponivel1'}" method="post">
+							<button > <img th:src="@{/img/user.png}" height ="80" width="100" />Cuerpo</button>
+							
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/hogarnivel1'}" method="post">
+
+								<button > <img th:src="@{/img/hogar.png}" height ="80" width="100" />Hogar</button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/familianivel1'}" method="post">
+
+							<button > <img th:src="@{/img/familia.png}" height ="80" width="100" />Familia</button>
+						</form>
+
+					</div>
+					</div>
+
+	<br></br>
+	<br></br>
+	<div class="row">
+	<div class="col-sm">
+	</div>
+	
+		<div class="col-sm">
+			<form th:action="@{'/juego'}" method="post">
+					<button > <img th:src="@{/img/M2.png}" height ="80" width="100" />Jugar</button>
+			</form>
+		</div>
+		<div class="col-sm">
+		
+			<form th:action="@{'/evaluacion'}" method="get">
+			<button > <img th:src="@{/img/examen.png}" height ="80" width="100" />Evaluacion</button>
+		</form>
+	</div>
+	</div>
+		
+					
+					<br></br>
+					<!-- Revisar  -->
+					<div class="col-sm">
+						<form th:action="@{'/accionesnivel1'}" method="post">
+
+							<input class="btn btn-primary btn-lg" type="submit"
+								value="Acciones">
+						</form>
+					</div>
+					<div class="col-sm">
+					<form th:action="@{'/direccionesnivel1'}" method="post">
+
+						<input class="btn btn-primary btn-lg" type="submit"
+							value="Direcciones">
+					</form>
+
+				</div>
+				<div class="col-sm">
+					<form th:action="@{'/coloresyotrosnivel1'}" method="post">
+
+						<input class="btn btn-primary btn-lg" type="submit"
+							value="Colores y otros">
+					</form>
+
+				</div>
+		
+
+
+
+
+
+
+		<br />
+	
+		<br />
+
+		
+	</div>
+	</div>
+	</div>
+	</body>
 </html>

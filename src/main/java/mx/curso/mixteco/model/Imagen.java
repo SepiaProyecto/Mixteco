@@ -9,31 +9,23 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Imagen {
-		public int id;
-	    public String name;
-	    public String alternativeText;
-	    public String caption;
-	    public int width;
-	    public int height;
-	    public Formats formats;
-	    public String hash;
-	    public String ext;
-	    public String mime;
-	    public double size;
-	    public String url;
-	    public String previewUrl;
-	    public String provider;
-	    public String provider_metadata;
-	    public Date created_at;
-	    public Date updated_at;
-		@Override
-		public String toString() {
-			return "Imagen [id=" + id + ", name=" + name + ", alternativeText=" + alternativeText + ", caption="
-					+ caption + ", width=" + width + ", height=" + height + ", formats=" + formats + ", hash=" + hash
-					+ ", ext=" + ext + ", mime=" + mime + ", size=" + size + ", url=" + url + ", previewUrl="
-					+ previewUrl + ", provider=" + provider + ", provider_metadata=" + provider_metadata
-					+ ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
-		}
+		private int id;
+	    private String name;
+	    private String alternativeText;
+	    private String caption;
+	    private int width;
+	    private int height;
+	    private String hash;
+	    private String ext;
+	    private String mime;
+	    private double size;
+	    private String url;
+	    private String previewUrl;
+	    private String provider;
+	    private String provider_metadata;
+	    private Date created_at;
+	    private Date updated_at;
+		
 	    
 	    
 }

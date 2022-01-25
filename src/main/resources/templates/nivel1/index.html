@@ -76,34 +76,52 @@
 
 </style>
 <body>
-    <div class="container" >
-        
-            
-            Bienvenido<h3 th:text="${usuario.user}" /> <i class="fas fa-user"></i></h3><i class="far fa-user"></i>
-              
+	<div class="container">
 
-	<form  
-		th:action="@{'/nivel1'}" method="post">
-		
-		
-			<button class="button" >Nivel1</button>
-	</form>
-	
-		<form  
-		th:action="@{'/nivel2'}" method="post">
-		
-		
-			 <button class="button" >Nivel2</button>
-	</form>
-                
-       <form  
-		th:action="@{'/nivel3'}" method="post">
-		
-		
-			 <button class="button" >Nivel2</button>
-	</form>
-                 
-            </div>
-       
+		<br></br>
+		<br></br>
+		<center>
+			<h1>MENU PRINCIPAL</h1>
+		</center>
+		<h3>
+			<p th:text="'Bienvenido '+${usuario.user}" />
+		</p>
+		</h3>
+<div class="row">
+<div class="col-8">
+</div>
+   <div class="col-4">
+  <!--  <form th:action="@{'/#'}" method="get">
+			<button class="btn btn-secondary">Perfil</button>
+		</form>
+		 -->
+		<br/>
+		<form th:action="@{'/salir'}" method="get">
+			<button class="btn btn-secondary">Cerrar Sesion</button>
+		</form>
+</div>
+</div>
+		<br></br>
+		<br></br>
+		 <div class="row">
+		<div class="col-sm">
+		<form th:action="@{'/nivel1'}" method="post">
+			<button > <img th:src="@{/img/M1.png}" height ="80" width="100" />Nivel1</button>
+		</form>
+		</div>
+		<div class="col-sm">
+		<form th:action="@{'/nivel2'}" method="post">
+			<button > <img th:src="@{/img/M2.png}" height ="80" width="100" />Nivel2</button>
+		</form>
+		</div>
+		<div class="col-sm">
+		<form th:action="@{'/nivel3'}" method="post">
+			<button > <img th:src="@{/img/M3.png}" height ="80" width="100" />Nivel3</button>
+		</form>
+		</div>
+
+
+	</div>
+       </div>
 </body>
 </html>

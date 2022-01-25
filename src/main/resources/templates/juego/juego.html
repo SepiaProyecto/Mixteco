@@ -272,7 +272,7 @@ input {
 			<br/>
 		
 
-<h3>Juegos de images</h3>
+
   <main role="main" class="container-fluid" id="app">
             <div class="row">
                 <div class="col-12">
@@ -281,9 +281,15 @@ input {
                         <span class="h5">Intentos: </span>
                         {{intentos}}/{{MAXIMOS_INTENTOS}}&nbsp;<span class="h5">Aciertos:
                         </span> {{aciertos}}
-                        <br><a @click="mostrarCreditos" href="#">Acerca de</a>
+                        <br>
                     </p>
                 </div>
+              
+		<div class="col-sm">
+			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+		</div>
+	
+                
             </div>
             <div v-for="(fila, indiceFila) in memorama" :key="indiceFila"
                 class="row">

@@ -6,21 +6,21 @@ import lombok.Data;
 
 @Data
 public class Audio {
-	 public int id;
-	    public String name;
-	    public String alternativeText;
-	    public String caption;
-	    public Object width;
-	    public Object height;
-	    public Object formats;
-	    public String hash;
-	    public String ext;
-	    public String mime;
-	    public double size;
-	    public String url;
-	    public Object previewUrl;
-	    public String provider;
-	    public String provider_metadata;
-	    public Date created_at;
-	    public Date updated_at;
+	 private int id;
+	    private String name;
+	    private String alternativeText;
+	    private String caption;
+	    private Object width;
+	    private Object height;
+	    private Object formats;
+	    private String hash;
+	    private String ext;
+	    private String mime;
+	    private double size;
+	    private String url;
+	    private Object previewUrl;
+	    private String provider;
+	    private String provider_metadata;
+	    private Date created_at;
+	    private Date updated_at;
 }

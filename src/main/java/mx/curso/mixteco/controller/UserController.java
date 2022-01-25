@@ -2,9 +2,6 @@ package mx.curso.mixteco.controller;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
-import mx.curso.mixteco.model.Animales;
 import mx.curso.mixteco.repository.IEvaluacionService;
 import mx.curso.mixteco.repository.IuserRepository;
 
@@ -30,16 +26,35 @@ public class UserController {
 	@Autowired
     private IuserRepository iuserRepository;
 	
+	
+//	private final String host = "https://contenidostrapi.herokuapp.com";
+	private final String host="http://localhost:1337";
+	
 	@GetMapping("/")
 		public String index(Model model) {
 		Usuario usuario= new Usuario();
 	    model.addAttribute("usuario",usuario);
+	    log.info("saliedo login");
 		
-			return "index";
+	    return "index";
 		}
 	
+	@GetMapping("/salir")
+	public String indexsalir(Model model) {
+	Usuario usuario= new Usuario();
+    model.addAttribute("usuario",usuario);
+    log.info("saliedo login");
 	
+    return "/index";
+	}
+
 	
+	/**
+	 * no hace nada
+	 * @param user
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/juego")
 	public String juego(@ModelAttribute Usuario user, Model model) {
 	log.info("pagina de inicio"+user.getPass());
@@ -47,8 +62,7 @@ public class UserController {
 	 model. addAttribute("usuario", user);
 	
 		 return "juego/juego";
-	 
-	
+
 	
 	}
 	
@@ -63,19 +77,24 @@ public class UserController {
 	log.info("pagina de inicio"+user.getPass());
      
 	 model. addAttribute("usuario", user);
-	 
+//	 boolean loginok = true;
+//	 if(user==null) {
+//		 return "nivel1/index";
+//	 }
 	 
 	 Usuario userglobal=new  Usuario();
-	 userglobal.setNombre("pasoglobal");
-	 nombreglobal();
+	 userglobal.setNombre(user.getNombre());
+	 userglobal.setPass(user.getPass());
+	 userglobal.setUser(user.getUser());
+	
 	 
-	 if (user.getUser().equals("admin")&& user.getPass().equalsIgnoreCase("root")) {
+	 if (userglobal.getUser().equals("admin")&& userglobal.getPass().equalsIgnoreCase("root")) {
 		 model. addAttribute("usuarios", iuserRepository.list_user());
 		 model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
 		 return "admin/admin"; 
 	 }
 	 
-	 String login="http://localhost:1337/usersepias?user="+user.getUser()+"&pass="+user.getPass();
+	 String login=host+"/usersepias?user="+userglobal.getUser()+"&pass="+userglobal.getPass();
 	 RestTemplate restTemplate = new RestTemplate();
 	 ResponseEntity<Usuario[]> userlogin
 	  = restTemplate.getForEntity(login ,Usuario[].class);

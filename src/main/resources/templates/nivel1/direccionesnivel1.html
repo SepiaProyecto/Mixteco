@@ -57,15 +57,14 @@
 		<h3 th:text="${usuario.user}" />
 		<i class="fas fa-user"></i>
 	</h3>
-		<i class="far fa-user"></i>
-
-
-		<form action="#" class="form" th:action="@{'/nivel1'}"
-			method="post">
-
-			
-		</form>
 		
+
+
+		<div class="row">
+		<div class="col-sm">
+			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+		</div>
+	</div>
 		
 		  <div class="container">
       
@@ -96,8 +95,13 @@
 	</form>
 	  
 	  	</th>
+<<<<<<< HEAD
         <th scope="row" ><button   th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${direcciones.nombre}'+'OK')|
         " th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+=======
+        <th scope="row" ><button  class="btn btn-info"  th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar('${direcciones.nombre}'+'OK')|" th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+>>>>>>> a09d746e5d6e2e03041dabf6c7b9d7eb4342ea59
    
               
             <th scope="row"> <img th:src="${direcciones.urlcorto}"/></th>

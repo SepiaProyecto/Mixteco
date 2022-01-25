@@ -27,7 +27,7 @@
     
   async  function validate(evaluation) {
   
-            let response = await fetch('http://localhost:8081/evaluation')
+            let response = await fetch('http://localhost:1337/examen')
             var users = await response.json()
             console.log(users)
     const [id, nombre,tres] = users;
@@ -47,7 +47,7 @@
     }
     
     
-    alert('Calificacion'+contador);
+  //  alert('Calificacion'+contador);
     window.location.replace("userlist/"+contador);
     }
 </script>
