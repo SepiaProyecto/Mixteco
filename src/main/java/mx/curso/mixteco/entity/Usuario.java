@@ -6,14 +6,12 @@ import lombok.Data;
 public class Usuario {
 	private int id;
 	private String nombre;
-	private String apellidop;
-	private String apellidom;
+	private String apellidopaterno;
+	private String apellidomaterno;
 	private String sexo;
 	private String edad;
-	private String email;
-	private String user;
-	private String pass;
-
-	
+	private String correo;
+	private String usuario;
+	private String contrasena;
 
 }
