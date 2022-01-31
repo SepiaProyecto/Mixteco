@@ -60,7 +60,7 @@ public class UserController {
 	 */
 	@PostMapping("/juego")
 	public String juego(@ModelAttribute Usuario user, Model model) {
-	log.info("pagina de inicio"+user.getPass());
+	log.info("pagina de inicio"+user.getContrasena());
      
 	 model. addAttribute("usuario", user);
 	
@@ -83,17 +83,17 @@ public class UserController {
 
 	 userG=new Usuario(); 
 	 userG.setNombre(userglobal.getNombre());
-	 userG.setUser(userglobal.getUser());
-	this.userr=userglobal.getUser();
+	 userG.setUsuario(userglobal.getUsuario());
+	this.userr=userglobal.getUsuario();
 	nombreglobal( );
 	log.info("user logininicio "+userr);
-	 if (userglobal.getUser().equals("admin")&& userglobal.getPass().equalsIgnoreCase("root")) {
+	 if (userglobal.getUsuario().equals("admin")&& userglobal.getContrasena().equalsIgnoreCase("root")) {
 		 model. addAttribute("usuarios", iuserRepository.list_user());
 		 model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
 		 return "admin/admin"; 
 	 }
 	 
-	 String login=host+"/usersepias?user="+userglobal.getUser()+"&pass="+userglobal.getPass();
+	 String login=host+"/usuariosepias?usuario="+userglobal.getUsuario()+"&contrasena="+userglobal.getContrasena();
 	 RestTemplate restTemplate = new RestTemplate();
 	 ResponseEntity<Usuario[]> userlogin
 	  = restTemplate.getForEntity(login ,Usuario[].class);
@@ -115,7 +115,7 @@ public class UserController {
 		Usuario user= new Usuario();
 				log.info("usuarioglobal "+userr);
 			
-		user.setUser(userr);
+		user.setUsuario(userr);
 		return user;
 	}
 	

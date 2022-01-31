@@ -86,20 +86,20 @@
 			<h2>Aprende Mixteco de forma divertida!</h2>
 		</center>
 		<h3>
-			<p th:text="'Bienvenido '+${usuario.user}" />
+			<p th:text="'Bienvenido '+${usuario.usuario}" />
 		</p>
 		</h3>
 <div class="row">
 <div class="col-8">
 </div>
    <div class="col-4">
-  <!--  <form th:action="@{'/#'}" method="get">
+    <!--<form th:action="@{'/#'}" method="get">
 			<button class="btn btn-secondary">Perfil</button>
-		</form>
-		 -->
+		</form> -->
+		 
 		<br/>
 		<form th:action="@{'/salir'}" method="get">
-			<button class="btn btn-danger">Cerrar Sesion</button>
+			<button class="btn btn-danger"><b>Cerrar Sesion</b></button>
 		</form>
 </div>
 </div>
@@ -108,7 +108,7 @@
 		 <div class="row">
 		<div class="col-sm">
 		<form th:action="@{'/nivel1'}"  th:object="${usuario}" method="post">
-		<input type="hidden" class="form-control" th:field="*{user}" placeholder="Nombre de usuario"  name="username"/>
+		<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
 			<button > <img th:src="@{/img/M2.png}" height ="200" width="200" />NIVEL 1</button>
 		</form>
 		</div>
