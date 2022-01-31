@@ -30,8 +30,7 @@
 			<br />
 			<br />
 			
-			<h3>
-				Bienvenido al aprendizaje de palabras! 	<h3 /><h3 th:text="${usuario.user}" ></h3>
+			<h3>Bienvenido al nivel básico!<h3/> <h3 th:text="${usuario.user}" ></h3>
 			
 				<br />
 
@@ -51,7 +50,7 @@
 					<div class="col-sm">
 						<form th:action="@{'/numeronivel1'}" th:object="${usuario}"   method="post">
 
-							<button > <img th:src="@{/img/numeros.png}" height ="80" width="100" />Numeros</button>
+							<button > <img th:src="@{/img/numeros.png}" height ="150" width="170" />NÚMEROS</button>
 						</form>
 
 					</div>
@@ -59,35 +58,48 @@
 					<div class="col-sm">
 						<form th:action="@{'/animalnivel1'}" method="post">
 
-						<button > <img th:src="@{/img/ANIMAL1.png}" height ="80" width="100" />Animal</button>
+						<button > <img th:src="@{/img/ANIMAL1.png}" height ="150" width="170" />ANIMALES</button>
 						</form>
 
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/frutasyverdurasnivel1'}" method="post">
 
-						<button > <img th:src="@{/img/frutas.png}" height ="80" width="100" />Frutas </button>
+						<button > <img th:src="@{/img/frutas.png}" height ="150" width="170" />FRUTAS Y VERDURAS </button>
 						</form>
 
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/partesdelcuerponivel1'}" method="post">
-							<button > <img th:src="@{/img/user.png}" height ="80" width="100" />Cuerpo</button>
+							<button > <img th:src="@{/img/cuerpo.png}" height ="150" width="170" />PARTES DEL CUERPO</button>
 							
 						</form>
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/hogarnivel1'}" method="post">
-
-								<button > <img th:src="@{/img/hogar.png}" height ="80" width="100" />Hogar</button>
+								<br /><br />
+								<button > <img th:src="@{/img/casa.png}" height ="150" width="170" />HOGAR</button>
 						</form>
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/familianivel1'}" method="post">
-
-							<button > <img th:src="@{/img/familia.png}" height ="80" width="100" />Familia</button>
+							<br /><br />
+							<button > <img th:src="@{/img/family.png}" height ="150" width="170" />FAMILIA</button>
 						</form>
 
+					</div>
+					
+					<div class="col-sm">
+						<form th:action="@{'/direccionesnivel1'}" method="post">
+								<br /><br />
+								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />DIRECCIONES</button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/otrosnivel1'}" method="post">
+								<br /><br />
+								<button > <img th:src="@{/img/otros.png}" height ="150" width="170" />OTROS</button>
+						</form>
 					</div>
 					</div>
 
@@ -99,14 +111,14 @@
 	
 		<div class="col-sm">
 			<form th:action="@{'/juego'}" method="post">
-					<button > <img th:src="@{/img/M2.png}" height ="80" width="100" />Jugar</button>
+					<button > <img th:src="@{/img/jugar.png}" height ="150" width="170" />Jugar</button>
 			</form>
 		</div>
 		<div class="col-sm">
 		
 			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
 			<input type="hidden" class="form-control" th:field="*{user}" placeholder="Nombre de usuario"  name="username"/>
-			<button > <img th:src="@{/img/examen.png}" height ="80" width="100" />Evaluacion</button>
+			<button > <img th:src="@{/img/M22.png}" height ="150" width="170" />Evaluacion</button>
 		</form>
 	</div>
 	</div>

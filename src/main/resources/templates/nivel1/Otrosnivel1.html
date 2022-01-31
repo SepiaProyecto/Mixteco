@@ -57,18 +57,16 @@
 		<h3 th:text="${usuario.user}" />
 		<i class="fas fa-user"></i>
 	</h3>
-		
-
-
 		<div class="row">
 		<div class="col-sm">
 			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
 		</div>
 	</div>
 		
+		
 		  <div class="container">
       
-               <h1>Repasando Direcciones</h1>
+               <h1>Repasando Más Palabras</h1>
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -77,38 +75,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="direcciones : ${direcciones}">
-            <th scope="row" th:text="${direcciones.nombre}">1</th>
+        <tr  th:each="otros : ${otros}">
+            <th scope="row" th:text="${otros.nombre}">1</th>
 
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${direcciones.nombre}+${direcciones.valor1}"  th:text="${direcciones.pregunta1}"/>
+			th:id="${otros.nombre}+${otros.valor1}"  th:text="${otros.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${direcciones.nombre}+${direcciones.valor2}"   th:text="${direcciones.pregunta2}" />
+			th:id="${otros.nombre}+${otros.valor2}"   th:text="${otros.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${direcciones.nombre}+${direcciones.valor3}"   th:text="${direcciones.pregunta3} "/>
+			th:id="${otros.nombre}+${otros.valor3}"   th:text="${otros.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-<--
-        <th scope="row" ><button   th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|
-        habilitar('${direcciones.nombre}'+'OK')|
-        " th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
-
-        <th scope="row" ><button  class="btn btn-info"  th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|
-        habilitar('${direcciones.nombre}'+'OK')|" th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
-
- <--  
+        <th scope="row" ><button class="btn btn-info"  th:id="${otros.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
+        ('${otros.nombre}'+'OK')|" th:text="${otros.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+   
               
-            <th scope="row"> <img th:src="${direcciones.urlcorto}"/></th>
-            
+            <th scope="row"> <img th:src="${otros.urlcorto}"/></th>
+           
             <th scope="row">   <audio controls>
-		<source th:src="${direcciones.audiocorto}" type="audio/mpeg">
+		<source th:src="${otros.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
         </tr>

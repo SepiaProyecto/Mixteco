@@ -3,7 +3,6 @@
 <head>
     <title>Mi primer Login</title>
 
-
 <!-- JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
@@ -30,7 +29,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
-  
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel.css}">
 
 </head>
 
@@ -40,8 +39,8 @@
      console.log('XD1inicio  BOB      ---- '+bobX);
   if( document.getElementById(bobX).checked){
   console.log('XD1 BOB');
-  document.getElementById(bobX+'1').innerText  = "Siguiente";
-    alertify.success('Ok, Siguiente Nivel');
+  document.getElementById(bobX+'1').innerText  = "Validar";
+    alertify.success('Correcto!');
    }else{
     alertify.error('Intenta de nuevo');
    // document.getElementById(bobX+'1').disabled=true;
@@ -49,10 +48,27 @@
   }
    }
   </script> 
+  
 <body>
-    <div class="container">
+	<div class="container">
+
+
+		Bienvenido
+		<h3 th:text="${usuario.user}" />
+		<i class="fas fa-user"></i>
+	</h3>
+		<i class="far fa-user"></i>
+
+
+		<div class="row">
+		<div class="col-sm">
+			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+		</div>
+	</div>
+		
+		  <div class="container">
       
-               <h2>Repasando animales</h2>
+               <h1>Repasando Acciones</h1>
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -61,40 +77,40 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="user : ${animales}">
-            <th scope="row" th:text="${user.nameespanol}">1</th>
-           
-                <th scope="row" th:text="${user.valorok}">1</th>
-        
-      
+        <tr  th:each="acciones : ${acciones}">
+            <th scope="row" th:text="${acciones.nombre}">1</th>
+
+ <th scope="row" >
+	<form name="formulario" id="formulario">
+
+		<input type="radio" name="valores"
+			th:id="${acciones.nombre}+${acciones.valor1}"  th:text="${acciones.pregunta1}"/>
+			<br/>
+			<input type="radio" name="valores"
+			th:id="${acciones.nombre}+${acciones.valor2}"   th:text="${acciones.pregunta2}" />
+			<br/>
+				<input type="radio" name="valores"
+			th:id="${acciones.nombre}+${acciones.valor3}"   th:text="${acciones.pregunta3} "/>
+
+	</form>
+	  
+	  	</th>
+        <th scope="row" ><button class="btn btn-info"   th:id="${acciones.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar('${acciones.nombre}'+'OK')|" th:text="${acciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
-            <th scope="row"> <img th:src="${user.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${acciones.urlcorto}"/></th>
            
             <th scope="row">   <audio controls>
-		<source th:src="${user.audiocorto}" type="audio/mpeg">
+		<source th:src="${acciones.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
-	    <form name="formulario" id="formulario">
-  <div>
-  <input type="radio" name="valores"  th:id="${user.nameespanol}" value="A"> <label for "A">El audio es  de AMLO</label>
-  </div>
-  <div>
-    <input type="radio" name="valores" th:id="${user.nameespanol}+${user.valorok}" value="B"> <label for "B">El audio es de Esponja</label>
-  </div>
-  <div>
-    <input type="radio" name="valores" th:id="${user.nameespanol}+${user.valornotok1}" value="C"> <label for "C">El audio es del Master muñoz</label>
-  </div>
-
-</form>
-	</th>
-
-
-		  <th scope="row" ><button   th:id="${user.nameespanol}+'OK1' " type="button" th:attr="onclick=|habilitar('${user.nameespanol}'+'OK')|" th:text="${user.activad} ? 'Validar' : 'bloqueado'">bbb</button></th>
-	</audio></th>
+</audio></th>
         </tr>
         </tbody>
     </table>
             </div>
-    
+                
+          
+    </div>
 </body>
 </html>

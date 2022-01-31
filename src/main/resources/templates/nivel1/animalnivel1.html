@@ -95,7 +95,8 @@
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button class="btn btn-info"   th:id="${animal.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${animal.nombre}'+'OK')|" th:text="${animal.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button class="btn btn-info"   th:id="${animal.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar('${animal.nombre}'+'OK')|" th:text="${animal.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
             <th scope="row"> <img th:src="${animal.urlcorto}"/></th>

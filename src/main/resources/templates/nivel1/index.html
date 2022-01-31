@@ -14,24 +14,25 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <!-- Nuestro css
+    <!-- Nuestro css-->
     <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
--->
+
 </head>
 <style type="text/css">
 
 .button::before, .button::after {
 	 position: absolute;
+	 padding: 200px 40px;
 	 content: '';
 	 transition: all 0.5s;
 }
  .button {
 	 display: inline-block;
-	 padding: 20px 40px;
-	 color: white;
+	 padding: 200px 40px;
+	 color: red;
 	 position: static;
-	 top: 50%;
-	 left: 50%;
+	 top: 500%;
+	 left: 500%;
 	 transform: translate(-50%, -50%);
 	 vertical-align: middle;
 	 font-family: 'Rubik One', sans-serif;
@@ -47,15 +48,15 @@
 	 width: 100%;
 	 left: 8px;
 	 transform: skewX(45deg);
-	 background-color: #196090;
+	 background-color: #3498db;
 }
  .button::after {
-	 right: -15px;
+	 right: -100px;
 	 height: 100%;
-	 width: 15px;
+	 width: 150px;
 	 bottom: -8px;
 	 transform: skewY(45deg);
-	 background-color: #124364;
+	 background-color: #3498db;
 }
  .button:active {
 	 margin-left: 10px;
@@ -82,6 +83,7 @@
 		<br></br>
 		<center>
 			<h1>MENU PRINCIPAL</h1>
+			<h2>Aprende Mixteco de forma divertida!</h2>
 		</center>
 		<h3>
 			<p th:text="'Bienvenido '+${usuario.user}" />
@@ -97,7 +99,7 @@
 		 -->
 		<br/>
 		<form th:action="@{'/salir'}" method="get">
-			<button class="btn btn-secondary">Cerrar Sesion</button>
+			<button class="btn btn-danger">Cerrar Sesion</button>
 		</form>
 </div>
 </div>
@@ -107,17 +109,17 @@
 		<div class="col-sm">
 		<form th:action="@{'/nivel1'}"  th:object="${usuario}" method="post">
 		<input type="hidden" class="form-control" th:field="*{user}" placeholder="Nombre de usuario"  name="username"/>
-			<button > <img th:src="@{/img/M1.png}" height ="80" width="100" />Nivel1</button>
+			<button > <img th:src="@{/img/M2.png}" height ="200" width="200" />NIVEL 1</button>
 		</form>
 		</div>
 		<div class="col-sm">
 		<form th:action="@{'/nivel2'}" method="post">
-			<button > <img th:src="@{/img/M2.png}" height ="80" width="100" />Nivel2</button>
+			<button > <img th:src="@{/img/M1.png}" height ="200" width="200" />NIVEL 2</button>
 		</form>
 		</div>
 		<div class="col-sm">
 		<form th:action="@{'/nivel3'}" method="post">
-			<button > <img th:src="@{/img/M3.png}" height ="80" width="100" />Nivel3</button>
+			<button > <img th:src="@{/img/M3.png}" height ="200" width="200" />NIVEL 3</button>
 		</form>
 		</div>
 
