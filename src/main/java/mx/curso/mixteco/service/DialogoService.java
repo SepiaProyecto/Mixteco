@@ -30,6 +30,7 @@ public class DialogoService implements IDialogRepository{
 				HttpMethod.GET,
 				null,
 				 new ParameterizedTypeReference<List<Dialogo>>(){});
+	//	response.getBody().get(0).getAudio().get(0).getUrl();
 		return response.getBody();
 	}
 }

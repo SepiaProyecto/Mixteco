@@ -1,47 +1,51 @@
 package mx.curso.mixteco.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
-import org.xhtmlrenderer.pdf.ITextRenderer;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.lowagie.text.DocumentException;
 
 import lombok.extern.slf4j.Slf4j;
+import mx.curso.mixteco.entity.Usuario;
+import mx.curso.mixteco.service.PdfService;
 @Slf4j
+@Controller
 public class PdfController {
 	
-	private String parseThymeleafTemplate() {
-	    ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-	    templateResolver.setSuffix(".html");
-	    templateResolver.setTemplateMode(TemplateMode.HTML);
-
-	    TemplateEngine templateEngine = new TemplateEngine();
-	    templateEngine.setTemplateResolver(templateResolver);
-
-	    Context context = new Context();
-	    context.setVariable("to", "Baeldung");
-
-	    return templateEngine.process("thymeleaf_template", context);
-	}
 	
-	
-	public void generatePdfFromHtml(String html) throws DocumentException, IOException {
-	    String outputFolder = System.getProperty("user.home") + File.separator + "thymeleaf.pdf";
-	    OutputStream outputStream = new FileOutputStream(outputFolder);
-
-	    ITextRenderer renderer = new ITextRenderer();
-	    renderer.setDocumentFromString(html);
-	    renderer.layout();
-	    renderer.createPDF(outputStream);
-
-	    outputStream.close();
-	}
+	 private final PdfService pdfService;
+	 
+	   @Autowired
+	    public PdfController(PdfService pdfService) {
+	   
+	        this.pdfService = pdfService;
+	    }
+	   
+	 @GetMapping("/download-pdf")
+	    public void downloadPDFResource(HttpServletResponse response,@ModelAttribute Usuario userglobal) {
+		 
+		 log.info("user reportepdf "+userglobal.getUsuario());
+	        try {
+	            Path file = Paths.get(pdfService.generatePdf(userglobal).getAbsolutePath());
+	            if (Files.exists(file)) {
+	                response.setContentType("application/pdf");
+	                response.addHeader("Content-Disposition",
+	                        "attachment; filename=" + file.getFileName());
+	                Files.copy(file, response.getOutputStream());
+	                response.getOutputStream().flush();
+	            }
+	        } catch (DocumentException | IOException ex) {
+	            ex.printStackTrace();
+	        }
+	    }
 
 }

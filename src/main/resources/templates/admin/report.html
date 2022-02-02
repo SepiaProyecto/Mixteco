@@ -57,6 +57,13 @@
       
       Calificación:   <p th:text="${calificacion}"></p>
        
+    
+ 						
+ 						
+ 						<form th:action="@{'/download-pdf'}" method="get">
+			<button > <img th:src="@{/img/pdf_icon.png}" height ="200" width="200" />Ver pdf</button>
+		</form>
+ 						
      </div>              
     
 

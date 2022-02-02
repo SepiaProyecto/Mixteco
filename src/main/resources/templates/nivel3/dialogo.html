@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mi primer Login</title>
+
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel3.css}">
+
+</head>
+
+<script type="text/javascript">
+   function habilitar(bobX){
+   
+     console.log('XD1inicio  BOB      ---- '+bobX);
+  if( document.getElementById(bobX).checked){
+  console.log('XD1 BOB');
+  document.getElementById(bobX+'1').innerText  = "Validar";
+    alertify.success('Correcto!');
+   }else{
+    alertify.error('Intenta de nuevo');
+   // document.getElementById(bobX+'1').disabled=true;
+    // document.getElementById(bobX+'1').innerText  = "Bloquado";
+  }
+   }
+  </script> 
+  
+<body>
+	<div class="container">
+		Bienvenido
+	<div class="row">
+		<div class="col-sm">
+			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+		</div>
+	</div>
+
+	<div class="container">
+
+	<center><h2>Nivel 3 Dialogos</h2></center>
+		<h4>Dialogo 1</h4>
+		<table class="table table-hover">
+
+			<tbody>
+				<tr th:each="dialogo : ${dialogos}">
+					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>
+						            <!-- 
+						            <th scope="row">   
+						            <audio controls>
+						<source th:src="${audio}" type="audio/mpeg">
+							<th scope="row">
+									</audio></th> -->
+				</tr>
+				<tr th:each="dialogo : ${dialogos}">
+					<th scope="row" th:text=" ${dialogo.receptor}"></th>
+						 <!--   <th scope="row">   
+						            <audio controls>
+						<source th:src="${receptor1}" type="audio/mpeg">
+							<th scope="row">
+									</audio></th> -->
+				</tr>
+			</tbody>
+			
+			
+				<tbody>
+				<tr th:each="dialogo1 : ${dialogo2}">
+					<th scope="row" th:text="${dialogo1.emisor} +'   '"></th>
+						
+				</tr>
+				<tr th:each="dialogo1 : ${dialogo2}">
+					<th scope="row" th:text=" ${dialogo1.receptor}"></th>
+						
+				</tr>
+			</tbody>
+			
+		</table>
+		
+		    <tbody>
+        <tr  th:each="dialogo : ${pregunta1}">
+            <th scope="row" th:text="${dialogo.nombre}">1</th>
+
+ <th scope="row" >
+	<form name="formulario" id="formulario">
+
+		<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor1}"  th:text="${dialogo.pregunta1}"/>
+			<br/>
+			<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor2}"   th:text="${dialogo.pregunta2}" />
+			<br/>
+				<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor3}"   th:text="${dialogo.pregunta3} "/>
+
+	</form>
+	  
+	  	</th><br/>
+        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+   
+         
+			
+        </tr>
+        </tbody>
+        <br/> <br/>
+		
+
+		<h3>Dialogo 2</h3>
+			<table class="table table-hover">
+
+			<tbody>
+				<tr th:each="dialogo : ${dialogoejemplo2}">
+					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>
+						
+				</tr>
+				<tr th:each="dialogo : ${dialogoejemplo2}">
+					<th scope="row" th:text=" ${dialogo.receptor}"></th>
+						
+				</tr>
+			</tbody>
+			
+			
+				<tbody>
+				<tr th:each="dialogo1 : ${dialogoejemplo22}">
+					<th scope="row" th:text="${dialogo1.emisor} +'   '"></th>
+						
+				</tr>
+				<tr th:each="dialogo1 : ${dialogoejemplo22}">
+					<th scope="row" th:text=" ${dialogo1.receptor}"></th>
+						
+				</tr>
+			</tbody>
+			
+		</table>
+		
+		    <tbody>
+        <tr  th:each="dialogo : ${pregunta2}">
+            <th scope="row" th:text="${dialogo.nombre}">1</th>
+
+ <th scope="row" >
+	<form name="formulario" id="formulario">
+
+		<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor1}"  th:text="${dialogo.pregunta1}"/>
+			<br/>
+			<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor2}"   th:text="${dialogo.pregunta2}" />
+			<br/>
+				<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor3}"   th:text="${dialogo.pregunta3} "/>
+
+	</form>
+	  
+	  	</th><br/>
+        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+   
+         
+			
+        </tr>
+        </tbody>
+        <br/><br/>
+		
+			<h3>Dialogo 3</h3>
+			<table class="table table-hover">
+
+			<tbody>
+				<tr th:each="dialogo : ${dialogoejemplo3}">
+					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>
+						
+				</tr>
+				<tr th:each="dialogo : ${dialogoejemplo3}">
+					<th scope="row" th:text=" ${dialogo.receptor}"></th>
+						
+				</tr>
+			</tbody>
+			
+			
+				<tbody>
+				<tr th:each="dialogo1 : ${dialogoejemplo33}">
+					<th scope="row" th:text="${dialogo1.emisor} +'   '"></th>
+						
+				</tr>
+				<tr th:each="dialogo1 : ${dialogoejemplo33}">
+					<th scope="row" th:text=" ${dialogo1.receptor}"></th>
+						
+				</tr>
+			</tbody>
+			
+		</table>
+	
+  
+        <tbody>
+        <tr  th:each="dialogo : ${pregunta3}">
+            <th scope="row" th:text="${dialogo.nombre}">1</th>
+
+ <th scope="row" >
+	<form name="formulario" id="formulario">
+
+		<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor1}"  th:text="${dialogo.pregunta1}"/>
+			<br/>
+			<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor2}"   th:text="${dialogo.pregunta2}" />
+			<br/>
+				<input type="radio" name="valores"
+			th:id="${dialogo.nombre}+${dialogo.valor3}"   th:text="${dialogo.pregunta3} "/>
+
+	</form>
+	  
+	  	</th><br/>
+        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+   
+         
+			
+        </tr>
+        </tbody>
+        
+    </table>
+    <br/><br/>
+            </div>
+                
+       	 
+    </div>
+      </div>
+</body>
+</html>
