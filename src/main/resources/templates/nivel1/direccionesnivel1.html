@@ -54,11 +54,9 @@
 
 
 		Bienvenido
-		<h3 th:text="${usuario.user}" />
+		<h3 th:text="${usuario.usuario}" />
 		<i class="fas fa-user"></i>
 	</h3>
-		
-
 
 		<div class="row">
 		<div class="col-sm">
@@ -71,10 +69,7 @@
                <h1>Repasando Direcciones</h1>
                 <table class="table table-hover">
         <thead>
-        <tr>
-          
-            
-        </tr>
+        
         </thead>
         <tbody>
         <tr  th:each="direcciones : ${direcciones}">
@@ -95,16 +90,10 @@
 	</form>
 	  
 	  	</th>
-<--
-        <th scope="row" ><button   th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|
-        habilitar('${direcciones.nombre}'+'OK')|
-        " th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
 
         <th scope="row" ><button  class="btn btn-info"  th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|
         habilitar('${direcciones.nombre}'+'OK')|" th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
-
- <--  
-              
+ 
             <th scope="row"> <img th:src="${direcciones.urlcorto}"/></th>
             
             <th scope="row">   <audio controls>
