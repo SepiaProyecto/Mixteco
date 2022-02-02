@@ -56,7 +56,7 @@
 
 
 		Bienvenido
-		<h3 th:text="${usuario.user}" />
+		<h3 th:text="${usuario.usuario}" />
 		<i class="fas fa-user"></i>
 	</h3>
 		<div class="row">
@@ -95,8 +95,8 @@
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button class="btn btn-info"  th:id="${partesdelcuerpo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
-        ('${partesdelcuerpo.nombre}'+'OK')|" th:text="${partesdelcuerpo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${partesdelcuerpo.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar ('${partesdelcuerpo.nombre}'+'OK')|" th:text="${partesdelcuerpo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
             <th scope="row"> <img th:src="${partesdelcuerpo.urlcorto}"/></th>
