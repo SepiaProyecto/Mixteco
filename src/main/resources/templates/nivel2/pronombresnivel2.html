@@ -29,7 +29,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/otros.css}">
 
 </head>
 
@@ -54,7 +54,7 @@
 
 
 		Bienvenido
-		<h3 th:text="${usuario.user}" />
+		<h3 th:text="${usuario.usuario}" />
 		<i class="fas fa-user"></i>
 	</h3>
 		<i class="far fa-user"></i>
@@ -62,13 +62,13 @@
 
 		<div class="row">
 		<div class="col-sm">
-			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+			<button class="btn btn-dark" onclick="history.back()">Volver</button>
 		</div>
 	</div>
 		
 		  <div class="container">
       
-               <h1>Repasando Saludos</h1>
+               <h1>Repasando los Pronombres</h1>
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -77,32 +77,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="saludos : ${saludos}">
-            <th scope="row" th:text="${saludos.nombre}">1</th>
+        <tr  th:each="pronombres : ${pronombres}">
+            <th scope="row" th:text="${pronombres.nombre}">1</th>
 
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${saludos.nombre}+${saludos.valor1}"  th:text="${saludos.pregunta1}"/>
+			th:id="${pronombres.nombre}+${pronombres.valor1}"  th:text="${pronombres.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${saludos.nombre}+${saludos.valor2}"   th:text="${saludos.pregunta2}" />
+			th:id="${pronombres.nombre}+${pronombres.valor2}"   th:text="${pronombres.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${saludos.nombre}+${saludos.valor3}"   th:text="${saludos.pregunta3} "/>
+			th:id="${pronombres.nombre}+${pronombres.valor3}"   th:text="${pronombres.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button class="btn btn-info"   th:id="${saludos.nombre}+'OK1' " type="button" th:attr="onclick=|
-        habilitar('${saludos.nombre}'+'OK')|" th:text="${saludos.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button class="btn btn-info"   th:id="${pronombres.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar('${pronombres.nombre}'+'OK')|" th:text="${pronombres.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
-            <th scope="row"> <img th:src="${saludos.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${pronombres.urlcorto}"/></th>
            
             <th scope="row">   <audio controls>
-		<source th:src="${saludos.audiocorto}" type="audio/mpeg">
+		<source th:src="${pronombres.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
         </tr>

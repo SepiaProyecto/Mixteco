@@ -15,67 +15,11 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+   <link rel="stylesheet" type="text/css"
+					th:href="@{/css/indexniveles.css}">
 
 </head>
-<style type="text/css">
 
-.button::before, .button::after {
-	 position: absolute;
-	 padding: 200px 40px;
-	 content: '';
-	 transition: all 0.5s;
-}
- .button {
-	 display: inline-block;
-	 padding: 200px 40px;
-	 color: red;
-	 position: static;
-	 top: 500%;
-	 left: 500%;
-	 transform: translate(-50%, -50%);
-	 vertical-align: middle;
-	 font-family: 'Rubik One', sans-serif;
-	 text-decoration: none;
-	 font-size: 4vw;
-	 transition: all 0.5s;
-	 background-color: #3498db;
-	 margin: .5em auto; 
-}
- .button::before {
-	 bottom: -15px;
-	 height: 15px;
-	 width: 100%;
-	 left: 8px;
-	 transform: skewX(45deg);
-	 background-color: #3498db;
-}
- .button::after {
-	 right: -100px;
-	 height: 100%;
-	 width: 150px;
-	 bottom: -8px;
-	 transform: skewY(45deg);
-	 background-color: #3498db;
-}
- .button:active {
-	 margin-left: 10px;
-	 margin-top: 10px;
-}
- .button:active::before {
-	 bottom: -5px;
-	 height: 5px;
-	 left: 3px;
-}
- .button:active::after {
-	 right: -5px;
-	 width: 5px;
-	 bottom: -3px;
-}
- 
-
-
-</style>
 <body>
 	<div class="container">
 
@@ -83,11 +27,11 @@
 		<br></br>
 		<center>
 			<h1>MENU PRINCIPAL</h1>
-			<h2>Aprende Mixteco de forma divertida!</h2>
-		</center>
+			
+		
 		<h3>
 			<p th:text="'Bienvenido '+${usuario.usuario}" />
-		</p>
+		</p></center>
 		</h3>
 <div class="row">
 <div class="col-8">
@@ -123,8 +67,10 @@
 		</form>
 		</div>
 
-
+	
 	</div>
+	<br></br><br></br><br></br><br></br>
+	<center><FONT COLOR="white"><h1> <mark> Aprende MIXTECO de forma divertida!</mark></h1></center>
        </div>
 </body>
 </html>

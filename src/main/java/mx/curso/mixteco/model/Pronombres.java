@@ -9,7 +9,7 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class Saludos {
+public class Pronombres {
 
 	private int id;
     private String nombre;

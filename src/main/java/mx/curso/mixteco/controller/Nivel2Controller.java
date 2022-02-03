@@ -13,15 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
-import mx.curso.mixteco.model.Acciones;
-import mx.curso.mixteco.model.Animales;
-import mx.curso.mixteco.model.Direcciones;
-import mx.curso.mixteco.model.Familia;
-import mx.curso.mixteco.model.FrutasYVerduras;
-import mx.curso.mixteco.model.Hogar;
-import mx.curso.mixteco.model.Numeros;
-import mx.curso.mixteco.model.PartesDelCuerpo;
-import mx.curso.mixteco.model.Saludos;
+import mx.curso.mixteco.model.Pronombres;
 import mx.curso.mixteco.repository.IEvaluacionService;
 
 @Controller
@@ -39,38 +31,38 @@ public class Nivel2Controller {
 	
 		//log.info("--------nivel1usuario numero---------" + userglobal);
 		model.addAttribute("usuario", userglobal);
-		//log.info("--------nivel2 saludos---------");
+		//log.info("--------nivel2 saludos ---------");
 		
 
 		return "nivel2/nivel2";
 	}
 
 	
-	@PostMapping("/saludosnivel2")
-	public String numerosnivel1(Model model) {
+	@PostMapping("/pronombresnivel2")
+	public String pronombresnivel2(Model model) {
 		Usuario usuario = new Usuario();
 		model.addAttribute("usuario", usuario);
-		log.info("--------nivel2 saludos---------");
+		log.info("--------nivel2 pronombres---------");
 		Usuario user = nn.nombreglobal();
 
 		RestTemplate restTemplate = new RestTemplate();
 
-		String fooResourceUrlcontador = host + "/saludos/count?nivel=nivel2";
+		String fooResourceUrlcontador = host + "/pronombres/count?nivel=nivel2";
 
 		ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
 
 	
 		int numero = Integer.parseInt(contador.getBody());
 
-		List<Saludos> numeros_list = new ArrayList<>();
+		List<Pronombres> numeros_list = new ArrayList<>();
 
 		List<String> list_respuestas = new ArrayList<>();
 
 		for (int i = 1; i <= numero; i++) {
-			Saludos numerores = new Saludos();
+			Pronombres numerores = new Pronombres();
 
-			String fooResourceUrl = host + "/saludos/" + i;
-			ResponseEntity<Saludos> response = restTemplate.getForEntity(fooResourceUrl + "", Saludos.class);
+			String fooResourceUrl = host + "/pronombres/" + i;
+			ResponseEntity<Pronombres> response = restTemplate.getForEntity(fooResourceUrl + "", Pronombres.class);
 			numerores.setNombre(response.getBody().getNombre());
 			numerores.setValor1(response.getBody().getValor1());
 			numerores.setValor2(response.getBody().getValor2());
@@ -90,9 +82,9 @@ public class Nivel2Controller {
 
 		}
 
-		model.addAttribute("saludos", numeros_list);
+		model.addAttribute("pronombres", numeros_list);
 
-		return "nivel2/saludosnivel2";
+		return "nivel2/pronombresnivel2";
 	}
 	// -------------------------------------
 

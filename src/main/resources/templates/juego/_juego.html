@@ -63,10 +63,7 @@
    
  
     }
-    
-    
-    
-    
+
     var cartas = new Array( 
   {nombre: '1', seleccion: false}, {nombre: '2', seleccion: false}, 
   {nombre: '3', seleccion: false}, {nombre: '4', seleccion: false}, 
@@ -115,7 +112,8 @@ function girarCarta () {
 
   if ( jugada1 !== "" ) {
 
-    if ( jugada1 === jugada2 && identificadorJ1 !== identificadorJ2 && cartas[parseInt(identificadorJ2)].seleccion != true &&               cartas[parseInt(identificadorJ1)].seleccion != true) {
+    if ( jugada1 === jugada2 && identificadorJ1 !== identificadorJ2 && cartas[parseInt(identificadorJ2)].seleccion != 
+    true &&               cartas[parseInt(identificadorJ1)].seleccion != true) {
       
       cartas[parseInt(identificadorJ1)].seleccion = true;
       cartas[parseInt(identificadorJ2)].seleccion = true;

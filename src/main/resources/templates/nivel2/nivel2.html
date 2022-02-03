@@ -1,57 +1,136 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Mi primer Login</title>
+	<head>
+		<title>Nivel 2</title>
 
-    <!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+		<!--JQUERY -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css"  th:href="@{/css/nivel.css}">
+		<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina -->
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-</head>
-<body>
-	<div class="container">
-		<h2>Nivel 2</h2>
-		Bienvenido
-		<h3 th:text="${usuario.user}" />
-		Aprende jugando
-		<i class="fas fa-user"></i>
-	</h3>
-		<div class="row">
-		<div class="col-sm">
-			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
-		</div>
+			<!-- Los iconos tipo Solid de Fontawesome -->
+			<link rel="stylesheet"
+				href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+				<script
+					src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+				<!-- Nuestro css -->
+				<link rel="stylesheet" type="text/css"
+					th:href="@{/css/nivel.css}">
+
+	</head>
+	<body>
+		<div class="container">
+			<br />
+			<br />
+			
+			<center><FONT COLOR="white"><h1> <mark> Bienvenido al nivel Intermedio!</mark><h1 th:text="${usuario.usuario}"/></center>
+			
+<div class="row">
+	<div class="col-sm">
+	
+
+			<button  class="b"  onclick="history.back()">Volver</button>
+	
+
 	</div>
-		<br />
-		<br />
-
-		<form th:action="@{'/saludosnivel2'}" method="post">
-
-			<input class="btn btn-primary btn-lg" type="submit" value="SALUDOS">
-		</form>
-
-		<form th:action="@{'/evaluacion'}" method="get">
-			<input class="btn btn-primary btn-lg" type="submit" value="Evaluación">
-		</form>
-		<br />
-		
-		<div class="row">
-  <div class="col-md-9">
-		<form th:action="@{'/juego'}" method="post">
-			<input class="btn btn-primary btn-lg" type="submit" value="Juego">
-		</form>
-		</div>
 </div>
+				<br />
+			<br />		
+					
+				<div class="row">
+					<div class="col-sm">
+						<form th:action="@{'/pronombresnivel2'}" th:object="${usuario}"   method="post">
+
+							<button > <img th:src="@{/img/pronom.png}" height ="210" width="210" />PRONOMBRES</button>
+						</form>
+
+					</div>
+					<!--cambiar al nombre de archivo html -->
+					<div class="col-sm">
+						<form th:action="@{'/animalnivel1'}" method="post">
+
+						<button > <img th:src="@{/img/ANIMAL1.png}" height ="150" width="170" />VERBOS EN PRESENTE PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</button>
+						</form>
+
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/frutasyverdurasnivel1'}" method="post">
+
+						<button > <img th:src="@{/img/plátano.png}" height ="150" width="190" />VERBOS EN PASADO PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</button>
+						</form>
+
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/partesdelcuerponivel1'}" method="post">
+							<button > <img th:src="@{/img/cuerpo.png}" height ="150" width="190" />VERBOS EN FUTURO PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</button>
+							
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/hogarnivel1'}" method="post">
+								<br /><br />
+								<button > <img th:src="@{/img/casa.png}" height ="150" width="240" />VERBOS EN PRESENTE PARA (USTEDES, ELLOS)</button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/familianivel1'}" method="post">
+							<br /><br />
+							<button > <img th:src="@{/img/family.png}" height ="150" width="240" />VERBOS EN PASADO PARA (USTEDES, ELLOS)</button>
+						</form>
+
+					</div>
+					
+					<div class="col-sm">
+						<form th:action="@{'/direccionesnivel1'}" method="post">
+								<br /><br />
+								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />VERBOS EN FUTURO PARA (USTEDES, ELLOS)</button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/otrosnivel1'}" method="post">
+								<br /><br />
+								<button > <img th:src="@{/img/otros.png}" height ="210" width="200" />CREANDO ORACIONES</button>
+						</form>
+					</div>
+					
+					</div>
+					
+
+	<br></br>
+	<br></br>
+	<div class="row">
+	<div class="col-sm">
 	</div>
-     
-</body>
+	
+		<div class="col-sm">
+			<form th:action="@{'/juego'}" method="post">
+					<button > <img th:src="@{/img/jugar.png}" height ="190" width="200" />JUEGO</button>
+			</form>
+		</div>
+		<div class="col-sm">
+		
+			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
+			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
+			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" />EVALUACIÓN</button>
+			<br />
+		</form>
+	</div>
+	</div>
+		
+		<br />
+	
+		<br />
+
+	</div>
+	</div>
+	</div>
+	<br />
+	</body>
 </html>

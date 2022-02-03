@@ -12,6 +12,9 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
+	<!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/examenu1.css}">
+    
 </head>
 
  <script type="text/javascript">
@@ -42,7 +45,7 @@
       if(document.getElementById(id.nombre+'OK').checked) {
       contador=contador+1;
     }
-      if(document.getElementById(tres.nombre+'OK').checked) {
+      if(document.getElementById(tres.nombre+'incorrecto').checked) {
       contador=contador+1;
     }
     
@@ -59,14 +62,19 @@
 <br/>
 
     <div class="container">
+    <h4>Bienvenido</h4>
     <h3 th:text="${usuario.usuario}" />
        	<div class="row">
 		<div class="col-sm">
 			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+			
 		</div>
+		
 	</div>
-   	<center><h3>Evaluación de curso</h3></center>	
-    <p><b>Instrucciones:</b> Lee cuidadosamente las preguntas y selecciona la respuesta correcta.</p>           
+   	<center><h3><b>Evaluación de curso</b></h3></center>
+   		
+    <p><b>Instrucciones:</b> Lee cuidadosamente las preguntas y selecciona la respuesta correcta.</p>  
+            
     
         <table class="table table-striped">
         <thead>
@@ -97,9 +105,10 @@
         </tbody>
            
     </table>
+    
      <button type="submit" class="btn btn-primary"  th:attr="onclick=|validate('${evaluacions}')|"  ></i>Enviar </button>
     
-             
+           
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="jquery/jquery-3.3.1.min.js"></script>
     <script src="popper/popper.min.js"></script>
@@ -108,7 +117,7 @@
     <!-- datatables JS -->
     <script type="text/javascript" src="datatables/datatables.min.js"></script>    
      
-
+	
     
     
 </body>

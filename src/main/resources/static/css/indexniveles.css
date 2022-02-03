@@ -1,0 +1,80 @@
+body{
+    background: url(../img/FONDOPE.png) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.main-section{
+    margin:0 auto;
+    margin-top:25%;
+    padding: 0;
+}
+
+.modal-body p{
+color:white;
+}
+.modal-content{
+    background-color: #363434;
+    opacity: .85;
+    padding: 0 25px;
+    box-shadow: 0px 0px 3px #848484;
+    
+}
+.modal-content1{
+    background-color: #848484;
+    opacity: .85;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #000400;
+}
+.user-img{
+    margin-top: -100px;
+    margin-bottom: 40px;
+    width: 600px;
+    height: 100px;
+}
+
+.user-img img{
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 0px 0px #fff;
+    border-radius: 100%;
+}
+
+.form-group input{
+    height: 42px;
+    font-size: 18px;
+    border:0;
+    padding-left: 50px;
+    border-radius: 5px;
+}
+
+.form-group::before{
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top:4px;
+}
+
+.form-group#user-group::before{
+    content: "\f007";
+}
+
+.form-group#contrasena-group::before{
+    content: "\f023";
+}
+
+button{
+    width: 60%;
+    margin: -20px 0 25px;
+    color: blue;
+    text-decoration: underline blue;
+    font-weight: 1000;
+}
+
+.forgot{
+    padding: 5px 0;
+}
+
+.forgot a{
+    color: white;
+}

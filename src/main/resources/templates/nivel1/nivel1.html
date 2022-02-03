@@ -2,7 +2,7 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Mi primer Login</title>
+		<title>Nivel 1</title>
 
 		<!--JQUERY -->
 		<script
@@ -22,7 +22,7 @@
 
 				<!-- Nuestro css -->
 				<link rel="stylesheet" type="text/css"
-					th:href="@{/css/nivel1b.css}">
+					th:href="@{/css/nivel.css}">
 
 	</head>
 	<body>
@@ -30,15 +30,13 @@
 			<br />
 			<br />
 			
-			<h3>Bienvenido al nivel básico!<h3/> <h3 th:text="${usuario.usuario}" ></h3>
+			<center><FONT COLOR="white"><h1> <mark> Bienvenido al nivel básico!</mark><h1 th:text="${usuario.usuario}"/></center>
 			
-				<br />
-
 <div class="row">
 	<div class="col-sm">
 	
 
-			<button  class="btn btn-dark"  onclick="history.back()">Regresar</button>
+			<button  class="b"  onclick="history.back()">Volver</button>
 	
 
 	</div>
@@ -111,14 +109,15 @@
 	
 		<div class="col-sm">
 			<form th:action="@{'/juego'}" method="post">
-					<button > <img th:src="@{/img/jugar.png}" height ="190" width="250" />JUEGO</button>
+					<button > <img th:src="@{/img/jugar.png}" height ="190" width="200" />JUEGO</button>
 			</form>
 		</div>
 		<div class="col-sm">
 		
 			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
 			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
-			<button > <img th:src="@{/img/M22.png}" height ="150" width="170" />Evaluacion</button>
+			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" />EVALUACIÓN</button>
+			<br />
 		</form>
 	</div>
 	</div>
@@ -127,9 +126,9 @@
 	
 		<br />
 
-		
 	</div>
 	</div>
 	</div>
+	<br />
 	</body>
 </html>
