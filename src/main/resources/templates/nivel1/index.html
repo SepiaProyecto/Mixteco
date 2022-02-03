@@ -62,7 +62,8 @@
 		</form>
 		</div>
 		<div class="col-sm">
-		<form th:action="@{'/nivel3'}" method="post">
+		<form th:action="@{'/nivel3'}"  th:object="${usuario}"  method="get">
+			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
 			<button > <img th:src="@{/img/M3.png}" height ="200" width="200" />NIVEL 3</button>
 		</form>
 		</div>

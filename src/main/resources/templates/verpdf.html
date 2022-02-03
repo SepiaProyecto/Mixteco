@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mi primer Login</title>
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+ 
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+
+
+</head>
+	<body>
+		<div class="modal-dialog text-center">
+			<div class="col-sm-8 main-section">
+
+				<h5>Sistema web para el aprendizaje de la lengua mixteca en el
+					municipio de San Antonino MonteVerde</h5>
+				<center><h5>Reporte General</h5></center>
+				<img class="logo" src="images/examen.png"  height ="100" width="100"/>
+				
+				Nombre:
+				Apellidos:
+				Edad:
+				Calificación:
+				
+				
+				 <tbody>
+            <tr th:each="student : ${students}">
+                ID<td th:text="${student?.id}"></td>
+                Nombre:<td th:text="'   '+${student?.nombre}"></td>
+                 Apellido:<td th:text="'   '+${student?.apellidopaterno}"></td>
+                         Correo:<td th:text="'   '+${student?.correo}"></td>
+                Calificacio:<td th:text="'   '+${student?.calificacion}"></td>
+            </tr>
+            </tbody>
+			</div>
+		</div>        
+   
+     
+</body>
+</html>

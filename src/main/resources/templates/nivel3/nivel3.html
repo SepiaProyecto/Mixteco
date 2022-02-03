@@ -51,146 +51,37 @@
   
 <body>
 	<div class="container">
-
 		Bienvenido
-	
-		<i class="fas fa-user"></i>
-
 		
-
-
+		<h3 th:text="${usuario.usuario}" />
 	<div class="row">
 		<div class="col-sm">
 			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
 		</div>
 	</div>
 
-
-
 	<div class="container">
 
-		<h1>Nivel 3 Dialogos</h1>
-		<h3>Dialogo 1</h3>
-		<table class="table table-hover">
+	<div class="row">
+				
+					
+					<div class="col-sm">
+						<form th:action="@{'/dialogo'}" method="get">
+								<br /><br />
+								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />Dialogo</button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/examen3'}"  th:object="${usuario}"  method="get">
+						<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
+								<br /><br />
+								<button > <img th:src="@{/img/otros.png}" height ="150" width="170" />Evaluación</button>
+						</form>
+					</div>
+					</div>
 
-			<tbody>
-				<tr th:each="dialogo : ${dialogos}">
-					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>
-						
-				</tr>
-				<tr th:each="dialogo : ${dialogos}">
-					<th scope="row" th:text=" ${dialogo.receptor}"></th>
-						
-				</tr>
-			</tbody>
-			
-			
-				<tbody>
-				<tr th:each="dialogo1 : ${dialogo2}">
-					<th scope="row" th:text="${dialogo1.emisor} +'   '"></th>
-						
-				</tr>
-				<tr th:each="dialogo1 : ${dialogo2}">
-					<th scope="row" th:text=" ${dialogo1.receptor}"></th>
-						
-				</tr>
-			</tbody>
-			
-		</table>
-		--------------------------------------------
-
-		<h3>Dialogo 2</h3>
-			<table class="table table-hover">
-
-			<tbody>
-				<tr th:each="dialogo : ${dialogoejemplo2}">
-					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>
-						
-				</tr>
-				<tr th:each="dialogo : ${dialogoejemplo2}">
-					<th scope="row" th:text=" ${dialogo.receptor}"></th>
-						
-				</tr>
-			</tbody>
-			
-			
-				<tbody>
-				<tr th:each="dialogo1 : ${dialogoejemplo22}">
-					<th scope="row" th:text="${dialogo1.emisor} +'   '"></th>
-						
-				</tr>
-				<tr th:each="dialogo1 : ${dialogoejemplo22}">
-					<th scope="row" th:text=" ${dialogo1.receptor}"></th>
-						
-				</tr>
-			</tbody>
-			
-		</table>
-		--------------------------------------------
-			<h3>Dialogo 3</h3>
-			<table class="table table-hover">
-
-			<tbody>
-				<tr th:each="dialogo : ${dialogoejemplo3}">
-					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>
-						
-				</tr>
-				<tr th:each="dialogo : ${dialogoejemplo3}">
-					<th scope="row" th:text=" ${dialogo.receptor}"></th>
-						
-				</tr>
-			</tbody>
-			
-			
-				<tbody>
-				<tr th:each="dialogo1 : ${dialogoejemplo33}">
-					<th scope="row" th:text="${dialogo1.emisor} +'   '"></th>
-						
-				</tr>
-				<tr th:each="dialogo1 : ${dialogoejemplo33}">
-					<th scope="row" th:text=" ${dialogo1.receptor}"></th>
-						
-				</tr>
-			</tbody>
-			
-		</table>
-		--------------------------------------------
-     <!--   
-        <tbody>
-        <tr  th:each="dialogo : ${numeros}">
-            <th scope="row" th:text="${dialogo.nombre}">1</th>
-
- <th scope="row" >
-	<form name="formulario" id="formulario">
-
-		<input type="radio" name="valores"
-			th:id="${dialogo.nombre}+${dialogo.valor1}"  th:text="${dialogo.pregunta1}"/>
-			<br/>
-			<input type="radio" name="valores"
-			th:id="${dialogo.nombre}+${numero.valor2}"   th:text="${dialogo.pregunta2}" />
-			<br/>
-				<input type="radio" name="valores"
-			th:id="${dialogo.nombre}+${dialogo.valor3}"   th:text="${dialogo.pregunta3} "/>
-
-	</form>
-	  
-	  	</th>
-        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
-   
-              
-            <th scope="row"> <img th:src="${dialogo.urlcorto}"/></th>
-           
-            <th scope="row">   <audio controls>
-		<source th:src="${dialogo.audiocorto}" type="audio/mpeg">
-		 <th scope="row" >
-</audio></th>
-        </tr>
-        </tbody>
-    </table>
-            </div>
-                
-       	  -->
-    </div>
+	
+	</div>
       </div>
 </body>
 </html>
