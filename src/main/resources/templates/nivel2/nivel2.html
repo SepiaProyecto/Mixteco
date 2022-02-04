@@ -101,10 +101,33 @@
 						</form>
 					</div>
 					<div class="col-sm">
-						<form th:action="@{'/nivel2'}" method="post">
+						<form th:action="@{'/creandoraciones'}" method="post">
 								<br /><br />
 								<button > <img th:src="@{/img/oraciones.png}" height ="210" width="200" />
 								<u><font color="blue">CREANDO ORACIONES</font></u></button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/pronombresinte'}" method="post">
+							<br /><br />
+							<button > <img th:src="@{/img/inte.png}" height ="180" width="200" />
+							<u><font color="blue">PRONOMBRES INTERROGATIVOS</font></u></button>
+						</form>
+
+					</div>
+					
+					<div class="col-sm">
+						<form th:action="@{'/pronombesnivel2'}" method="post">
+								<br /><br />
+								<button > <img th:src="@{/img/ques.png}" height ="180" width="230" />
+								<u><font color="blue">CREANDO PREGUNTAS</font></u></button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<form th:action="@{'/creandoraciones'}" method="post">
+								<br /><br />
+								<button > <img th:src="@{/img/res.png}" height ="180" width="200" />
+								<u><font color="blue">RESPUESTAS COMUNES</font></u></button>
 						</form>
 					</div>
 					
@@ -126,7 +149,7 @@
 		
 			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
 			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
-			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" /><u><font color="blue">EVALUACIÓN</font></u></button>
+			<button > <img th:src="@{/img/M22.png}" height ="190" width="180" /><u><font color="blue">EVALUACIÓN</font></u></button>
 			<br />
 		</form>
 	</div>

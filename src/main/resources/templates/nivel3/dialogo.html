@@ -99,7 +99,8 @@
 		</table>
 		
 		    <tbody>
-        <tr  th:each="dialogo : ${pregunta1}">
+		    <FONT COLOR="blue"><h5>Pregunta:</h5> </FONT>
+        <tr th:each="dialogo : ${pregunta3}">
             <th scope="row" th:text="${dialogo.nombre}">1</th>
 
 	<form name="formulario" id="formulario">
@@ -123,7 +124,7 @@
    
          
 			
-        </tr>
+        </tr >
         </tbody>
         <br/> <br/>
 		
@@ -156,7 +157,7 @@
 			</tbody>
 			
 		</table>
-		<FONT COLOR="blue"><h>Pregunta:</h> </FONT>
+		<FONT COLOR="blue"><h5>Pregunta:</h5> </FONT>
 		    <tbody>
         <tr  th:each="dialogo : ${pregunta2}">
             <th scope="row" th:text="${dialogo.nombre}">1</th>
@@ -215,7 +216,8 @@
 	
   
         <tbody>
-        <tr  th:each="dialogo : ${pregunta3}">
+        <FONT COLOR="blue"><h5>Pregunta:</h5> </FONT>
+        <tr  th:each="dialogo : ${pregunta1}">
             <th scope="row" th:text="${dialogo.nombre}">1</th>
 
  <th scope="row" >
@@ -242,11 +244,14 @@
         </tbody>
         
     </table>
-    <br/><br/>
+    <hr><hr>
+  <hr><hr>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <form th:action="@{'/nivel3'}"  th:object="${usuario}" method="get">
+  <button class="btn btn-success" type="submit">Terminar</button>
+</div>
             </div>
                 
-       	 
-    </div>
-      </div>
+           <br/><br/>
 </body>
 </html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mi primer Login</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+ 
+ 
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+</head>
+
+ <script type="text/javascript">
+    $(document).ready(function() {
+    	 $('#verusuarios').DataTable({	
+    	 "language": {
+  		      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+  		    }
+    	  });
+    	 
+
+    });
+    
+  async  function validate(evaluation) {
+  
+            let response = await fetch('http://localhost:1337/examen')
+            var users = await response.json()
+            console.log(users)
+    const [id, nombre,tres,cuatro, cinco,seis, siete,ocho,nueve,diez] = users;
+    console.log('-----------'+id); 
+    console.log('-----------'+nombre);
+    console.log('-----------'+tres);  
+  console.log('ID-------- '+id.id); 
+   console.log('ID--------2 '+nombre.id); 
+    var contador=0;
+    var nn=nombre.nombre+'OK';
+       console.log('-----------'+nn); 
+    if(document.getElementById(nn).checked) {
+    contador=contador+1;
+    }
+      if(document.getElementById(id.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+      if(document.getElementById(tres.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+     if(document.getElementById(cuatro.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+    if(document.getElementById(cinco.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+    if(document.getElementById(seis.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+    if(document.getElementById(siete.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+    if(document.getElementById(ocho.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+    if(document.getElementById(nueve.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+    if(document.getElementById(diez.nombre+'OK').checked) {
+      contador=contador+1;
+    }
+    
+     console.log('-----------califica'+contador); 
+    document.getElementById('califica').value = contador;
+  //  alert('Calificacion'+contador);
+  //  window.location.replace("userlist/"+contador);
+    }
+</script>
+
+<body>
+<br/>
+<br/>
+<br/>
+<br/>
+
+    <div class="container">
+    Bienvenido
+    <h3 th:text="${usuario.usuario}" />
+       	<div class="row">
+		<div class="col-sm">
+			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+		</div>
+	</div>
+   	<center><h3>Evaluación de Nivel 3</h3></center>	
+   	</br>
+    <p><h5>Instrucciones: <FONT color="red"> Lee cuidadosamente las preguntas y selecciona la respuesta correcta.</FONT></h5></p>           
+    
+        <table class="table table-striped">
+        <thead>
+        <tr>
+          
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="numero : ${evaluacions}">
+            <th scope="row" th:text="${numero.nombre}">1</th>
+			
+ <th scope="row" >
+	<form name="formulario" id="formulario">
+
+		<input type="radio" name="valores"
+			th:id="${numero.nombre}+${numero.valor1}"  th:text="${numero.pregunta1}"/>
+			<br/>
+			<input type="radio" name="valores"
+			th:id="${numero.nombre}+${numero.valor2}"   th:text="${numero.pregunta2}" />
+			<br/>
+				<input type="radio" name="valores"
+			th:id="${numero.nombre}+${numero.valor3}"   th:text="${numero.pregunta3} "/>
+
+	</form>
+	  </th>
+	  
+        </tbody>
+           
+    </table>
+     <button type="submit" class="btn btn-success"  th:attr="onclick=|validate('${evaluacions}')|"  ></i>Calificar </button>
+    </br></br>
+    
+    			<form th:action="@{'/download-pdf'}"  th:object="${usuario}"  method="get">
+    			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
+    				<input  	th:id="califica"  type="hidden" th:field="*{calificacion}" class="form-control" placeholder="Calificacion" />
+			<button > <img th:src="@{/img/pdf_icon.png}" height ="50" width="50" />Generar Reporte</button>
+			</br></br>
+		</form>
+		
+             
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="popper/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+      
+    <!-- datatables JS -->
+    <script type="text/javascript" src="datatables/datatables.min.js"></script>    
+     
+
+    
+    
+</body>
+</html>

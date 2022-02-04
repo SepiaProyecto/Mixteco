@@ -68,14 +68,16 @@
 					<div class="col-sm">
 						<form th:action="@{'/dialogo'}" method="get">
 								<br /><br />
-								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />Dialogo</button>
+								<button > <img th:src="@{/img/direc.png}" height ="200" width="220" />
+								<u><font color="blue">DÍALOGO</font></u></button></button>
 						</form>
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/examen3'}"  th:object="${usuario}"  method="get">
 						<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
 								<br /><br />
-								<button > <img th:src="@{/img/otros.png}" height ="150" width="170" />Evaluación</button>
+								<button > <img th:src="@{/img/otros.png}" height ="200" width="220" />
+								<u><font color="blue">EVALUACIÓN</font></u></button></button>
 						</form>
 					</div>
 					</div>
