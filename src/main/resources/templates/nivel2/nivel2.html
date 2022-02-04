@@ -48,55 +48,63 @@
 					<div class="col-sm">
 						<form th:action="@{'/pronombresnivel2'}" th:object="${usuario}"   method="post">
 
-							<button > <img th:src="@{/img/pronom.png}" height ="210" width="210" />PRONOMBRES</button>
+							<button > <img th:src="@{/img/pronom.png}" height ="210" width="210" />
+							<u><font color="blue">PRONOMBRES</font></u></button>
 						</form>
 
 					</div>
 					<!--cambiar al nombre de archivo html -->
 					<div class="col-sm">
-						<form th:action="@{'/animalnivel1'}" method="post">
+						<form th:action="@{'/verbospresentetyen'}" method="post">
 
-						<button > <img th:src="@{/img/ANIMAL1.png}" height ="150" width="170" />VERBOS EN PRESENTE PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</button>
+						<button > <img th:src="@{/img/el.png}" height ="150" width="170" />
+						<u><font color="blue">VERBOS EN PRESENTE PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</font></u></button>
 						</form>
 
 					</div>
 					<div class="col-sm">
-						<form th:action="@{'/frutasyverdurasnivel1'}" method="post">
+						<form th:action="@{'/verbospasadotyen'}" method="post">
 
-						<button > <img th:src="@{/img/plátano.png}" height ="150" width="190" />VERBOS EN PASADO PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</button>
+						<button > <img th:src="@{/img/ella.png}" height ="150" width="190" />
+						<u><font color="blue">VERBOS EN PASADO PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</font></u></button>
 						</form>
 
 					</div>
 					<div class="col-sm">
-						<form th:action="@{'/partesdelcuerponivel1'}" method="post">
-							<button > <img th:src="@{/img/cuerpo.png}" height ="150" width="190" />VERBOS EN FUTURO PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</button>
+						<form th:action="@{'/verbosfuturotyen'}" method="post">
+							<button > <img th:src="@{/img/they.png}" height ="150" width="190" />
+							<u><font color="blue">VERBOS EN FUTURO PARA (TÚ, YO, ÉL/ ELLA, NOSOTROS)</font></u></button>
 							
 						</form>
 					</div>
 					<div class="col-sm">
-						<form th:action="@{'/hogarnivel1'}" method="post">
+						<form th:action="@{'/verbospresenteue'}" method="post">
 								<br /><br />
-								<button > <img th:src="@{/img/casa.png}" height ="150" width="240" />VERBOS EN PRESENTE PARA (USTEDES, ELLOS)</button>
+								<button > <img th:src="@{/img/ellos.png}" height ="150" width="240" />
+								<u><font color="blue">VERBOS EN PRESENTE PARA (USTEDES, ELLOS)</font></u></button>
 						</form>
 					</div>
 					<div class="col-sm">
-						<form th:action="@{'/familianivel1'}" method="post">
+						<form th:action="@{'/verbospasadoue'}" method="post">
 							<br /><br />
-							<button > <img th:src="@{/img/family.png}" height ="150" width="240" />VERBOS EN PASADO PARA (USTEDES, ELLOS)</button>
+							<button > <img th:src="@{/img/noso.png}" height ="180" width="240" />
+							<u><font color="blue">VERBOS EN PASADO PARA (USTEDES, ELLOS</font></u></button>
 						</form>
 
 					</div>
 					
 					<div class="col-sm">
-						<form th:action="@{'/direccionesnivel1'}" method="post">
+						<form th:action="@{'/verbosfuturotyen'}" method="post">
 								<br /><br />
-								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />VERBOS EN FUTURO PARA (USTEDES, ELLOS)</button>
+								<button > <img th:src="@{/img/ell.png}" height ="150" width="170" />
+								<u><font color="blue">VERBOS EN FUTURO PARA (USTEDES, ELLOS)</font></u></button>
 						</form>
 					</div>
 					<div class="col-sm">
-						<form th:action="@{'/otrosnivel1'}" method="post">
+						<form th:action="@{'/nivel2'}" method="post">
 								<br /><br />
-								<button > <img th:src="@{/img/otros.png}" height ="210" width="200" />CREANDO ORACIONES</button>
+								<button > <img th:src="@{/img/oraciones.png}" height ="210" width="200" />
+								<u><font color="blue">CREANDO ORACIONES</font></u></button>
 						</form>
 					</div>
 					
@@ -111,14 +119,14 @@
 	
 		<div class="col-sm">
 			<form th:action="@{'/juego'}" method="post">
-					<button > <img th:src="@{/img/jugar.png}" height ="190" width="200" />JUEGO</button>
+					<button > <img th:src="@{/img/jugar.png}" height ="190" width="200" /><u><font color="blue">JUEGO</font></u></button>
 			</form>
 		</div>
 		<div class="col-sm">
 		
 			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
 			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
-			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" />EVALUACIÓN</button>
+			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" /><u><font color="blue">EVALUACIÓN</font></u></button>
 			<br />
 		</form>
 	</div>

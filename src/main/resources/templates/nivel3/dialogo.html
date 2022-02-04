@@ -56,31 +56,31 @@
 		<div class="col-sm">
 			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
 		</div>
+		
 	</div>
-
 	<div class="container">
-
-	<center><h2>Nivel 3 Dialogos</h2></center>
-		<h4>Dialogo 1</h4>
+		
+		 <br/>
+		<center><FONT COLOR="red"><h1><mark> Díalogos!</mark></h1></FONT></center>
+		<br/>
+		<h4><b>Instrucciones: </b><i> Lee cuidadosamente e idetifica la respuesta correcta.</i></h4>
+	
+		<hr color="red" size="100">
+		<FONT COLOR="red"><h4>Díalogo 1</h4> </FONT>
 		<table class="table table-hover">
 
 			<tbody>
+			
+
 				<tr th:each="dialogo : ${dialogos}">
-					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>
-						            <!-- 
-						            <th scope="row">   
-						            <audio controls>
-						<source th:src="${audio}" type="audio/mpeg">
-							<th scope="row">
-									</audio></th> -->
+
+					<th scope="row" th:text="${dialogo.emisor} +'   '"></th>       
+	
 				</tr>
 				<tr th:each="dialogo : ${dialogos}">
 					<th scope="row" th:text=" ${dialogo.receptor}"></th>
-						 <!--   <th scope="row">   
-						            <audio controls>
-						<source th:src="${receptor1}" type="audio/mpeg">
-							<th scope="row">
-									</audio></th> -->
+						  <th scope="row">   
+						            
 				</tr>
 			</tbody>
 			
@@ -88,12 +88,12 @@
 				<tbody>
 				<tr th:each="dialogo1 : ${dialogo2}">
 					<th scope="row" th:text="${dialogo1.emisor} +'   '"></th>
+					
 						
 				</tr>
 				<tr th:each="dialogo1 : ${dialogo2}">
 					<th scope="row" th:text=" ${dialogo1.receptor}"></th>
 						
-				</tr>
 			</tbody>
 			
 		</table>
@@ -102,8 +102,9 @@
         <tr  th:each="dialogo : ${pregunta1}">
             <th scope="row" th:text="${dialogo.nombre}">1</th>
 
- <th scope="row" >
 	<form name="formulario" id="formulario">
+
+
 
 		<input type="radio" name="valores"
 			th:id="${dialogo.nombre}+${dialogo.valor1}"  th:text="${dialogo.pregunta1}"/>
@@ -117,7 +118,8 @@
 	</form>
 	  
 	  	</th><br/>
-        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'"></button></th>
    
          
 			
@@ -125,8 +127,9 @@
         </tbody>
         <br/> <br/>
 		
+<hr color="orange" size="100">
 
-		<h3>Dialogo 2</h3>
+		<FONT COLOR="red"><h4>Díalogo 2</h4> </FONT>
 			<table class="table table-hover">
 
 			<tbody>
@@ -153,14 +156,14 @@
 			</tbody>
 			
 		</table>
-		
+		<FONT COLOR="blue"><h>Pregunta:</h> </FONT>
 		    <tbody>
         <tr  th:each="dialogo : ${pregunta2}">
             <th scope="row" th:text="${dialogo.nombre}">1</th>
 
  <th scope="row" >
 	<form name="formulario" id="formulario">
-
+		
 		<input type="radio" name="valores"
 			th:id="${dialogo.nombre}+${dialogo.valor1}"  th:text="${dialogo.pregunta1}"/>
 			<br/>
@@ -173,15 +176,16 @@
 	</form>
 	  
 	  	</th><br/>
-        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'"></button></th>
    
          
 			
         </tr>
         </tbody>
         <br/><br/>
-		
-			<h3>Dialogo 3</h3>
+		<hr color="orange" size="100">
+			<FONT COLOR="red"><h4>Díalogo 3</h4> </FONT>
 			<table class="table table-hover">
 
 			<tbody>
@@ -229,7 +233,8 @@
 	</form>
 	  
 	  	</th><br/>
-        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${dialogo.nombre}+'OK1' " type="button" th:attr="onclick=|
+        habilitar('${dialogo.nombre}'+'OK')|" th:text="${dialogo.nombre} ? 'Validar' : 'bloqueado'"></button></th>
    
          
 			

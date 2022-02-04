@@ -48,7 +48,8 @@
 					<div class="col-sm">
 						<form th:action="@{'/numeronivel1'}" th:object="${usuario}"   method="post">
 
-							<button > <img th:src="@{/img/numeros.png}" height ="150" width="170" />NÚMEROS</button>
+							<button > <img th:src="@{/img/numeros.png}" height ="150" width="170" />
+							<u><font color="blue">NÚMEROS</font></u></button>
 						</form>
 
 					</div>
@@ -56,33 +57,38 @@
 					<div class="col-sm">
 						<form th:action="@{'/animalnivel1'}" method="post">
 
-						<button > <img th:src="@{/img/ANIMAL1.png}" height ="150" width="170" />ANIMALES</button>
+						<button > <img th:src="@{/img/ANIMAL1.png}" height ="150" width="170" />
+						<u><font color="blue">ANIMALES</font></u></button>
 						</form>
 
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/frutasyverdurasnivel1'}" method="post">
 
-						<button > <img th:src="@{/img/plátano.png}" height ="150" width="190" />FRUTAS Y VERDURAS </button>
+						<button > <img th:src="@{/img/plátano.png}" height ="150" width="190" />
+						<u><font color="blue">FRUTAS Y VERDURAS</font></u></button>
 						</form>
 
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/partesdelcuerponivel1'}" method="post">
-							<button > <img th:src="@{/img/cuerpo.png}" height ="150" width="190" />PARTES DEL CUERPO</button>
+							<button > <img th:src="@{/img/cuerpo.png}" height ="150" width="190" />
+							<u><font color="blue">PARTES DEL CUERPO</font></u></button>
 							
 						</form>
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/hogarnivel1'}" method="post">
 								<br /><br />
-								<button > <img th:src="@{/img/casa.png}" height ="150" width="240" />HOGAR</button>
+								<button > <img th:src="@{/img/casa.png}" height ="150" width="240" />
+								<u><font color="blue">HOGAR</font></u></button>
 						</form>
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/familianivel1'}" method="post">
 							<br /><br />
-							<button > <img th:src="@{/img/family.png}" height ="150" width="240" />FAMILIA</button>
+							<button > <img th:src="@{/img/family.png}" height ="150" width="240" />
+							<u><font color="blue">FAMILIA</font></u></button>
 						</form>
 
 					</div>
@@ -90,13 +96,15 @@
 					<div class="col-sm">
 						<form th:action="@{'/direccionesnivel1'}" method="post">
 								<br /><br />
-								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />DIRECCIONES</button>
+								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />
+								<u><font color="blue">DIRECCIONES</font></u></button>
 						</form>
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/otrosnivel1'}" method="post">
 								<br /><br />
-								<button > <img th:src="@{/img/otros.png}" height ="150" width="200" />OTROS</button>
+								<button > <img th:src="@{/img/otros.png}" height ="150" width="200" />
+								<u><font color="blue">OTROS</font></u></button>
 						</form>
 					</div>
 					</div>
@@ -109,14 +117,14 @@
 	
 		<div class="col-sm">
 			<form th:action="@{'/juego'}" method="post">
-					<button > <img th:src="@{/img/jugar.png}" height ="190" width="200" />JUEGO</button>
+					<button > <img th:src="@{/img/jugar.png}" height ="190" width="200" /><u><font color="blue">JUEGO</font></u></button>
 			</form>
 		</div>
 		<div class="col-sm">
 		
 			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
 			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
-			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" />EVALUACIÓN</button>
+			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" /><u><font color="blue">EVALUACIÓN</font></u></button>
 			<br />
 		</form>
 	</div>

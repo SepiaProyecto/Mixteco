@@ -33,7 +33,7 @@ public class StudentService {
 				 new ParameterizedTypeReference<List<Usuario>>(){});
 
 		Usuario  userreport=new Usuario(); 
-		
+		log.info("Calificacion: "+ user1.getCalificacion());
 		userreport.setApellidomaterno(response.getBody().get(0).getApellidomaterno());
 		userreport.setApellidopaterno(response.getBody().get(0).getApellidopaterno());
 		userreport.setCalificacion(user1.getCalificacion());

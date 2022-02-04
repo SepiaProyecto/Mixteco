@@ -14,6 +14,12 @@ import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
 import mx.curso.mixteco.model.Pronombres;
+import mx.curso.mixteco.model.VerbosFuturoTYEN;
+import mx.curso.mixteco.model.VerbosFuturoUE;
+import mx.curso.mixteco.model.VerbosPasadoTYEN;
+import mx.curso.mixteco.model.VerbosPasadoUE;
+import mx.curso.mixteco.model.VerbosPresenteTYEN;
+import mx.curso.mixteco.model.VerbosPresenteUE;
 import mx.curso.mixteco.repository.IEvaluacionService;
 
 @Controller
@@ -87,10 +93,306 @@ public class Nivel2Controller {
 		return "nivel2/pronombresnivel2";
 	}
 	// -------------------------------------
+	@PostMapping("/verbospresentetyen")
+	public String verbospresentetyen(Model model) {
+		Usuario usuario = new Usuario();
+		model.addAttribute("usuario", usuario);
+		log.info("--------nivel2 verbos presente---------");
+		Usuario user = nn.nombreglobal();
+
+		RestTemplate restTemplate = new RestTemplate();
+
+		String fooResourceUrlcontador = host + "/presentetyens/count?nivel=nivel2";
+
+		ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
 
 	
-	// -------------------------------------
+		int numero = Integer.parseInt(contador.getBody());
 
+		List<VerbosPresenteTYEN> numeros_list = new ArrayList<>();
+
+		List<String> list_respuestas = new ArrayList<>();
+
+		for (int i = 1; i <= numero; i++) {
+			VerbosPresenteTYEN numerores = new VerbosPresenteTYEN();
+
+			String fooResourceUrl = host + "/presentetyens/" + i;
+			ResponseEntity<VerbosPresenteTYEN> response = restTemplate.getForEntity(fooResourceUrl + "", VerbosPresenteTYEN.class);
+			numerores.setNombre(response.getBody().getNombre());
+			numerores.setValor1(response.getBody().getValor1());
+			numerores.setValor2(response.getBody().getValor2());
+			numerores.setValor3(response.getBody().getValor3());
+
+			numerores.setActivad(response.getBody().getActivad());
+
+			numerores.setPregunta1(response.getBody().getPregunta1());
+			numerores.setPregunta2(response.getBody().getPregunta2());
+			numerores.setPregunta3(response.getBody().getPregunta3());
+
+			numerores.setRespuestas(list_respuestas);
+
+			numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+			numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+			numeros_list.add(numerores);
+
+		}
+
+		model.addAttribute("verbospresente", numeros_list);
+
+		return "nivel2/verbospresentetyen";
+	}
+	
+	// -------------------------------------
+	@PostMapping("/verbospasadotyen")
+	public String verbospasadotyen(Model model) {
+		Usuario usuario = new Usuario();
+		model.addAttribute("usuario", usuario);
+		log.info("--------nivel2 verbos pasado--------");
+		Usuario user = nn.nombreglobal();
+
+		RestTemplate restTemplate = new RestTemplate();
+
+		String fooResourceUrlcontador = host + "/pasadotyens/count?nivel=nivel2";
+
+		ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
+
+	
+		int numero = Integer.parseInt(contador.getBody());
+
+		List<VerbosPasadoTYEN> numeros_list = new ArrayList<>();
+
+		List<String> list_respuestas = new ArrayList<>();
+
+		for (int i = 1; i <= numero; i++) {
+			VerbosPasadoTYEN numerores = new VerbosPasadoTYEN();
+
+			String fooResourceUrl = host + "/pasadotyens/" + i;
+			ResponseEntity<VerbosPasadoTYEN> response = restTemplate.getForEntity(fooResourceUrl + "", VerbosPasadoTYEN.class);
+			numerores.setNombre(response.getBody().getNombre());
+			numerores.setValor1(response.getBody().getValor1());
+			numerores.setValor2(response.getBody().getValor2());
+			numerores.setValor3(response.getBody().getValor3());
+
+			numerores.setActivad(response.getBody().getActivad());
+
+			numerores.setPregunta1(response.getBody().getPregunta1());
+			numerores.setPregunta2(response.getBody().getPregunta2());
+			numerores.setPregunta3(response.getBody().getPregunta3());
+
+			numerores.setRespuestas(list_respuestas);
+
+			numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+			numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+			numeros_list.add(numerores);
+
+		}
+
+		model.addAttribute("verbospasado", numeros_list);
+
+		return "nivel2/verbospasadotyen";
+	}
+	
+	// -------------------------------------
+		@PostMapping("/verbosfuturotyen")
+		public String verbosfuturotyen(Model model) {
+			Usuario usuario = new Usuario();
+			model.addAttribute("usuario", usuario);
+			log.info("--------nivel2 verbos futuro--------");
+			Usuario user = nn.nombreglobal();
+
+			RestTemplate restTemplate = new RestTemplate();
+
+			String fooResourceUrlcontador = host + "/futurotyens/count?nivel=nivel2";
+
+			ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
+
+		
+			int numero = Integer.parseInt(contador.getBody());
+
+			List<VerbosFuturoTYEN> numeros_list = new ArrayList<>();
+
+			List<String> list_respuestas = new ArrayList<>();
+
+			for (int i = 1; i <= numero; i++) {
+				VerbosFuturoTYEN numerores = new VerbosFuturoTYEN();
+
+				String fooResourceUrl = host + "/futurotyens/" + i;
+				ResponseEntity<VerbosFuturoTYEN> response = restTemplate.getForEntity(fooResourceUrl + "", VerbosFuturoTYEN.class);
+				numerores.setNombre(response.getBody().getNombre());
+				numerores.setValor1(response.getBody().getValor1());
+				numerores.setValor2(response.getBody().getValor2());
+				numerores.setValor3(response.getBody().getValor3());
+
+				numerores.setActivad(response.getBody().getActivad());
+
+				numerores.setPregunta1(response.getBody().getPregunta1());
+				numerores.setPregunta2(response.getBody().getPregunta2());
+				numerores.setPregunta3(response.getBody().getPregunta3());
+
+				numerores.setRespuestas(list_respuestas);
+
+				numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+				numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+				numeros_list.add(numerores);
+
+			}
+
+			model.addAttribute("verbosfuturo", numeros_list);
+
+			return "nivel2/verbosfuturotyen";
+		}
+		// -------------------------------------
+				@PostMapping("/verbospresenteue")
+				public String verbospresenteue(Model model) {
+					Usuario usuario = new Usuario();
+					model.addAttribute("usuario", usuario);
+					log.info("--------nivel2 verbos presente (Ustedes, Ellos)--------");
+					Usuario user = nn.nombreglobal();
+
+					RestTemplate restTemplate = new RestTemplate();
+
+					String fooResourceUrlcontador = host + "/presenteues/count?nivel=nivel2";
+
+					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
+
+				
+					int numero = Integer.parseInt(contador.getBody());
+
+					List<VerbosPresenteUE> numeros_list = new ArrayList<>();
+
+					List<String> list_respuestas = new ArrayList<>();
+
+					for (int i = 1; i <= numero; i++) {
+						VerbosPresenteUE numerores = new VerbosPresenteUE();
+
+						String fooResourceUrl = host + "/presenteues/" + i;
+						ResponseEntity<VerbosPresenteUE> response = restTemplate.getForEntity(fooResourceUrl + "", VerbosPresenteUE.class);
+						numerores.setNombre(response.getBody().getNombre());
+						numerores.setValor1(response.getBody().getValor1());
+						numerores.setValor2(response.getBody().getValor2());
+						numerores.setValor3(response.getBody().getValor3());
+
+						numerores.setActivad(response.getBody().getActivad());
+
+						numerores.setPregunta1(response.getBody().getPregunta1());
+						numerores.setPregunta2(response.getBody().getPregunta2());
+						numerores.setPregunta3(response.getBody().getPregunta3());
+
+						numerores.setRespuestas(list_respuestas);
+
+						numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+						numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+						numeros_list.add(numerores);
+
+					}
+
+					model.addAttribute("verbospresenteue", numeros_list);
+
+					return "nivel2/verbospresenteue";
+				}
+				
+				// -------------------------------------
+				@PostMapping("/verbospasadoue")
+				public String verbospasadoue(Model model) {
+					Usuario usuario = new Usuario();
+					model.addAttribute("usuario", usuario);
+					log.info("--------nivel2 verbos pasado (Ustedes, Ellos)--------");
+					Usuario user = nn.nombreglobal();
+
+					RestTemplate restTemplate = new RestTemplate();
+
+					String fooResourceUrlcontador = host + "/pasadoues/count?nivel=nivel2";
+
+					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
+
+				
+					int numero = Integer.parseInt(contador.getBody());
+
+					List<VerbosPasadoUE> numeros_list = new ArrayList<>();
+
+					List<String> list_respuestas = new ArrayList<>();
+
+					for (int i = 1; i <= numero; i++) {
+						VerbosPasadoUE numerores = new VerbosPasadoUE();
+
+						String fooResourceUrl = host + "/pasadoues/" + i;
+						ResponseEntity<VerbosPasadoUE> response = restTemplate.getForEntity(fooResourceUrl + "", VerbosPasadoUE.class);
+						numerores.setNombre(response.getBody().getNombre());
+						numerores.setValor1(response.getBody().getValor1());
+						numerores.setValor2(response.getBody().getValor2());
+						numerores.setValor3(response.getBody().getValor3());
+
+						numerores.setActivad(response.getBody().getActivad());
+
+						numerores.setPregunta1(response.getBody().getPregunta1());
+						numerores.setPregunta2(response.getBody().getPregunta2());
+						numerores.setPregunta3(response.getBody().getPregunta3());
+
+						numerores.setRespuestas(list_respuestas);
+
+						numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+						numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+						numeros_list.add(numerores);
+
+					}
+
+					model.addAttribute("verbospasadoue", numeros_list);
+
+					return "nivel2/verbospasadoue";
+				}
+	
+				// -------------------------------------
+				@PostMapping("/verbosfuturoue")
+				public String verbosfuturoue(Model model) {
+					Usuario usuario = new Usuario();
+					model.addAttribute("usuario", usuario);
+					log.info("--------nivel2 verbos futuro (Ustedes, Ellos)--------");
+					Usuario user = nn.nombreglobal();
+
+					RestTemplate restTemplate = new RestTemplate();
+
+					String fooResourceUrlcontador = host + "/futurotyens/count?nivel=nivel1";
+
+					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
+
+				
+					int numero = Integer.parseInt(contador.getBody());
+
+					List<VerbosFuturoUE> numeros_list = new ArrayList<>();
+
+					List<String> list_respuestas = new ArrayList<>();
+
+					for (int i = 1; i <= numero; i++) {
+						VerbosFuturoUE numerores = new VerbosFuturoUE();
+
+						String fooResourceUrl = host + "/futurotyens/" + i;
+						ResponseEntity<VerbosFuturoUE> response = restTemplate.getForEntity(fooResourceUrl + "", VerbosFuturoUE.class);
+						numerores.setNombre(response.getBody().getNombre());
+						numerores.setValor1(response.getBody().getValor1());
+						numerores.setValor2(response.getBody().getValor2());
+						numerores.setValor3(response.getBody().getValor3());
+
+						numerores.setActivad(response.getBody().getActivad());
+
+						numerores.setPregunta1(response.getBody().getPregunta1());
+						numerores.setPregunta2(response.getBody().getPregunta2());
+						numerores.setPregunta3(response.getBody().getPregunta3());
+
+						numerores.setRespuestas(list_respuestas);
+
+						numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+						numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+						numeros_list.add(numerores);
+
+					}
+
+					model.addAttribute("verbosfuturoue", numeros_list);
+
+					return "nivel2/verbosfuturoue";
+				}
+				
+				// -------------------------------------
+				
 	@GetMapping("/evaluacion2")
 	public String evaluacionnivel2(Model model,@ModelAttribute Usuario userglobal) {
 	

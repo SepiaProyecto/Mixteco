@@ -68,7 +68,9 @@
 		
 		  <div class="container">
       
-               <h1>Repasando Partes del Cuerpo Humano</h1>
+               <hr size=100 color="orange">
+              <FONT COLOR="red"> <h1><mark>Repasando Partes del Cuerpo</mark></h1></FONT>
+               <hr size=100 color="orange">
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -79,7 +81,13 @@
         <tbody>
         <tr  th:each="partesdelcuerpo : ${partesdelcuerpo}">
             <th scope="row" th:text="${partesdelcuerpo.nombre}">1</th>
-
+		<th scope="row">   <audio controls>
+		<source th:src="${partesdelcuerpo.audiocorto}" type="audio/mpeg">
+		 <th scope="row" >
+		</audio></th>
+		<th scope="row"> <img th:src="${partesdelcuerpo.urlcorto}"/></th>
+           
+            
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
@@ -99,18 +107,18 @@
         habilitar ('${partesdelcuerpo.nombre}'+'OK')|" th:text="${partesdelcuerpo.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
    
               
-            <th scope="row"> <img th:src="${partesdelcuerpo.urlcorto}"/></th>
-           
-            <th scope="row">   <audio controls>
-		<source th:src="${partesdelcuerpo.audiocorto}" type="audio/mpeg">
-		 <th scope="row" >
-</audio></th>
+            
         </tr>
         </tbody>
     </table>
+                       <hr><hr>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <form th:action="@{'/hogarnivel1'}"  th:object="${usuario}" method="post">
+  <button class="btn btn-success" type="submit">Siguiente Módulo</button>
+</div>
             </div>
                 
-          
+           <br/><br/>
     </div>
 </body>
 </html>

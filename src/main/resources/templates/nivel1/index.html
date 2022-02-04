@@ -36,16 +36,48 @@
 <div class="row">
 <div class="col-8">
 </div>
+
+
+
    <div class="col-4">
-    <!--<form th:action="@{'/#'}" method="get">
-			<button class="btn btn-secondary">Perfil</button>
-		</form> -->
+    <div>
+      
+<p align="right"><a type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" >
+ Ayuda
+</a> </p > </div>
+  
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="modal-title" id="exampleModalLabel">Mensaje</p>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>La importancia de hablar una lengua materna</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div> 
 		 
 		<br/>
 		<form th:action="@{'/salir'}" method="get">
-			<button class="btn btn-danger"><b>Cerrar Sesion</b></button>
+			<p align="right"><button class="btn btn-danger"><b>Cerrar Sesion</b></button></p >
 		</form>
+		
 </div>
+
+
+
 </div>
 		<br></br>
 		<br></br>
@@ -57,7 +89,8 @@
 		</form>
 		</div>
 		<div class="col-sm">
-		<form th:action="@{'/nivel2'}" method="post">
+		<form th:action="@{'/nivel2'}" th:object="${usuario}" method="post">
+		<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
 			<button > <img th:src="@{/img/M1.png}" height ="200" width="200" />NIVEL 2</button>
 		</form>
 		</div>

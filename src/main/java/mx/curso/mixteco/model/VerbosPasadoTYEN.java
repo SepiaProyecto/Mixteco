@@ -1,17 +1,21 @@
 package mx.curso.mixteco.model;
 
+import java.util.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class Dialogo {
+public class VerbosPasadoTYEN {
 
 	private int id;
-    private String emisor;
-    private String receptor;
-    private String numdialogo;
-    private String orden;
+    private String nombre;
+    private String published_at;
+    private String created_at;
+    private String updated_at;
     private List<Imagen> imagen;
     private List<Audio> audio;
     private String urlcorto;
@@ -23,7 +27,11 @@ public class Dialogo {
     private String activad;
   
     private String nivel;
+    //private String textok;
     private String pregunta1;
     private String pregunta2;
     private String pregunta3;
+	  
+	
+	    
 }

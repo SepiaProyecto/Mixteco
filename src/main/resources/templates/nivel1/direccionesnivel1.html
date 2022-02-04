@@ -66,7 +66,9 @@
 		
 		  <div class="container">
       
-               <h1>Repasando Direcciones</h1>
+               <hr size=100 color="orange">
+              <FONT COLOR="red"> <h1><mark>Repasando Direcciones</mark></h1></FONT>
+               <hr size=100 color="orange">
                 <table class="table table-hover">
         <thead>
         
@@ -74,7 +76,14 @@
         <tbody>
         <tr  th:each="direcciones : ${direcciones}">
             <th scope="row" th:text="${direcciones.nombre}">1</th>
-
+		
+		 <th scope="row">   <audio controls>
+		<source th:src="${direcciones.audiocorto}" type="audio/mpeg">
+		 <th scope="row" >
+</audio></th>
+		<th scope="row"> <img th:src="${direcciones.urlcorto}"/></th>
+            
+           
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
@@ -92,20 +101,19 @@
 	  	</th>
 
         <th scope="row" ><button  class="btn btn-info"  th:id="${direcciones.nombre}+'OK1' " type="button" th:attr="onclick=|
-        habilitar('${direcciones.nombre}'+'OK')|" th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'">bbb</button></th>
+        habilitar('${direcciones.nombre}'+'OK')|" th:text="${direcciones.nombre} ? 'Validar' : 'bloqueado'"></button></th>
  
-            <th scope="row"> <img th:src="${direcciones.urlcorto}"/></th>
             
-            <th scope="row">   <audio controls>
-		<source th:src="${direcciones.audiocorto}" type="audio/mpeg">
-		 <th scope="row" >
-</audio></th>
         </tr>
         </tbody>
     </table>
+           <hr><hr>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <form th:action="@{'/otrosnivel1'}"  th:object="${usuario}" method="post">
+  <button class="btn btn-success" type="submit">Siguiente Módulo</button>
+</div>
             </div>
                 
-          
-    </div>
+           <br/><br/>
 </body>
 </html>

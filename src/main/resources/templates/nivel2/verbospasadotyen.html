@@ -67,7 +67,7 @@
 		  <div class="container">
       
                <hr size=100 color="orange">
-              <FONT COLOR="red"> <h1><mark>Repasando Pronombres</mark></h1></FONT>
+              <FONT COLOR="red"> <h1><mark>Repasando Verbos en Pasado para los pronombres (Tú, Yo, ÉL/ Ella, Nosotros)</mark></h1></FONT>
                <hr size=100 color="orange">
                 <table class="table table-hover">
         <thead>
@@ -77,39 +77,39 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="pronombres : ${pronombres}">
-            <th scope="row" th:text="${pronombres.nombre}">1</th>
+        <tr  th:each="verbospasado : ${verbospasado}">
+            <th scope="row" th:text="${verbospasado.nombre}">1</th>
             
             <th scope="row">   <audio controls>
-		<source th:src="${pronombres.audiocorto}" type="audio/mpeg">
+		<source th:src="${verbospasado.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
-            <th scope="row"> <img th:src="${pronombres.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${verbospasado.urlcorto}"/></th>
   
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${pronombres.nombre}+${pronombres.valor1}"  th:text="${pronombres.pregunta1}"/>
+			th:id="${verbospasado.nombre}+${verbospasado.valor1}"  th:text="${verbospasado.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${pronombres.nombre}+${pronombres.valor2}"   th:text="${pronombres.pregunta2}" />
+			th:id="${verbospasado.nombre}+${verbospasado.valor2}"   th:text="${verbospasado.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${pronombres.nombre}+${pronombres.valor3}"   th:text="${pronombres.pregunta3} "/>
+			th:id="${verbospasado.nombre}+${verbospasado.valor3}"   th:text="${verbospasado.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button class="btn btn-info"  th:id="${pronombres.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
-        ('${pronombres.nombre}'+'OK')|" th:text="${pronombres.nombre} ? 'Validar' : 'bloqueado'"></button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${verbospasado.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
+        ('${verbospasado.nombre}'+'OK')|" th:text="${verbospasado.nombre} ? 'Validar' : 'bloqueado'"></button></th>
       
         </tr>
         </tbody>
     </table>
             <hr><hr>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <form th:action="@{'/verbospresentetyen'}"  th:object="${usuario}" method="post">
+  <form th:action="@{'/verbosfuturotyen'}"  th:object="${usuario}" method="post">
   <button class="btn btn-success" type="submit">Siguiente Módulo</button>
 </div>
             </div>

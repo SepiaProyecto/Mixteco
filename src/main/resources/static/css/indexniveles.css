@@ -66,9 +66,10 @@ color:white;
 button{
     width: 60%;
     margin: -20px 0 25px;
-    color: blue;
-    text-decoration: underline blue;
+    color: red;
+    text-decoration: underline red;
     font-weight: 1000;
+    top:40px; left:50px
 }
 
 .forgot{
