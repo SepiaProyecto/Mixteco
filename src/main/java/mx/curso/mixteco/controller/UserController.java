@@ -48,7 +48,7 @@ public class UserController {
     model.addAttribute("usuario",usuario);
     log.info("saliedo login");
 	
-    return "/index";
+    return "https://serversepia.herokuapp.com/";
 	}
 
 	
