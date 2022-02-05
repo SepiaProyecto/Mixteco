@@ -30,8 +30,8 @@ public class UserController {
 	public Usuario userG=new Usuario();
 	public String userr="xd";
 	
-//	private final String host = "https://contenidostrapi.herokuapp.com";
-	private final String host="http://localhost:1337";
+	private final String host = "https://contenidostrapi.herokuapp.com";
+	//private final String host="http://localhost:1337";
 	
 	@GetMapping("/")
 		public String index(Model model) {

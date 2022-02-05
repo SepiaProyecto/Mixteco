@@ -25,7 +25,7 @@ public class UserService implements IuserRepository{
 	@Override
 	public List<Usuario> list_user() {
 
-		String fooResourceUrl = "http://localhost:1337/usuariosepias";
+		String fooResourceUrl = "https://contenidostrapi.herokuapp.com/usuariosepias";
 		log.info("Consulta de lista de usuario");
 		ResponseEntity<List<Usuario>> response= restTemplate.exchange(
 				fooResourceUrl,

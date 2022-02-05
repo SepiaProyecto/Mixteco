@@ -26,8 +26,8 @@ public class Nivel3Controller {
 	@Autowired
 	private INivel3Service iNivel3Service;
 	
-//	String host = "https://contenidostrapi.herokuapp.com";
-	String host = "http://localhost:1337";
+	String host = "https://contenidostrapi.herokuapp.com";
+	//String host = "http://localhost:1337";
 	
 	@Autowired
 	private IEvaluacionService iEvaluacionService;
