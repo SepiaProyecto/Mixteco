@@ -90,39 +90,39 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="creandoraciones : ${creandoraciones}">
-            <th scope="row" th:text="${creandoraciones.nombre}">1</th>
+        <tr  th:each="respuestas : ${respuestas}">
+            <th scope="row" th:text="${respuestas.nombre}">1</th>
             
             <th scope="row">   <audio controls>
-		<source th:src="${creandoraciones.audiocorto}" type="audio/mpeg">
+		<source th:src="${respuestas.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
-            <th scope="row"> <img th:src="${creandoraciones.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${respuestas.urlcorto}"/></th>
   
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${creandoraciones.nombre}+${creandoraciones.valor1}"  th:text="${creandoraciones.pregunta1}"/>
+			th:id="${respuestas.nombre}+${respuestas.valor1}"  th:text="${respuestas.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${creandoraciones.nombre}+${creandoraciones.valor2}"   th:text="${creandoraciones.pregunta2}" />
+			th:id="${respuestas.nombre}+${respuestas.valor2}"   th:text="${respuestas.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${creandoraciones.nombre}+${creandoraciones.valor3}"   th:text="${creandoraciones.pregunta3} "/>
+			th:id="${respuestas.nombre}+${respuestas.valor3}"   th:text="${respuestas.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button class="btn btn-info"  th:id="${creandoraciones.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
-        ('${creandoraciones.nombre}'+'OK')|" th:text="${creandoraciones.nombre} ? 'Validar' : 'bloqueado'"></button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${respuestas.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
+        ('${respuestas.nombre}'+'OK')|" th:text="${respuestas.nombre} ? 'Validar' : 'bloqueado'"></button></th>
       
         </tr>
         </tbody>
     </table>
             <hr><hr>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <form th:action="@{'/pronombresinte'}"  th:object="${usuario}" method="post">
+  <form th:action="@{'/nivel2'}"  th:object="${usuario}" method="post">
   <button class="btn btn-success" type="submit">Siguiente Módulo</button>
 </div>
             </div>

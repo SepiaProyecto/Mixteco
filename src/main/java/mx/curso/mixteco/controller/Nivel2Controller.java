@@ -14,8 +14,10 @@ import org.springframework.web.client.RestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import mx.curso.mixteco.entity.Usuario;
 import mx.curso.mixteco.model.CreandoOraciones;
+import mx.curso.mixteco.model.CreandoPreguntas;
 import mx.curso.mixteco.model.Pronombres;
 import mx.curso.mixteco.model.PronombresInterrogativos;
+import mx.curso.mixteco.model.RespuestasComunes;
 import mx.curso.mixteco.model.VerbosFuturoTYEN;
 import mx.curso.mixteco.model.VerbosFuturoUE;
 import mx.curso.mixteco.model.VerbosPasadoTYEN;
@@ -28,8 +30,8 @@ import mx.curso.mixteco.repository.IEvaluacionService;
 @Slf4j
 public class Nivel2Controller {
 
-//	private final String host = "https://contenidostrapi.herokuapp.com";
-	private final String host="http://localhost:1337";
+ 	private final String host = "https://contenidostrapi.herokuapp.com";
+	//private final String host="http://localhost:1337";
 	UserController nn = new UserController();
 	@Autowired
 	private IEvaluacionService iEvaluacionService;
@@ -499,6 +501,107 @@ public class Nivel2Controller {
 				}
 				
 				// -------------------------------------
+				@PostMapping("/creandopreguntas")
+				public String creandopreguntas(Model model) {
+					Usuario usuario = new Usuario();
+					model.addAttribute("usuario", usuario);
+					log.info("--------nivel2 plantea preguntas-------");
+					Usuario user = nn.nombreglobal();
+
+					RestTemplate restTemplate = new RestTemplate();
+
+					String fooResourceUrlcontador = host + "/crearpreguntas/count?nivel=nivel2";
+
+					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
+
+				
+					int numero = Integer.parseInt(contador.getBody());
+
+					List<CreandoPreguntas> numeros_list = new ArrayList<>();
+
+					List<String> list_respuestas = new ArrayList<>();
+
+					for (int i = 1; i <= numero; i++) {
+						CreandoPreguntas numerores = new CreandoPreguntas();
+						
+
+						String fooResourceUrl = host + "/crearpreguntas/" + i;
+						ResponseEntity<CreandoPreguntas> response = restTemplate.getForEntity(fooResourceUrl + "", CreandoPreguntas.class);
+						numerores.setNombre(response.getBody().getNombre());
+						numerores.setValor1(response.getBody().getValor1());
+						numerores.setValor2(response.getBody().getValor2());
+						numerores.setValor3(response.getBody().getValor3());
+
+						numerores.setActivad(response.getBody().getActivad());
+
+						numerores.setPregunta1(response.getBody().getPregunta1());
+						numerores.setPregunta2(response.getBody().getPregunta2());
+						numerores.setPregunta3(response.getBody().getPregunta3());
+
+						numerores.setRespuestas(list_respuestas);
+
+						numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+						numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+						numeros_list.add(numerores);
+
+					}
+
+					model.addAttribute("creandopreguntas", numeros_list);
+
+					return "nivel2/creandopreguntas";
+				}
+				
+				
+				// -------------------------------------
+				@PostMapping("/respuestas")
+				public String respuestas(Model model) {
+					Usuario usuario = new Usuario();
+					model.addAttribute("usuario", usuario);
+					log.info("--------nivel2 plantea preguntas-------");
+					Usuario user = nn.nombreglobal();
+
+					RestTemplate restTemplate = new RestTemplate();
+
+					String fooResourceUrlcontador = host + "/crearpreguntas/count?nivel=nivel2";
+
+					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
+
+				
+					int numero = Integer.parseInt(contador.getBody());
+
+					List<RespuestasComunes> numeros_list = new ArrayList<>();
+
+					List<String> list_respuestas = new ArrayList<>();
+
+					for (int i = 1; i <= numero; i++) {
+						RespuestasComunes numerores = new RespuestasComunes();
+						
+
+						String fooResourceUrl = host + "/crearpreguntas/" + i;
+						ResponseEntity<RespuestasComunes> response = restTemplate.getForEntity(fooResourceUrl + "", RespuestasComunes.class);
+						numerores.setNombre(response.getBody().getNombre());
+						numerores.setValor1(response.getBody().getValor1());
+						numerores.setValor2(response.getBody().getValor2());
+						numerores.setValor3(response.getBody().getValor3());
+
+						numerores.setActivad(response.getBody().getActivad());
+
+						numerores.setPregunta1(response.getBody().getPregunta1());
+						numerores.setPregunta2(response.getBody().getPregunta2());
+						numerores.setPregunta3(response.getBody().getPregunta3());
+
+						numerores.setRespuestas(list_respuestas);
+
+						numerores.setUrlcorto(host + response.getBody().getImagen().get(0).getUrl());
+						numerores.setAudiocorto(host + response.getBody().getAudio().get(0).getUrl());
+						numeros_list.add(numerores);
+
+					}
+
+					model.addAttribute("respuestas", numeros_list);
+
+					return "nivel2/respuestas";
+				}
 				
 	@GetMapping("/evaluacion2")
 	public String evaluacionnivel2(Model model,@ModelAttribute Usuario userglobal) {

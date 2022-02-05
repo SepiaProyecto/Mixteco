@@ -32,12 +32,12 @@
 				
 				
 				 <tbody>
-            <tr th:each="student : ${students}">
+            <tr th:each="usuario : ${usuario}">
                 ID<td th:text="${student?.id}"></td>
-                Nombre:<td th:text="'   '+${student?.nombre}"></td>
-                 Ape:<td th:text="'   '+${student?.apellidopaterno}"></td>
-                         Correo:<td th:text="'   '+${student?.correo}"></td>
-                Calificacio:<td th:text="'   '+${student?.calificacion}"></td>
+                Nombre:<td th:text="'   '+${usuario?.nombre}"></td>
+                 Apell:<td th:text="'   '+${usuario?.apellidopaterno}"></td>
+                         Correo:<td th:text="'   '+${usuario?.correo}"></td>
+                Calificacio:<td th:text="'   '+${usuario?.calificacion}"></td>
             </tr>
             </tbody>
 			</div>

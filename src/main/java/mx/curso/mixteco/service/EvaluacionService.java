@@ -18,8 +18,8 @@ import mx.curso.mixteco.repository.IEvaluacionService;
 @Service
 public class EvaluacionService implements IEvaluacionService {
 	
-//	private final String host = "https://contenidostrapi.herokuapp.com";
-	private final String host="http://localhost:1337";
+	private final String host = "https://contenidostrapi.herokuapp.com";
+	//private final String host="http://localhost:1337";
 	private  RestTemplate restTemplate = new RestTemplate();
 
 	@Override
