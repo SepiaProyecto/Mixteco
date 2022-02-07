@@ -29,7 +29,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel3.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel.css}">
 
 </head>
 
@@ -51,9 +51,8 @@
   
 <body>
 	<div class="container">
-		Bienvenido
-		
-		<h3 th:text="${usuario.usuario}" />
+	</br></br>
+		<center><FONT COLOR="white"><h1> <mark> Bienvenido al nivel Avanzado!</mark><h1 th:text="${usuario.usuario}"/></center>
 	<div class="row">
 		<div class="col-sm">
 			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
