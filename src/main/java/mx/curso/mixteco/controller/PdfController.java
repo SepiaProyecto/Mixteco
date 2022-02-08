@@ -44,7 +44,7 @@ public class PdfController {
 	                response.getOutputStream().flush();
 	            }
 	        } catch (DocumentException | IOException ex) {
-	            ex.printStackTrace();
+	           log.error(ex.getMessage());
 	        }
 	    }
 

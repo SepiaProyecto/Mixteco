@@ -26,10 +26,6 @@ public class UserController {
 	@Autowired
     private IuserRepository iuserRepository;
 	
-	
-	public Usuario userG=new Usuario();
-	public String userr="xd";
-	
 //	private final String host = "https://contenidostrapi.herokuapp.com";
 	private final String host="http://localhost:1337";
 	
@@ -81,12 +77,6 @@ public class UserController {
      
 	 model. addAttribute("usuario", userglobal);
 
-	 userG=new Usuario(); 
-	 userG.setNombre(userglobal.getNombre());
-	 userG.setUsuario(userglobal.getUsuario());
-	this.userr=userglobal.getUsuario();
-	nombreglobal( );
-	log.info("user logininicio "+userr);
 	 if (userglobal.getUsuario().equals("admin")&& userglobal.getContrasena().equalsIgnoreCase("root")) {
 		 model. addAttribute("usuarios", iuserRepository.list_user());
 		 model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
@@ -113,9 +103,6 @@ public class UserController {
 	
 	public Usuario nombreglobal( ) {
 		Usuario user= new Usuario();
-				log.info("usuarioglobal "+userr);
-			
-		user.setUsuario(userr);
 		return user;
 	}
 	

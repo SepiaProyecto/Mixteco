@@ -1,22 +1,24 @@
 package mx.curso.mixteco.service;
 
-import com.lowagie.text.DocumentException;
-
-import mx.curso.mixteco.entity.Usuario;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import org.thymeleaf.context.Context;
-import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.xhtmlrenderer.pdf.ITextRenderer;
-
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.xhtmlrenderer.pdf.ITextRenderer;
+
+import com.lowagie.text.DocumentException;
+
+import lombok.extern.slf4j.Slf4j;
+import mx.curso.mixteco.entity.Usuario;
+
+@Slf4j
 @Service
 public class PdfService {
 
@@ -37,15 +39,23 @@ public class PdfService {
     }
 
 
-    private File renderPdf(String html) throws IOException, DocumentException {
+    private File renderPdf(String html) throws DocumentException, IOException {
         File file = File.createTempFile("students", ".pdf");
-        OutputStream outputStream = new FileOutputStream(file);
-        ITextRenderer renderer = new ITextRenderer(20f * 4f / 3f, 20);
-        renderer.setDocumentFromString(html, new ClassPathResource(PDF_RESOURCES).getURL().toExternalForm());
-        renderer.layout();
-        renderer.createPDF(outputStream);
-        outputStream.close();
-        file.deleteOnExit();
+        OutputStream outputStream;
+		try {
+			 = new FileOutputStream(file);
+			 ITextRenderer renderer = new ITextRenderer(20f * 4f / 3f, 20);
+		        renderer.setDocumentFromString(html, new ClassPathResource(PDF_RESOURCES).getURL().toExternalForm());
+		        renderer.layout();
+		        renderer.createPDF(outputStream);
+		        outputStream.close();
+		        file.deleteOnExit();
+		} catch (FileNotFoundException e) {
+		log.error(e.getMessage());
+		}
+		finally {
+			outputStream.close();
+		  }
         return file;
     }
 
