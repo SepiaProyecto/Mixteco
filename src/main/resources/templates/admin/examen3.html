@@ -30,15 +30,14 @@
             let response = await fetch('https://contenidostrapi.herokuapp.com/examen')
             var users = await response.json()
             console.log(users)
-    const [id, nombre,tres,cuatro, cinco,seis, siete,ocho,nueve,diez] = users;
+    const [id, dos,tres,cuatro, cinco,seis, siete,ocho,nueve,diez] = users;
   
   console.log('ID-------- '+id.id); 
-   console.log('ID--------2 '+nombre.id); 
+
     var contador=0;
-    var nn=nombre.nombre+'OK';
-   var nnincorrecto=nombre.nombre+'incorrecto';
-  
-    if(document.getElementById(nn).checked) {
+ 
+     
+    if(document.getElementById(dos.nombre+'OK').checked) {
     contador=contador+1;
     }
       if(document.getElementById(id.nombre+'OK').checked) {
@@ -75,33 +74,43 @@
  	
  	document.getElementById(diez.nombre+'OK').disabled=true;
  	document.getElementById(diez.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(diez.nombre+'incorrecto1').disabled=true;
  	
  	document.getElementById(nueve.nombre+'OK').disabled=true;
  	document.getElementById(nueve.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(nueve.nombre+'incorrecto1').disabled=true;
  	
  	document.getElementById(ocho.nombre+'OK').disabled=true;
  	document.getElementById(ocho.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(ocho.nombre+'incorrecto1').disabled=true;
  	  
  	document.getElementById(siete.nombre+'OK').disabled=true;
  	document.getElementById(siete.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(siete.nombre+'incorrecto1').disabled=true;
  	
  	document.getElementById(seis.nombre+'OK').disabled=true;
  	document.getElementById(seis.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(seis.nombre+'incorrecto1').disabled=true;
  	
  	document.getElementById(cinco.nombre+'OK').disabled=true;
  	document.getElementById(cinco.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(cinco.nombre+'incorrecto1').disabled=true;
  	
  	document.getElementById(cuatro.nombre+'OK').disabled=true;
  	document.getElementById(cuatro.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(cuatro.nombre+'incorrecto1').disabled=true;
  	
  	document.getElementById(tres.nombre+'OK').disabled=true;
  	document.getElementById(tres.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(tres.nombre+'incorrecto1').disabled=true;
  	
- 	document.getElementById(nn).disabled=true;
- 	document.getElementById(nnincorrecto).disabled=true;
+ 	document.getElementById(dos.nombre+'OK').disabled=true;
+ 	document.getElementById(dos.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(dos.nombre+'incorrecto1').disabled=true;
  	
  	document.getElementById(id.nombre+'OK').disabled=true;
  	document.getElementById(id.nombre+'incorrecto').disabled=true;
+ 	document.getElementById(id.nombre+'incorrecto1').disabled=true;
     }
     }
 </script>
