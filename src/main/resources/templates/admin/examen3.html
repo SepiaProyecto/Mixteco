@@ -31,14 +31,13 @@
             var users = await response.json()
             console.log(users)
     const [id, nombre,tres,cuatro, cinco,seis, siete,ocho,nueve,diez] = users;
-    console.log('-----------'+id); 
-    console.log('-----------'+nombre);
-    console.log('-----------'+tres);  
+  
   console.log('ID-------- '+id.id); 
    console.log('ID--------2 '+nombre.id); 
     var contador=0;
     var nn=nombre.nombre+'OK';
-       console.log('-----------'+nn); 
+   var nnincorrecto=nombre.nombre+'incorrecto';
+  
     if(document.getElementById(nn).checked) {
     contador=contador+1;
     }
@@ -72,8 +71,38 @@
     
      console.log('-----------califica'+contador); 
     document.getElementById('califica').value = contador;
-  //  alert('Calificacion'+contador);
-  //  window.location.replace("userlist/"+contador);
+ 	if(contador >= 0){
+ 	
+ 	document.getElementById(diez.nombre+'OK').disabled=true;
+ 	document.getElementById(diez.nombre+'incorrecto').disabled=true;
+ 	
+ 	document.getElementById(nueve.nombre+'OK').disabled=true;
+ 	document.getElementById(nueve.nombre+'incorrecto').disabled=true;
+ 	
+ 	document.getElementById(ocho.nombre+'OK').disabled=true;
+ 	document.getElementById(ocho.nombre+'incorrecto').disabled=true;
+ 	  
+ 	document.getElementById(siete.nombre+'OK').disabled=true;
+ 	document.getElementById(siete.nombre+'incorrecto').disabled=true;
+ 	
+ 	document.getElementById(seis.nombre+'OK').disabled=true;
+ 	document.getElementById(seis.nombre+'incorrecto').disabled=true;
+ 	
+ 	document.getElementById(cinco.nombre+'OK').disabled=true;
+ 	document.getElementById(cinco.nombre+'incorrecto').disabled=true;
+ 	
+ 	document.getElementById(cuatro.nombre+'OK').disabled=true;
+ 	document.getElementById(cuatro.nombre+'incorrecto').disabled=true;
+ 	
+ 	document.getElementById(tres.nombre+'OK').disabled=true;
+ 	document.getElementById(tres.nombre+'incorrecto').disabled=true;
+ 	
+ 	document.getElementById(nn).disabled=true;
+ 	document.getElementById(nnincorrecto).disabled=true;
+ 	
+ 	document.getElementById(id.nombre+'OK').disabled=true;
+ 	document.getElementById(id.nombre+'incorrecto').disabled=true;
+    }
     }
 </script>
 
