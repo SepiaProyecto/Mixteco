@@ -16,8 +16,8 @@ import mx.curso.mixteco.repository.INivel3Service;
 @Service
 public class Preguntanivel3Service implements INivel3Service {
 	
-//	private final String host = "https://contenidostrapi.herokuapp.com";
-	private final String host="http://localhost:1337";
+	private final String host = "https://contenidostrapi.herokuapp.com";
+	//	private final String host="http://localhost:1337";
 	private  RestTemplate restTemplate = new RestTemplate();
 
 	@Override

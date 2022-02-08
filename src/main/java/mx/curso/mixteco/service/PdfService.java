@@ -41,9 +41,9 @@ public class PdfService {
 
     private File renderPdf(String html) throws DocumentException, IOException {
         File file = File.createTempFile("students", ".pdf");
-        OutputStream outputStream;
+        OutputStream outputStream=null;
 		try {
-			 = new FileOutputStream(file);
+			outputStream = new FileOutputStream(file);
 			 ITextRenderer renderer = new ITextRenderer(20f * 4f / 3f, 20);
 		        renderer.setDocumentFromString(html, new ClassPathResource(PDF_RESOURCES).getURL().toExternalForm());
 		        renderer.layout();

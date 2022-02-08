@@ -22,8 +22,8 @@ public class DialogoService implements IDialogRepository{
 	 */
 	@Override
 	public List<Dialogo> listdialog(String numEjempl,int order) {
-//		String host = "https://contenidostrapi.herokuapp.com";
-		String host = "http://localhost:1337";
+		String host = "https://contenidostrapi.herokuapp.com";
+		//String host = "http://localhost:1337";
 		log.info("Consulta listdialog "+numEjempl);
 		ResponseEntity<List<Dialogo>> response= restTemplate.exchange(
 				host+"/dialogos?numdialogo="+numEjempl+"&id="+order,

@@ -28,8 +28,8 @@ import mx.curso.mixteco.repository.IEvaluacionService;
 @Slf4j
 public class Nivel1Controller {
 
-//	private final String host = "https://contenidostrapi.herokuapp.com";
-	private final String host="http://localhost:1337";
+	private final String host = "https://contenidostrapi.herokuapp.com";
+	//private final String host="http://localhost:1337";
 	UserController nn = new UserController();
 	@Autowired
 	private IEvaluacionService iEvaluacionService;

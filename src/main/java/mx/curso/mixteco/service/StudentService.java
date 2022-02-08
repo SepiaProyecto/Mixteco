@@ -20,8 +20,8 @@ public class StudentService {
 	private  RestTemplate restTemplate = new RestTemplate();
    
     public List<Usuario> getUsuario(Usuario user1){
-    //	String host = "https://contenidostrapi.herokuapp.com";
-		String host = "http://localhost:1337";
+    	String host = "https://contenidostrapi.herokuapp.com";
+	//	String host = "http://localhost:1337";
     	
     	String fooResourceUrl = host+"/usuariosepias?usuario="+user1.getUsuario();
     	

@@ -67,8 +67,25 @@
 		  <div class="container">
       
                <hr size=100 color="orange">
-              <FONT COLOR="red"> <h1><mark>Aprende Verbos en Futuro para los pronombres (Tú, Yo, ÉL/ Ella, Nosotros)</mark></h1></FONT>
+              <FONT COLOR="red"> <h1><mark>Cómo Formular Preguntas</mark></h1></FONT>
                <hr size=100 color="orange">
+                
+               <FONT COLOR="black"> <h4><mark><strong>Nota:</strong> <br><FONT color="blue">A).</FONT> 
+               Para plantear Preguntas se sigue la siguiente regla <FONT color="red">  
+               (pronombre interrogativo + verbo + sujeto/ predicado).</FONT></br> <br><FONT color="blue">B).</FONT> Al momento de formular las preguntas la 
+               escritura de los verbos se agrega <FONT color="red"> (ní)</FONT> en cualquiera de sus conjugaciones y se aplica para todos los pronombres o se agrega solo la 
+               <FONT color="red"> (í)</FONT> 
+               en caso de que el verbo termine en <FONT color="red"> (n)</FONT>. </br>
+				 <br><FONT color="blue">C).</FONT> Para referirse a un objeto o animales se le agrega <FONT color="red"> (un)</FONT> al final de su nombre
+				  mixteco, en caso de que termine en <FONT color="red"> (u)</FONT> solo se agrega la <FONT color="red"> (n)</FONT> 
+               y se utiliza la misma escritura que para el pronombre "El" en sus diferentes conjugaciones.
+               
+               </br></br><FONT color="blue">D).</FONT> Para las negaciones se utiliza <FONT color="red">(ña'atú)</FONT> antes del verbo en caso de que se conjugue en  <FONT color="red"> pasado / presente</FONT>. 
+               </br></br><FONT color="blue">E).</FONT> Para las negaciones se utiliza <FONT color="red">(m'a')</FONT> antes del verbo en caso de que se conjugue en <FONT color="red"> futuro</FONT> 
+				</mark></h4> 
+               </FONT><hr size=100 color="orange">
+               
+               
                 <table class="table table-hover">
         <thead>
         <tr>
@@ -77,39 +94,39 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="verbosfuturo : ${verbosfuturo}">
-            <th scope="row" th:text="${verbosfuturo.nombre}">1</th>
+        <tr  th:each="creandopreguntas : ${creandopreguntas}">
+            <th scope="row" th:text="${creandopreguntas.nombre}">1</th>
             
             <th scope="row">   <audio controls>
-		<source th:src="${verbosfuturo.audiocorto}" type="audio/mpeg">
+		<source th:src="${creandopreguntas.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
-            <th scope="row"> <img th:src="${verbosfuturo.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${creandopreguntas.urlcorto}"/></th>
   
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${verbosfuturo.nombre}+${verbosfuturo.valor1}"  th:text="${verbosfuturo.pregunta1}"/>
+			th:id="${creandopreguntas.nombre}+${creandopreguntas.valor1}"  th:text="${creandopreguntas.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${verbosfuturo.nombre}+${verbosfuturo.valor2}"   th:text="${verbosfuturo.pregunta2}" />
+			th:id="${creandopreguntas.nombre}+${creandopreguntas.valor2}"   th:text="${creandopreguntas.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${verbosfuturo.nombre}+${verbosfuturo.valor3}"   th:text="${verbosfuturo.pregunta3} "/>
+			th:id="${creandopreguntas.nombre}+${creandopreguntas.valor3}"   th:text="${creandopreguntas.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button class="btn btn-info"  th:id="${verbosfuturo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
-        ('${verbosfuturo.nombre}'+'OK')|" th:text="${verbosfuturo.nombre} ? 'Validar' : 'bloqueado'"></button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${creandopreguntas.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
+        ('${creandopreguntas.nombre}'+'OK')|" th:text="${creandopreguntas.nombre} ? 'Validar' : 'bloqueado'"></button></th>
       
         </tr>
         </tbody>
     </table>
             <hr><hr>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <form th:action="@{'/verbospresenteue'}"  th:object="${usuario}" method="post">
+  <form th:action="@{'/respuestascomunes'}"  th:object="${usuario}" method="post">
   <button class="btn btn-success" type="submit">Siguiente Módulo</button>
 </div>
             </div>

@@ -29,7 +29,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel3.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nivel.css}">
 
 </head>
 
@@ -51,12 +51,11 @@
   
 <body>
 	<div class="container">
-		Bienvenido
-		
-		<h3 th:text="${usuario.usuario}" />
+	</br></br>
+		<center><FONT COLOR="white"><h1> <mark> Bienvenido al nivel Avanzado!</mark><h1 th:text="${usuario.usuario}"/></center>
 	<div class="row">
 		<div class="col-sm">
-			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
+			<button class="b" onclick="history.back()">Volver</button>
 		</div>
 	</div>
 
@@ -68,14 +67,16 @@
 					<div class="col-sm">
 						<form th:action="@{'/dialogo'}" method="get">
 								<br /><br />
-								<button > <img th:src="@{/img/direc.png}" height ="150" width="170" />Dialogo</button>
+								<button > <img th:src="@{/img/diag.png}" height ="200" width="220" />
+								<u><font color="blue">DÍALOGO</font></u></button></button>
 						</form>
 					</div>
 					<div class="col-sm">
 						<form th:action="@{'/examen3'}"  th:object="${usuario}"  method="get">
 						<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
 								<br /><br />
-								<button > <img th:src="@{/img/otros.png}" height ="150" width="170" />Evaluación</button>
+								<button > <img th:src="@{/img/M22.png}" height ="200" width="220" />
+								<u><font color="blue">EVALUACIÓN</font></u></button></button>
 						</form>
 					</div>
 					</div>

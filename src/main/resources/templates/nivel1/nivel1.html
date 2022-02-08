@@ -30,7 +30,7 @@
 			<br />
 			<br />
 			
-			<center><FONT COLOR="white"><h1> <mark> Bienvenido al nivel básico!</mark><h1 th:text="${usuario.usuario}"/></center>
+			<center><FONT COLOR="white"><h1> <mark> Bienvenido al nivel Básico!</mark><h1 th:text="${usuario.usuario}"/></center>
 			
 <div class="row">
 	<div class="col-sm">
@@ -122,7 +122,7 @@
 		</div>
 		<div class="col-sm">
 		
-			<form th:action="@{'/evaluacion'}"  th:object="${usuario}"  method="get">
+			<form th:action="@{'/examen3'}"  th:object="${usuario}"  method="get">
 			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
 			<button > <img th:src="@{/img/M22.png}" height ="190" width="200" /><u><font color="blue">EVALUACIÓN</font></u></button>
 			<br />
@@ -131,7 +131,8 @@
 	</div>
 		
 		<br />
-	
+	<hr><hr>
+  
 		<br />
 
 	</div>

@@ -30,7 +30,7 @@
     
   async  function validate(evaluation) {
   
-            let response = await fetch('http://localhost:1337/examen')
+            let response = await fetch('https://contenidostrapi.herokuapp.com/examen')
             var users = await response.json()
             console.log(users)
     const [id, nombre,tres] = users;

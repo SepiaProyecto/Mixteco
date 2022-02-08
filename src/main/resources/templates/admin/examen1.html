@@ -27,7 +27,7 @@
     
   async  function validate(evaluation) {
   
-            let response = await fetch('https://contenidostrapi.herokuapp.com/examen3')
+            let response = await fetch('http://localhost:1337/examen')
             var users = await response.json()
             console.log(users)
     const [id, nombre,tres,cuatro, cinco,seis, siete,ocho,nueve,diez] = users;
@@ -91,7 +91,7 @@
 			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
 		</div>
 	</div>
-   	<center><h3>Evaluación de Nivel</h3></center>	
+   	<center><h3>Evaluación de Nivel 1</h3></center>	
    	</br>
     <p><h5>Instrucciones: <FONT color="red"> Lee cuidadosamente las preguntas y selecciona la respuesta correcta.</FONT></h5></p>           
     

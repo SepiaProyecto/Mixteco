@@ -26,8 +26,12 @@ public class UserController {
 	@Autowired
     private IuserRepository iuserRepository;
 	
-//	private final String host = "https://contenidostrapi.herokuapp.com";
-	private final String host="http://localhost:1337";
+
+	private final String host = "https://contenidostrapi.herokuapp.com";
+
+
+	//private final String host="http://localhost:1337";
+
 	
 	@GetMapping("/")
 		public String index(Model model) {
@@ -44,7 +48,7 @@ public class UserController {
     model.addAttribute("usuario",usuario);
     log.info("saliedo login");
 	
-    return "/index";
+    return "index";
 	}
 
 	
