@@ -27,7 +27,7 @@
     
   async  function validate(evaluation) {
   
-            let response = await fetch('https://contenidostrapi.herokuapp.com/examen3')
+            let response = await fetch('https://contenidostrapi.herokuapp.com/examen')
             var users = await response.json()
             console.log(users)
     const [id, nombre,tres,cuatro, cinco,seis, siete,ocho,nueve,diez] = users;
@@ -129,8 +129,10 @@
     
     			<form th:action="@{'/download-pdf'}"  th:object="${usuario}"  method="get">
     			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
-    				<input  	th:id="califica"  type="hidden" th:field="*{calificacion}" class="form-control" placeholder="Calificacion" />
-			<button > <img th:src="@{/img/pdf_icon.png}" height ="50" width="50" />Generar Reporte</button>
+    				<input  type="hidden"	th:id="califica"   th:field="*{calificacion}" class="form-control" placeholder="Calificacion" />
+			
+			
+			<button > <img th:src="@{/img/pdf_icon.png}"  th:id="pdfRepor"  height ="50" width="50" />Generar Reporte</button>
 			</br></br>
 		</form>
 		

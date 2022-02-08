@@ -22,17 +22,13 @@
 
 				<h5>Sistema web para el aprendizaje de la lengua mixteca en el
 					municipio de San Antonino MonteVerde</h5>
-				<center><h5>Reporte General</h5></center>
-				<img class="logo" src="images/examen.png"  height ="100" width="100"/>
-				
-				Nombre:
-				Apellidos:
-				Edad:
-				Calificación:
+				<center><h5>Reporte GeneralXD</h5></center>
+				<img class="logo" src="images/examen.png"  height ="100" width="100"/>	
+			
 				
 				
 				 <tbody>
-            <tr th:each="usuario : ${usuario}">
+            <tr th:each="usuario : ${students}">
                 ID<td th:text="${student?.id}"></td>
                 Nombre:<td th:text="'   '+${usuario?.nombre}"></td>
                  Apell:<td th:text="'   '+${usuario?.apellidopaterno}"></td>

@@ -45,6 +45,8 @@ public class StudentService {
 		userreport.setUsuario(response.getBody().get(0).getUsuario());
 		List<Usuario> employees  =new ArrayList<>();
 		employees.add(userreport);		
+		
+		log.info("usuario desde el backStrapi "+userreport);
 	
 		log.info("usuario recuperado desde el  front "+user1);
 
