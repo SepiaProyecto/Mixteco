@@ -1,3 +1,4 @@
+
 package mx.curso.mixteco.controller;
 
 import java.util.ArrayList;
@@ -25,7 +26,12 @@ import mx.curso.mixteco.model.VerbosPasadoUE;
 import mx.curso.mixteco.model.VerbosPresenteTYEN;
 import mx.curso.mixteco.model.VerbosPresenteUE;
 import mx.curso.mixteco.repository.IEvaluacionService;
-
+/**
+ * @author Ernesto
+ * @version 1.0.0
+ * @descripcion La arquitectura vista - controlador, la clase es la capa del controlador
+ * realiza la conexion del front - capa de servicio.
+ */
 @Controller
 @Slf4j
 public class Nivel2Controller {
@@ -511,7 +517,7 @@ public class Nivel2Controller {
 					RestTemplate restTemplate = new RestTemplate();
 
 					String fooResourceUrlcontador = host + "/crearpreguntas/count?nivel=nivel2";
-
+					log.info(fooResourceUrlcontador);
 					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
 
 				
@@ -526,6 +532,7 @@ public class Nivel2Controller {
 						
 
 						String fooResourceUrl = host + "/crearpreguntas/" + i;
+						log.info(fooResourceUrl);
 						ResponseEntity<CreandoPreguntas> response = restTemplate.getForEntity(fooResourceUrl + "", CreandoPreguntas.class);
 						numerores.setNombre(response.getBody().getNombre());
 						numerores.setValor1(response.getBody().getValor1());
@@ -545,7 +552,7 @@ public class Nivel2Controller {
 						numeros_list.add(numerores);
 
 					}
-
+					
 					model.addAttribute("creandopreguntas", numeros_list);
 
 					return "nivel2/creandopreguntas";
@@ -562,7 +569,7 @@ public class Nivel2Controller {
 
 					RestTemplate restTemplate = new RestTemplate();
 
-					String fooResourceUrlcontador = host + "/crearpreguntas/count?nivel=nivel2";
+					String fooResourceUrlcontador = host + "/respuestas-comunes/count?nivel=nivel2";
 
 					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
 
@@ -577,7 +584,7 @@ public class Nivel2Controller {
 						RespuestasComunes numerores = new RespuestasComunes();
 						
 
-						String fooResourceUrl = host + "/crearpreguntas/" + i;
+						String fooResourceUrl = host + "/respuestas-comunes/" + i;
 						ResponseEntity<RespuestasComunes> response = restTemplate.getForEntity(fooResourceUrl + "", RespuestasComunes.class);
 						numerores.setNombre(response.getBody().getNombre());
 						numerores.setValor1(response.getBody().getValor1());
