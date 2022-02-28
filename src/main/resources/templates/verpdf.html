@@ -27,29 +27,50 @@
 				<img class="logo" src="images/examen.png"  height ="100" width="100"/>	
 			
 			</div>
+			</div>
 			
 		
 			<table>
   <tbody>
   <tr th:each="usuario : ${students}">
+  
   <th>Nombre: </th>
   <td th:text="'   '+${usuario?.nombre}"></td>
-  <td></td>
-  <th></th>
-  <td></td>
-  <th>Apellidos: </th>
+  
+ 
+  
+    </tr>
+    
+    <tr th:each="usuario : ${students}">
+  <th>Ap. Paterno: </th>
   <td th:text="'   '+${usuario?.apellidopaterno}"></td>
+    </tr>
+    
+     <tr th:each="usuario : ${students}">
+  <th>Ap. Paterno: </th>
   <td th:text="'   '+${usuario?.apellidomaterno}"></td>
     </tr>
     
   <tr th:each="usuario : ${students}">
-  <th>Apellido: </th>
+  <th>Calificación: </th>
   <td th:text="'   '+${usuario?.calificacion}"></td>
     </tr>
-    
+<th></th>
+
   </tbody>
 </table >
-		</div>        
+
+ 
+ <div class="modal-dialog text-center">
+			<div class="col-sm-8 main-section">
+
+				<center><h4>¡FELICIDADES!</h4></center>
+				<center><h5>Nivel 1 Completado</h5></center>
+		
+				<img class="logo" src="images/jugar.png"  height ="100" width="100"/>	
+			
+			</div>
+			</div>    
    
      
 </body>
