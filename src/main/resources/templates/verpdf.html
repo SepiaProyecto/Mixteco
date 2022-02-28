@@ -30,7 +30,7 @@
 			</div>
 			
 		
-			<table>
+			<table >
   <tbody>
   <tr th:each="usuario : ${students}">
   
@@ -42,8 +42,8 @@
     </tr>
     
     <tr th:each="usuario : ${students}">
-  <th>Ap. Paterno: </th>
-  <td th:text="'   '+${usuario?.apellidopaterno}"></td>
+  <th>Ap. Paterno: </th >
+  <td   th:text="'   '+${usuario?.apellidopaterno}"></td>
     </tr>
     
      <tr th:each="usuario : ${students}">
@@ -58,7 +58,7 @@
 <th></th>
 
   </tbody>
-</table >
+</table  >
 
  
  <div class="modal-dialog text-center">
