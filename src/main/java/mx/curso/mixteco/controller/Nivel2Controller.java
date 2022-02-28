@@ -361,7 +361,7 @@ public class Nivel2Controller {
 
 					RestTemplate restTemplate = new RestTemplate();
 
-					String fooResourceUrlcontador = host + "/futurotyens/count?nivel=nivel1";
+					String fooResourceUrlcontador = host + "/futuroues/count?nivel=nivel2";
 
 					ResponseEntity<String> contador = restTemplate.getForEntity(fooResourceUrlcontador + "", String.class);
 
@@ -375,7 +375,7 @@ public class Nivel2Controller {
 					for (int i = 1; i <= numero; i++) {
 						VerbosFuturoUE numerores = new VerbosFuturoUE();
 
-						String fooResourceUrl = host + "/futurotyens/" + i;
+						String fooResourceUrl = host + "/futuroues/" + i;
 						ResponseEntity<VerbosFuturoUE> response = restTemplate.getForEntity(fooResourceUrl + "", VerbosFuturoUE.class);
 						numerores.setNombre(response.getBody().getNombre());
 						numerores.setValor1(response.getBody().getValor1());
