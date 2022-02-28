@@ -118,8 +118,7 @@
 <body>
 <br/>
 <br/>
-<br/>
-<br/>
+
 
     <div class="container">
     Bienvenido
@@ -131,7 +130,12 @@
 	</div>
    	<center><h3>Evaluación de Nivel</h3></center>	
    	</br>
-    <p><h5>Instrucciones: <FONT color="red"> Lee cuidadosamente las preguntas y selecciona la respuesta correcta.</FONT></h5></p>           
+    <FONT COLOR="black"> <h4><mark><strong>Nota:</strong>  <br><br><FONT color="blue">A).</FONT>
+               lee cuidadosamente y selecciona la respuesta correcta. <br><br><FONT color="blue">B). </FONT> Una vez finalice, debe dar clic sobre el
+               botón <FONT color="red"> (evaluar)</FONT> para guardar sus respuestas.  </br></br>
+               <FONT color="blue">C). </FONT> Finalmente debe dar clic sobre el botón <FONT color="red"> (Generar Reporte)</FONT> para visaulizar su calificación. 
+				 <br><br>
+				</mark></h4>        
     
         <table class="table table-striped">
         <thead>
@@ -170,7 +174,7 @@
     				<input  type="hidden"	th:id="califica"   th:field="*{calificacion}" class="form-control" placeholder="Calificacion" />
 			
 			
-			<button > <img th:src="@{/img/pdf_icon.png}"  th:id="pdfRepor"  height ="50" width="50" />Generar Reporte</button>
+			<button > <img th:src="@{/img/pdf_icon.png}"  th:id="pdfRepor"  height ="50" width="50" />Evaluar y Generar Reporte</button>
 			</br></br>
 		</form>
 		

@@ -564,7 +564,7 @@ public class Nivel2Controller {
 				public String respuestas(Model model) {
 					Usuario usuario = new Usuario();
 					model.addAttribute("usuario", usuario);
-					log.info("--------nivel2 plantea preguntas-------");
+					log.info("--------nivel2 plantea respuestas-------");
 					Usuario user = nn.nombreglobal();
 
 					RestTemplate restTemplate = new RestTemplate();
