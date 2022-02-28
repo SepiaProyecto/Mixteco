@@ -41,10 +41,10 @@
   console.log('XD1 BOB');
   document.getElementById(bobX+'1').innerText  = "Validar";
     alertify.success('Correcto!');
+    document.getElementById(bobX+'1').disabled=true;
+    document.getElementById(bobX+'1').innerText  = "Correcto";
    }else{
     alertify.error('Intenta de nuevo');
-   // document.getElementById(bobX+'1').disabled=true;
-    // document.getElementById(bobX+'1').innerText  = "Bloquado";
   }
    }
   </script> 

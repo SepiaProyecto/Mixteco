@@ -41,16 +41,18 @@
   console.log('XD1 BOB');
   document.getElementById(bobX+'1').innerText  = "Validar";
     alertify.success('Correcto!');
+  document.getElementById(bobX+'1').disabled=true;
+    document.getElementById(bobX+'1').innerText  = "Correcto";
    }else{
     alertify.error('Intenta de nuevo');
-   // document.getElementById(bobX+'1').disabled=true;
-    // document.getElementById(bobX+'1').innerText  = "Bloquado";
   }
    }
   </script> 
   
 <body>
 	<div class="container">
+<br/>
+<br/>
 
 
 		Bienvenido
@@ -59,11 +61,11 @@
 	</h3>
 		<div class="row">
 		<div class="col-sm">
-			<button class="btn btn-dark" onclick="history.back()">Regresar</button>
-		</div>
-	</div>
-		
-		
+			<button class="btn btn-primary" onclick="history.back()">Regresar</button>
+						<br>
+			<form th:action="@{'/nivel2'}"  th:object="${usuario}" method="post">
+  			<button class="btn btn-danger" type="submit">Salir</button>
+		</div>	
 		  <div class="container">
       
                <hr size=100 color="orange">
@@ -112,8 +114,9 @@
   <form th:action="@{'/creandoraciones'}"  th:object="${usuario}" method="post">
   <button class="btn btn-success" type="submit">Siguiente Módulo</button>
 </div>
+           <br/><br/>
             </div>
                 
-           <br/><br/>
+
 </body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mi primer Login</title>
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+   <link rel="stylesheet" type="text/css"
+					th:href="@{/css/indexniveles.css}">
+
+</head>
+
+<body>
+	<div class="container">
+
+		<br></br>
+		<br></br>
+		<center>
+			<h1>MENU PRINCIPAL</h1>
+			
+		
+		<h3>
+			<p th:text="'Bienvenido '+${usuario.usuario}" />
+		</p></center>
+		</h3>
+<div class="row">
+<div class="col-8">
+</div>
+
+
+
+   <div class="col-4">
+    <div>
+      
+<p align="right"><a type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" >
+ Ayuda
+</a> </p > </div>
+  
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="modal-title" id="exampleModalLabel">Mensaje</p>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>La importancia de hablar una lengua materna</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div> 
+		 
+		<br/>
+		<form th:action="@{'/salir'}" method="get">
+			<p align="right"><button class="btn btn-danger"><b>Cerrar Sesion</b></button></p >
+		</form>
+		
+</div>
+
+
+
+</div>
+		<br></br>
+		<br></br>
+		 <div class="row">
+		<div class="col-sm">
+		<form th:action="@{'/nivel1'}"  th:object="${usuario}" method="post">
+		<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
+			<button > <img th:src="@{/img/M2.png}" height ="200" width="200" />NIVEL 1</button>
+		</form>
+		</div>
+		<div class="col-sm">
+		<form th:action="@{'/nivel2'}" th:object="${usuario}" method="post">
+		<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
+			<button > <img th:src="@{/img/M1.png}" height ="200" width="200" />NIVEL 2</button>
+		</form>
+		</div>
+		<div class="col-sm">
+		<form th:action="@{'/nivel3'}"  th:object="${usuario}"  method="get">
+			<input type="hidden" class="form-control" th:field="*{usuario}" placeholder="Nombre de usuario"  name="username"/>
+			<button > <img th:src="@{/img/M3.png}" height ="200" width="200" />NIVEL 3</button>
+		</form>
+		</div>
+
+	
+	</div>
+	<br></br><br></br><br></br><br></br>
+	<center><FONT COLOR="white"><h1> <mark> Aprende MIXTECO de forma divertida!</mark></h1></center>
+       </div>
+</body>
+</html>
