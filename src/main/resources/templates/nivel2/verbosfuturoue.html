@@ -79,32 +79,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="verbosfuturo : ${verbosfuturo}">
-            <th scope="row" th:text="${verbosfuturo.nombre}">1</th>
+        <tr  th:each="verbosfuturoue : ${verbosfuturoue}">
+            <th scope="row" th:text="${verbosfuturoue.nombre}">1</th>
             
             <th scope="row">   <audio controls>
-		<source th:src="${verbosfuturo.audiocorto}" type="audio/mpeg">
+		<source th:src="${verbosfuturoue.audiocorto}" type="audio/mpeg">
 		 <th scope="row" >
 </audio></th>
-            <th scope="row"> <img th:src="${verbosfuturo.urlcorto}"/></th>
+            <th scope="row"> <img th:src="${verbosfuturoue.urlcorto}"/></th>
   
  <th scope="row" >
 	<form name="formulario" id="formulario">
 
 		<input type="radio" name="valores"
-			th:id="${verbosfuturo.nombre}+${verbosfuturo.valor1}"  th:text="${verbosfuturo.pregunta1}"/>
+			th:id="${verbosfuturoue.nombre}+${verbosfuturoue.valor1}"  th:text="${verbosfuturoue.pregunta1}"/>
 			<br/>
 			<input type="radio" name="valores"
-			th:id="${verbosfuturo.nombre}+${verbosfuturo.valor2}"   th:text="${verbosfuturo.pregunta2}" />
+			th:id="${verbosfuturoue.nombre}+${verbosfuturoue.valor2}"   th:text="${verbosfuturoue.pregunta2}" />
 			<br/>
 				<input type="radio" name="valores"
-			th:id="${verbosfuturo.nombre}+${verbosfuturo.valor3}"   th:text="${verbosfuturo.pregunta3} "/>
+			th:id="${verbosfuturoue.nombre}+${verbosfuturoue.valor3}"   th:text="${verbosfuturoue.pregunta3} "/>
 
 	</form>
 	  
 	  	</th>
-        <th scope="row" ><button class="btn btn-info"  th:id="${verbosfuturo.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
-        ('${verbosfuturo.nombre}'+'OK')|" th:text="${verbosfuturo.nombre} ? 'Validar' : 'bloqueado'"></button></th>
+        <th scope="row" ><button class="btn btn-info"  th:id="${verbosfuturoue.nombre}+'OK1' " type="button" th:attr="onclick=|habilitar
+        ('${verbosfuturoue.nombre}'+'OK')|" th:text="${verbosfuturoue.nombre} ? 'Validar' : 'bloqueado'"></button></th>
       
         </tr>
         </tbody>
