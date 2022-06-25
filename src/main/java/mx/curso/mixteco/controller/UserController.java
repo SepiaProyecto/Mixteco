@@ -2,12 +2,17 @@ package mx.curso.mixteco.controller;
 
 
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,17 +21,38 @@ import mx.curso.mixteco.entity.Usuario;
 import mx.curso.mixteco.repository.IEvaluacionService;
 import mx.curso.mixteco.repository.IuserRepository;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 
 
 @Controller
 @Slf4j
 public class UserController {
+	
+	@Autowired
+	private JdbcTemplate plantilla;
 	@Autowired
 	private IEvaluacionService iEvaluacionService;
 	@Autowired
     private IuserRepository iuserRepository;
 	
-
+	public String agregar = "INSERT INTO usuariosepias "+
+		"(id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario, contrasena "+
+				")"+
+		"VALUES((select max(id)+1 from usuariosepias), ?, ?, ?, ?, ?, ?, ?);";
+		
+	public String eliminar = "DELETE FROM usuariosepias " + "WHERE id=?;";
+	
+	
+	public String editar = "UPDATE FROM usuariosepias " + "SET nombre=?, apellidopaterno=?, apellidomaterno=?, "
+			+ "sexo=?, edad=?, usuario=?, contrasena=?, correo=? " + "WHERE id=?;";
+	
+	public String seleccionar = "SELECT id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario, contrasena "
+			+ " FROM usuariosepias " + "WHERE id=?;";
+	
+	
+	
 	private final String host = "https://contenidostrapi.herokuapp.com";
 
 
@@ -80,10 +106,19 @@ public class UserController {
 
      
 	 model. addAttribute("usuario", userglobal);
+	 
 
 	 if (userglobal.getUsuario().equals("admin")&& userglobal.getContrasena().equalsIgnoreCase("root")) {
-		 model. addAttribute("usuarios", iuserRepository.list_user());
-		 model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
+		 Usuario user =new Usuario();
+		 user.setApellidomaterno("DDD");
+		 user.setNombre("name");
+		 user.setCorreo("corre");
+		 user.setSexo("DS"); user.setId(5);
+		 List<Usuario> list_user=new ArrayList<>();
+		 list_user.add(user);
+		 model. addAttribute("usuarios", list_user);
+		 //model. addAttribute("usuarios", iuserRepository.list_user());
+		// model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
 		 return "admin/admin"; 
 	 }
 	 
@@ -103,6 +138,44 @@ public class UserController {
 	 }
 	
 	
+	}
+	
+	
+	@PostMapping("/agregarUsuario")
+	public String agregarU(@ModelAttribute Usuario userglobal, Model model) {
+		log.info("kjhkjhkj"+userglobal);
+		plantilla.update(agregar,userglobal.getNombre(),userglobal.getApellidopaterno(),userglobal.getApellidomaterno(),
+				userglobal.getSexo(),userglobal.getEdad(),userglobal.getUsuario(),userglobal.getContrasena());
+		return "admin/admin";
+	}
+	
+	@GetMapping("/editarUsuario/{id}")
+	public String editarU(@PathVariable(name="id") int id, @ModelAttribute Usuario userglobal, Model model) {
+		log.info("editado "+id);
+		Usuario usuario = 
+		(Usuario) plantilla.queryForObject(seleccionar, new Object [] {id}, new BeanPropertyRowMapper(Usuario.class));
+		userglobal.setNombre("Jose");
+		userglobal.setApellidopaterno("Perez");
+		userglobal.setApellidomaterno("Leon");
+		userglobal.setEdad("10");
+		userglobal.setSexo("M");
+		model. addAttribute("usuario", userglobal);
+		return "admin/editar";
+	}
+	
+	@GetMapping("/eliminarUsuario/{id}")
+	public String eliminarU(@PathVariable(name="id") int id, @ModelAttribute Usuario userglobal, Model model) {
+		log.info("eliminado alv"+id);
+		plantilla.update(eliminar,id);
+		return "admin/admin";
+	}
+	
+	@PostMapping("/actualizarUsuario")
+	public String actualizarU(@ModelAttribute Usuario userglobal, Model model) {
+		log.info("actualizado !"+userglobal);
+		plantilla.update(agregar,userglobal.getNombre(),userglobal.getApellidopaterno(),userglobal.getApellidomaterno(),
+				userglobal.getSexo(),userglobal.getUsuario(),userglobal.getContrasena(), userglobal.getId());
+		return "admin/admin";
 	}
 	
 	public Usuario nombreglobal( ) {

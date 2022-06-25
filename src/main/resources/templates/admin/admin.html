@@ -58,6 +58,8 @@
 <br/>
 <br/>
 
+		
+		
     <div class="container">
        
         <div class="table-responsive">
@@ -71,29 +73,28 @@
                     <th>Edad</th>
                     <th>Correo</th>
                      <th>User</th>
-                    <th>Password</th>
-                    <th>Eliminar</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="usuario: ${usuarios}">
                     <td th:text="${usuario.nombre}"></td>
-                    <td th:text="${usuario.apellidop}"></td>
-                    <td th:text="${usuario.apellidom}"></td>
+                    <td th:text="${usuario.apellidopaterno}"></td>
+                    <td th:text="${usuario.apellidomaterno}"></td>
                     <td th:text="${usuario.sexo}"></td>
                     <td th:text="${usuario.edad}"></td>
-                    <td th:text="${usuario.email}"></td>
-                 <td th:text="${usuario.user}"></td>
-                     <td th:text="${usuario.pass}"></td>
+                    <td th:text="${usuario.correo}"></td>
+                 <td th:text="${usuario.usuario}"></td>
                     
                    
                     <td>
-                        <form th:action="@{/usuarios/eliminar}" method="post">
-                            <input type="hidden" name="id"   th:value="${usuario.id}"/>
-                            <button type="submit" class="btn btn-danger"  onclick="return confirmarEliminar('¿Está seguro que desea eliminar el registro?')" >Eliminar <i class="fa fa-trash"></i> </button>
-                            
+                        <a th:href="@{/eliminarUsuario/{id}(id=${usuario.id})}" >Eliminar</a>
                         
- 						</form>
+                    </td>
+                    
+                    <td>
+                        <a th:href="@{/editarUsuario/{id}(id=${usuario.id})}" >Editar</a>
+                        
                     </td>
                 </tr>
                 </tbody>
@@ -101,10 +102,63 @@
        
     </div>
  
-               
-    
-     <button type="submit" class="btn btn-primary"  th:attr="onclick=|validate('${evaluacions}')|"  ></i>Reporte </button>
-    
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+<form th:action="@{'/agregarUsuario'}"  th:object="${usuario}" method="post">
+	<div class="form-group">
+    <label for="exampleInputEmail1">Nombre</label>
+    <input type="text" th:field="*{nombre}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Apellido paterno</label>
+    <input type="text" th:field="*{apellidopaterno}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Apellido">
+  </div>	
+  <div class="form-group">
+    <label for="exampleInputEmail1">Apellido materno</label>
+    <input type="text" th:field="*{apellidomaterno}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Apellido">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Sexo</label>
+    <input type="text" th:field="*{sexo}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese sexo">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Edad</label>
+    <input type="text" th:field="*{edad}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Edad">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Usuario</label>
+    <input type="text" th:field="*{usuario}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Usuario">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" th:field="*{contrasena}" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contraseña">
+  </div>
+  
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+ </form>
+    </div>
+  </div>
+</div>
              
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="jquery/jquery-3.3.1.min.js"></script>
