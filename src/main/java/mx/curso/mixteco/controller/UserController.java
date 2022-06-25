@@ -23,6 +23,7 @@ import mx.curso.mixteco.repository.IuserRepository;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 
 
 
@@ -38,15 +39,14 @@ public class UserController {
     private IuserRepository iuserRepository;
 	
 	public String agregar = "INSERT INTO usuariosepias "+
-		"(id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario, contrasena "+
+		"(id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario, contrasena,published_at "+
 				")"+
-		"VALUES((select max(id)+1 from usuariosepias), ?, ?, ?, ?, ?, ?, ?);";
+		"VALUES((select max(id)+1 from usuariosepias), ?, ?, ?, ?, ?, ?, ?,'2022-01-31 11:52:51.9');";
 		
 	public String eliminar = "DELETE FROM usuariosepias " + "WHERE id=?;";
 	
-	
-	public String editar = "UPDATE FROM usuariosepias " + "SET nombre=?, apellidopaterno=?, apellidomaterno=?, "
-			+ "sexo=?, edad=?, usuario=?, contrasena=?, correo=? " + "WHERE id=?;";
+	public String SELECT_ALL = "select id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario FROM usuariosepias";
+	public String editar = " UPDATE  usuariosepias  SET nombre=?, apellidopaterno=?, apellidomaterno=?, sexo=?, edad=?, usuario=?, contrasena=?  WHERE id= ? ";
 	
 	public String seleccionar = "SELECT id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario, contrasena "
 			+ " FROM usuariosepias " + "WHERE id=?;";
@@ -116,8 +116,16 @@ public class UserController {
 		 user.setSexo("DS"); user.setId(5);
 		 List<Usuario> list_user=new ArrayList<>();
 		 list_user.add(user);
-		 model. addAttribute("usuarios", list_user);
-		 //model. addAttribute("usuarios", iuserRepository.list_user());
+		 
+		 
+		 List<Usuario> employees = plantilla.query(
+			  SELECT_ALL,
+			   new BeanPropertyRowMapper(Usuario.class));
+			     
+
+	
+		 model. addAttribute("usuarios", employees);
+		// model. addAttribute("usuarios", iuserRepository.list_user());
 		// model. addAttribute("evaluacions", iEvaluacionService.listEvaluacion());
 		 return "admin/admin"; 
 	 }
@@ -143,9 +151,16 @@ public class UserController {
 	
 	@PostMapping("/agregarUsuario")
 	public String agregarU(@ModelAttribute Usuario userglobal, Model model) {
+	
 		log.info("kjhkjhkj"+userglobal);
 		plantilla.update(agregar,userglobal.getNombre(),userglobal.getApellidopaterno(),userglobal.getApellidomaterno(),
 				userglobal.getSexo(),userglobal.getEdad(),userglobal.getUsuario(),userglobal.getContrasena());
+		 List<Usuario> employees = plantilla.query(
+				  SELECT_ALL,
+				   new BeanPropertyRowMapper(Usuario.class));
+		 model. addAttribute("usuarios", employees);
+		 Usuario uservacio=new Usuario();
+		 model. addAttribute("usuario", uservacio);
 		return "admin/admin";
 	}
 	
@@ -159,7 +174,7 @@ public class UserController {
 		userglobal.setApellidomaterno("Leon");
 		userglobal.setEdad("10");
 		userglobal.setSexo("M");
-		model. addAttribute("usuario", userglobal);
+		model. addAttribute("usuario", usuario);
 		return "admin/editar";
 	}
 	
@@ -167,14 +182,36 @@ public class UserController {
 	public String eliminarU(@PathVariable(name="id") int id, @ModelAttribute Usuario userglobal, Model model) {
 		log.info("eliminado alv"+id);
 		plantilla.update(eliminar,id);
+		 List<Usuario> employees = plantilla.query(
+				  SELECT_ALL,
+				   new BeanPropertyRowMapper(Usuario.class));
+		 model. addAttribute("usuarios", employees);
+
 		return "admin/admin";
 	}
 	
 	@PostMapping("/actualizarUsuario")
 	public String actualizarU(@ModelAttribute Usuario userglobal, Model model) {
 		log.info("actualizado !"+userglobal);
-		plantilla.update(agregar,userglobal.getNombre(),userglobal.getApellidopaterno(),userglobal.getApellidomaterno(),
-				userglobal.getSexo(),userglobal.getUsuario(),userglobal.getContrasena(), userglobal.getId());
+		plantilla.update(editar,
+				userglobal.getNombre(),
+				userglobal.getApellidopaterno(),
+				userglobal.getApellidomaterno(),
+				userglobal.getSexo(),
+				userglobal.getEdad(),
+				userglobal.getUsuario(),
+				userglobal.getContrasena(),
+				userglobal.getId());
+		
+		 List<Usuario> employees = plantilla.query(
+				  SELECT_ALL,
+				   new BeanPropertyRowMapper(Usuario.class));
+				     
+
+		
+			 model. addAttribute("usuarios", employees);
+			 Usuario uservacio=new Usuario();
+			 model. addAttribute("usuario", uservacio);
 		return "admin/admin";
 	}
 	
