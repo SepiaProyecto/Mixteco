@@ -46,7 +46,7 @@ public class UserController {
 	public String eliminar = "DELETE FROM usuariosepias " + "WHERE id=?;";
 	
 	public String SELECT_ALL = "select id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario, contrasena FROM usuariosepias ";
-	public String editar = " UPDATE  usuariosepias  SET nombre=?, apellidopaterno=?, apellidomaterno=?, sexo=?, edad=?, usuario=?, contrasena=?  "
+	public String editar = " UPDATE  usuariosepias  SET nombre=?, apellidopaterno=?, apellidomaterno=?, sexo=?, edad=?, usuario=? "
 			+ " WHERE id= ? ";
 	
 	public String seleccionar = "SELECT id, nombre, apellidopaterno, apellidomaterno, sexo, edad, usuario, contrasena "
